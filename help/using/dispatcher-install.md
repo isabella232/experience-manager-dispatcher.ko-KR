@@ -10,7 +10,7 @@ topic-tags: Dispatcher
 content-type: 참조
 discoiquuid: F 00 AD 751-6 B 95-4365-8500-E 1 E 0108 D 9536
 translation-type: tm+mt
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+source-git-commit: ec5342f5737f54937493edb0384cdc1d91b13d7c
 
 ---
 
