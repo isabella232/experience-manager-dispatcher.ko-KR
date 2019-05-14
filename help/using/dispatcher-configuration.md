@@ -10,7 +10,7 @@ topic-tags: Dispatcher
 content-type: 참조
 discoiquuid: aeffee 8 e-bb 34-42 a 7-9 a 5 e-b 7 d 0 e 848391 a
 translation-type: tm+mt
-source-git-commit: bd8fff69a9c8a32eade60c68fc75c3aa411582af
+source-git-commit: 2f0ca874c23cb7aecbcedc22802c46a295bb4d75
 
 ---
 
@@ -567,20 +567,23 @@ Dispatcher 버전 **4.1.6**를 사용하면 다음과 같이 `/always-resolve` �
 
 * **element of the request line:** HTTP `/method``/url`요청의 `/query``/protocol` 요청선 부분에 있는 이러한 특정 부분에 따른 요청을 필터링하는 패턴을 포함합니다. 전체 요청 라인이 아닌 요청 라인의 요소에 대한 필터링은 기본 필터 방법입니다.
 
-* **GLOB 속성**: 속성은 `/glob` HTTP 요청의 전체 요청 라인과 일치하기 위해 사용됩니다.
-
-/glob 속성에 대한 자세한 내용은 GLOB 속성의 패턴 [디자인을 참조하십시오](#designing-patterns-for-glob-properties). /glob 속성에서 와일드카드 문자를 사용하기 위한 규칙은 요청 라인 요소를 일치시키는 패턴에도 적용됩니다.
+* **요청 라인의 고급 요소:** Dispatcher 4.2.0 부터는 4 개의 새로운 필터 요소를 사용할 수 있습니다. 이러한 새 요소는 `/path``/selectors`각각 `/extension` 및 `/suffix` 입니다. 하나 이상의 항목을 포함하여 URL 패턴을 추가로 제어할 수 있습니다.
 
 >[!NOTE]
 >
->Dispatcher 버전 4.2.0 부터는 필터 구성 및 로깅 기능에 대한 몇 가지 개선 사항이 추가되었습니다.
->
->* [POSIX 정규 표현식 지원](dispatcher-configuration.md#main-pars-title-1996763852)
->* [요청 URL의 추가 요소 필터링 지원](dispatcher-configuration.md#main-pars-title-694578373)
->* [추적 로깅](dispatcher-configuration.md#main-pars-title-1950006642)
->
+>이러한 각 요소 참조 라인의 요청 라인에 대한 자세한 내용은 [Sling URL 분해](https://sling.apache.org/documentation/the-sling-engine/url-decomposition.html) Wiki 페이지를 참조하십시오.
 
+* **GLOB 속성**: 속성은 `/glob` HTTP 요청의 전체 요청 라인과 일치하기 위해 사용됩니다.
 
+>[!CAUTION]
+>
+>Globs로 필터링은 Dispatcher에서 더 이상 사용되지 않습니다. 따라서 `/filter` 섹션에서 globs를 사용하지 마십시오. 이로 인해 보안 문제가 발생할 수 있습니다. 따라서,
+
+`/glob "* *.css *"`
+
+You should use
+
+`/url "*.css"`
 
 #### HTTP 요청의 요청선 부분 {#the-request-line-part-of-http-requests}
 
@@ -593,6 +596,18 @@ HTTP/1.1는 [요청 라인을](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5
 GET /content/geometrixx-outdoors/en.html http .1 .1 &lt; CRLF &gt;
 
 패턴은 요청 라인과 &lt; CRLF &gt; 문자의 공백 문자를 고려해야 합니다.
+
+#### 작은 따옴표 vs 단일 따옴표 {#double-quotes-vs-single-quotes}
+
+필터 규칙을 만들 때 단순 패턴에 큰 따옴표를 `"pattern"` 사용합니다. Dispatcher 4.2.0 이상을 사용하고 패턴에 정규 표현식이 포함된 경우 regex 패턴을 작은따옴표 `'(pattern1|pattern2)'` 안에 포함해야 합니다.
+
+#### 정규 표현식 {#regular-expressions}
+
+Dispatcher 4.2.0 부터는 필터 패턴에서 POSIX Extended 정규 표현식을 포함할 수 있습니다.
+
+#### 문제 해결 필터 {#troubleshooting-filters}
+
+필터가 예상대로 트리거되지 않는 경우, 요청을 가로채서 어느 필터가 요청을 가로채는지 확인할 수 있도록 Dispatcher의 [추적 로깅을](#trace-logging) 활성화합니다.
 
 #### 예제 필터: 모두 거부 {#example-filter-deny-all}
 
@@ -659,15 +674,6 @@ GET /content/geometrixx-outdoors/en.html http .1 .1 &lt; CRLF &gt;
 ```
 
 #### 예제 필터: 요청 URL의 추가 요소 필터링 {#example-filter-filter-additional-elements-of-a-request-url}
-
-Dispatcher 4.2.0에 도입된 향상된 기능 중 하나는 요청 URL의 추가 요소를 필터링하는 기능입니다. 도입된 새로운 요소는 다음과 같습니다.
-
-* 경로
-* 선택기
-* 익스텐션
-* 접미어
-
-필터링 규칙에 동일한 이름의 속성을 추가하여 구성할 수 있습니다. `/path``/selectors``/extension``/suffix` , 및 each.
 
 다음은 경로, 선택기 및 확장명에 대한 필터를 사용하여 `/content` 경로 및 하위 트리에서 컨텐츠를 차단하는 규칙 예입니다.
 
