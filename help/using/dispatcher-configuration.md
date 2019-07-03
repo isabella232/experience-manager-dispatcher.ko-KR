@@ -10,7 +10,7 @@ topic-tags: Dispatcher
 content-type: 참조
 discoiquuid: aeffee 8 e-bb 34-42 a 7-9 a 5 e-b 7 d 0 e 848391 a
 translation-type: tm+mt
-source-git-commit: 4f1e3740c7eb91023b819ffed0bb5d0b432002be
+source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
 
 ---
 
@@ -413,7 +413,7 @@ The following example represents a snippet from a dispatcher.any file that defin
 >
 >`/allowAuthorized`**이** 기능을 `"0"` 활성화하려면 `/cache` 섹션에서 설정되어야 합니다.
 
-사용자가 팜의 모든 페이지에 액세스하려면 로그인 팜에 액세스할 수 있도록 보안 세션을 만듭니다. 로그인하면 사용자는 팜의 모든 페이지에 액세스할 수 있습니다. See [Creating a Closed User Group](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) for information about using this feature with CUGs.
+사용자가 팜의 모든 페이지에 액세스하려면 로그인 팜에 액세스할 수 있도록 보안 세션을 만듭니다. 로그인하면 사용자는 팜의 페이지에 액세스할 수 있습니다. See [Creating a Closed User Group](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) for information about using this feature with CUGs. Also, see the Dispatcher [Security Checklist](/help/using/security-checklist.md) before going live.
 
 `/sessionmanagement` 속성은의 하위 속성입니다 `/farms`.
 
@@ -426,6 +426,17 @@ The following example represents a snippet from a dispatcher.any file that defin
 **/directory** (필수)
 
 세션 정보를 저장하는 디렉토리입니다. 디렉토리가 없으면 해당 디렉토리가 생성됩니다.
+
+>[!CAUTION]
+>
+> When configuring the directory sub-parameter **do not** point to the root folder (`/directory "/"`) as it can cause serious problems. 세션 정보를 저장하는 폴더 경로를 항상 지정해야 합니다. 예:
+
+```xml
+/sessionmanagement 
+  { 
+  /directory "/usr/local/apache/.sessions"
+  }
+```
 
 **/encode** (선택 사항)
 
