@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: 참조
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
+source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
 
 ---
 
@@ -163,7 +163,7 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 
 이 `/farms` 속성은 구성 구조의 최상위 속성입니다. 팜을 정의하려면 속성에 자식 속성을 추가합니다. `/farms` Dispatcher 인스턴스 내에서 팜을 고유하게 식별하는 속성 이름을 사용합니다.
 
-이 `/*farmname*` 속성은 다중 값이며 발송자 동작을 정의하는 다른 속성이 포함되어 있습니다.
+이 `/farmname` 속성은 다중 값이며 발송자 동작을 정의하는 다른 속성이 포함되어 있습니다.
 
 * 팜이 적용되는 페이지의 URL입니다.
 * 문서 렌더링에 사용할 하나 이상의 서비스 URL(일반적으로 AEM 게시 인스턴스)입니다.
@@ -213,6 +213,7 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 | [/retryDelay](#specifying-the-page-retry-delay) | 실패한 연결을 다시 시도하기 전의 지연. |
 | [/unavailableCountability](#reflecting-server-unavailability-in-dispatcher-statistics) | 로드 밸런싱 계산에 대한 통계에 영향을 주는 벌칙입니다. |
 | [/failover](#using-the-fail-over-mechanism) | 원래 요청이 실패하면 요청을 다른 렌더링으로 다시 보냅니다. |
+| [/auth_checker](permissions-cache.md) | 권한 구분 캐싱의 경우 보안 컨텐츠 [캐싱을 참조하십시오](permissions-cache.md). |
 
 ## 기본 페이지 지정(IIS만 해당) - /homepage {#specify-a-default-page-iis-only-homepage}
 
@@ -545,7 +546,7 @@ Dispatcher 버전 **4.1.6에서는**&#x200B;다음과 같이 `/always-resolve` �
 또한 다음 샘플에서와 같이 동적 IP 해상도 문제가 발생하는 경우에도 이 속성을 사용할 수 있습니다.
 
 ```xml
-/rend {
+/renders {
   /0001 {
      /hostname "host-name-here"
      /port "4502"
@@ -974,6 +975,7 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 * /headers
 * /mode
 * /gracePeriod
+* /enableTTL
 
 
 예제 캐시 섹션은 다음과 같습니다.
@@ -1099,7 +1101,7 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 **압축**
 
-Apache 웹 서버에서는 캐시된 문서를 압축할 수 있습니다. 압축으로 인해 Apache는 클라이언트가 요청한 경우 문서를 압축된 형식으로 반환할 수 있습니다. 압축은 Apache 모듈을 활성화하여 자동으로 수행됩니다. `mod_deflate`예:
+Apache 웹 서버에서는 캐시된 문서를 압축할 수 있습니다. 압축으로 인해 Apache는 클라이언트에서 요청한 경우 문서를 압축된 형식으로 반환할 수 있습니다. 압축은 Apache 모듈을 활성화하여 자동으로 수행됩니다. `mod_deflate`예:
 
 ```xml
 AddOutputFilterByType DEFLATE text/plain
@@ -1505,7 +1507,7 @@ URI의 카테고리를 결정하기 위해 Dispatcher는 일치 항목을 찾을
 
 ### secure {#secure}
 
-고정 연결이 활성화되면 디스패처 모듈은 `renderid` 쿠키를 설정합니다. 이 쿠키에는 보안을 강화하기 위해 추가해야 하는 **보안** 플래그가 없습니다. 이렇게 하려면 `secure` 구성 파일의 `/stickyConnections` 노드에서 `dispatcher.any` 속성을 설정합니다. 속성 값(0 또는 1)은 `renderid` 쿠키에 `secure` 속성이 추가되었는지 여부를 정의합니다. 기본값은 0입니다. 즉,* *들어오는 요청이 안전하면 속성이 추가됩니다. 값이 1로 설정된 경우 들어오는 요청이 안전한지 여부에 관계없이 보안 플래그가 추가됩니다.
+고정 연결이 활성화되면 디스패처 모듈은 `renderid` 쿠키를 설정합니다. 이 쿠키에는 보안을 강화하기 위해 추가해야 하는 **보안** 플래그가 없습니다. 이렇게 하려면 `secure` 구성 파일의 `/stickyConnections` 노드에서 `dispatcher.any` 속성을 설정합니다. 속성 값(0 또는 1)은 `renderid` 쿠키에 `secure` 속성이 추가되었는지 여부를 정의합니다. 기본값은 0입니다. 즉, 들어오는 요청이 안전할 **경우** 속성이 추가됩니다. 값이 1로 설정된 경우 들어오는 요청이 안전한지 여부에 관계없이 보안 플래그가 추가됩니다.
 
 ## 렌더링 연결 오류 처리 {#handling-render-connection-errors}
 
