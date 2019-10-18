@@ -9,7 +9,7 @@ content-type: 참조
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 translation-type: tm+mt
-source-git-commit: 2d72839d459973cba40f6a938ee157198c7cf50a
+source-git-commit: cc838c5df8c0b65c86f21f45f1ca73cf14c0d545
 
 ---
 
@@ -21,9 +21,9 @@ source-git-commit: 2d72839d459973cba40f6a938ee157198c7cf50a
 |  |  |
 |--- |--- |
 | 제품 | AEM(Adobe Experience Manager) 디스패처 |
-| 버전 | 4.3.2 |
+| 버전 | 4.3.3 |
 | 유형 | 마이너 릴리스 |
-| 날짜 | 2019년 1월 31일 |
+| 날짜 | 2019년 10월 18일 |
 | URL 다운로드 | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft IIS(인터넷 정보 서비스)](release-notes.md#iis)</li></ul> |
 | 호환성 | AEM 6.1 이상 |
 
@@ -38,6 +38,30 @@ source-git-commit: 2d72839d459973cba40f6a938ee157198c7cf50a
 자세한 지침은 Dispatcher [설치를 참조하십시오](dispatcher-install.md).
 
 ## 릴리스 내역 {#release-history}
+
+### 릴리스 4.3.3(2019-10월-18) {#october}
+
+**버그 수정**:
+
+* DISP-739 - LogLevel dispatcher:수준이 **** 작동하지 않음
+* DISP-749 - Alpine Linux 디스패처 충돌(추적 로그 수준)
+
+**향상된 기능**:
+
+* DISP 파섹 - DisPATCHER에서 Open 1.1.X 지원
+* DISP 파섹-814 - 캐시 플러시 중 Apache 40X 오류
+* DISP-818 - mod_expires는 실행 불가능한 컨텐츠에 대한 캐시 제어 헤더를 추가합니다.
+* DISP 파섹-821 - 소켓에 로그 컨텍스트를 저장하지 않음
+* DISP-822 - 디스패처는 pselect 대신 ppoll을 사용해야 합니다.
+* DISP-824 - 보안 DispatcherUseForwardedHost
+* DISP 파섹-825 - 디스크에 더 이상 공간이 없으면 특수 메시지를 기록합니다.
+* DISP 파섹-826 - 쿼리 문자열이 있는 참조 URI 지원
+
+**새로운 기능**:
+
+* DISP 파섹 - 팜별 캐시 히트 비율
+* DISP 파섹 - 테스트를 위한 로컬 서버
+* DISP 파섹-828 - 디스패처용 테스트 도커 이미지 만들기
 
 ### 릴리스 4.3.2(2019-1월 31일) {#jan}
 
@@ -115,31 +139,23 @@ source-git-commit: 2d72839d459973cba40f6a938ee157198c7cf50a
 
 ### Apache 2.4 {#apache}
 
-| 플랫폼 | 아키텍처 | SSL 지원 | 다운로드 |
+| 플랫폼 | 아키텍처 | OpenSSL 지원 | 다운로드 |
 |---|---|---|---|
-| AIX | PowerPC(32비트) | 아니오 | [dispatch-apache2.4-aix-powerpc-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc-4.3.2.tar.gz) |
-| AIX | PowerPC(32비트) | 예 | [dispatch-apache2.4-aix-powerpc-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc-ssl-4.3.2.tar.gz) |
-| AIX | PowerPC(64비트) | 아니오 | [dispatcher-apache2.4-aix-powerpc64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc64-4.3.2.tar.gz) |
-| AIX | PowerPC(64비트) | 예 | [dispatcher-apache2.4-aix-powerpc64-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc64-ssl-4.3.2.tar.gz) |
-| Linux | i686(32비트) | 아니오 | [dispatcher-apache2.4-linux-i686-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.2.tar.gz) |
-| Linux | i686(32비트) | 예 | [dispatcher-apache2.4-linux-i686-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl-4.3.2.tar.gz) |
-| Linux | x86_64(64비트) | 아니오 | [dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz) |
-| Linux | x86_64(64비트) | 예 | [dispatcher-apache2.4-linux-x86_64-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl-4.3.2.tar.gz) |
-| macOS | x86_64(64비트) | 아니오 | [dispatcher-apache2.4-darwin-x86_64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.2.tar.gz) |
-| Solaris | AMD(32비트) | 아니오 | [dispatcher-apache2.4-solaris-i386-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-i386-4.3.2.tar.gz) |
-| Solaris | AMD(32비트) | 예 | [dispatcher-apache2.4-solaris-i386-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-i386-ssl-4.3.2.tar.gz) |
-| Solaris | AMD(64비트) | 아니오 | [dispatcher-apache2.4-solaris-amd64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-amd64-4.3.2.tar.gz) |
-| Solaris | AMD(64비트) | 예 | [dispatcher-apache2.4-solaris-amd64-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-amd64-ssl-4.3.2.tar.gz) |
-| Solaris | SPARC(32비트) | 아니오 | [dispatch-apache2.4-solaris-sparc-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparc-4.3.2.tar.gz) |
-| Solaris | SPARC(32비트) | 예 | [dispatch-apache2.4-solaris-sparc-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparc-ssl-4.3.2.tar.gz) |
-| Solaris | SPARC(64비트) | 아니오 | [dispatch-apache2.4-solaris-sparcv9-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparcv9-4.3.2.tar.gz) |
-| Solaris | SPARC(64비트) | 예 | [dispatch-apache2.4-solaris-sparcv9-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparcv9-ssl-4.3.2.tar.gz) |
+| Linux | i686(32비트) | 없음 | [dispatcher-apache2.4-linux-i686-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.3.tar.gz) |
+| Linux | i686(32비트) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz) |
+| Linux | i686(32비트) | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.3.tar.gz) |
+| Linux | x86_64(64비트) | 없음 | [dispatcher-apache2.4-linux-x86_64-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.3.tar.gz) |
+| Linux | x86_64(64비트) | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.3.tar.gz) |
+| Linux | x86_64(64비트) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.3.tar.gz) |
+| macOS | x86_64(64비트) | 없음 | [dispatcher-apache2.4-darwin-x86_64-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.3.tar.gz) |
 
 ### IIS {#iis}
 
-| 플랫폼 | 아키텍처 | SSL 지원 | 다운로드 |
+| 플랫폼 | 아키텍처 | OpenSSL 지원 | 다운로드 |
 |---|---|---|---|
-| Windows | x86(32비트) | 아니오 | [dispatcher-iis-windows-x86-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.2.zip) |
-| Windows | x86(32비트) | 예 | [dispatcher-iis-windows-x86-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl-4.3.2.zip) |
-| Windows | x64(64비트) | 아니오 | [dispatcher-iis-windows-x64-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.2.zip) |
-| Windows | x64(64비트) | 예 | [dispatcher-iis-windows-x64-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl-4.3.2.zip) |
+| Windows | x86(32비트) | 없음 | [dispatcher-iis-windows-x86-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.3.zip) |
+| Windows | x86(32비트) | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip) |
+| Windows | x86(32비트) | 1.1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.3.zip) |
+| Windows | x64(64비트) | 없음 | [dispatcher-iis-windows-x64-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.3.zip) |
+| Windows | x64(64비트) | 1.0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.3.zip) |
+| Windows | x64(64비트) | 1.1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.3.zip) |
