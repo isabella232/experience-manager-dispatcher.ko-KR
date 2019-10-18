@@ -9,7 +9,7 @@ content-type: 참조
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 translation-type: tm+mt
-source-git-commit: 3cef8724f499f3eba19b920d3832b9feacc5c155
+source-git-commit: 72e3fb193f018e747f82bf9f8d646a04c69056f6
 
 ---
 
@@ -139,7 +139,7 @@ source-git-commit: 3cef8724f499f3eba19b920d3832b9feacc5c155
 
 ### Apache 2.4 {#apache}
 
-| 플랫폼 | 아키텍처 | SSL 지원 | 다운로드 |
+| 플랫폼 | 아키텍처 | OpenSSL | 다운로드 |
 |---|---|---|---|
 | Linux | i686(32비트) | 없음 | [dispatcher-apache2.4-linux-i686-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.3.tar.gz) |
 | Linux | i686(32비트) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz) |
@@ -151,7 +151,7 @@ source-git-commit: 3cef8724f499f3eba19b920d3832b9feacc5c155
 
 ### IIS {#iis}
 
-| 플랫폼 | 아키텍처 | SSL 지원 | 다운로드 |
+| 플랫폼 | 아키텍처 | OpenSSL | 다운로드 |
 |---|---|---|---|
 | Windows | x86(32비트) | 없음 | [dispatcher-iis-windows-x86-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.3.zip) |
 | Windows | x86(32비트) | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip) |
