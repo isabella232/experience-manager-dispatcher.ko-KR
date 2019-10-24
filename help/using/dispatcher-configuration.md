@@ -1,25 +1,25 @@
 ---
-title: 디스패처 구성
-seo-title: 디스패처 구성
+title: Dispatcher 구성
+seo-title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법을 알아봅니다.
 seo-description: Dispatcher를 구성하는 방법을 알아봅니다.
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheidmoz]
 pageversionid: '1193211344162'
-topic-tags: dispatcher
+topic-tags: Dispatcher
 content-type: 참조
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
 
-# 디스패처 구성{#configuring-dispatcher}
+# Dispatcher 구성{#configuring-dispatcher}
 
 >[!NOTE]
 >
->발송자 버전은 AEM과 독립적입니다. 이전 버전의 AEM에 대한 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
+>Dispatcher 버전은 AEM과 독립적입니다. 이전 버전의 AEM에 대한 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
 
 다음 섹션에서는 Dispatcher의 다양한 측면을 구성하는 방법에 대해 설명합니다.
 
@@ -221,7 +221,7 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 >
 >매개 `/homepage`변수(IIS만 해당)가 더 이상 작동하지 않습니다. 대신 IIS URL 다시 [작성 모듈을 사용해야 합니다](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Apache를 사용하는 경우 `mod_rewrite` 모듈을 사용해야 합니다. 자세한 내용은 Apache 웹 사이트 설명서를 `mod_rewrite` 참조하십시오(예: [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). 사용 `mod_rewrite`시 플래그 ***'passthrough|PT'(다음 처리기로 통과) [**를 사용하여 다시 작성 엔진을 사용하여 내부](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)구조의 `uri` 필드를 `request_rec` `filename` 필드 값으로 설정하는 것이 좋습니다.
+>Apache를 사용하는 경우 `mod_rewrite` 모듈을 사용해야 합니다. 자세한 내용은 Apache 웹 사이트 설명서를 `mod_rewrite` 참조하십시오(예: [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). 사용 `mod_rewrite`시, **['passthrough|PT'(다음 처리기로 통과)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** 플래그를 사용하여 다시 작성 엔진을 강제 사용하여 내부 `uri` 구조의 `request_rec` 필드를 `filename` 필드 값으로 설정하는 것이 좋습니다.
 
 <!-- 
 
@@ -1055,8 +1055,8 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 * 요청 URI에 물음표("?")가 포함된 경우.\
    일반적으로 이것은 캐시할 필요가 없는 검색 결과와 같은 동적 페이지를 나타냅니다.
-* 파일 확장자가 없습니다.\
-   웹 서버에는 문서 유형(MIME 유형)을 결정하기 위한 확장이 필요합니다.
+* 파일 확장명이 없습니다.\
+   웹 서버에는 문서 유형(MIME 유형)을 결정하기 위한 확장명이 필요합니다.
 * 인증 헤더가 설정됨(구성할 수 있음)
 * AEM 인스턴스가 다음 헤더로 응답하는 경우:
 
@@ -1066,7 +1066,7 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 >[!NOTE]
 >
->GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 액세스할 수 있습니다. 응답 헤더 캐싱에 대한 자세한 내용은 HTTP 응답 [헤더 캐싱 섹션을 참조하십시오](dispatcher-configuration.md#caching-http-response-headers) .
+>GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 자세한 내용은 HTTP 응답 [헤더 캐싱 섹션을 참조하십시오](dispatcher-configuration.md#caching-http-response-headers) .
 
 /rules 속성의 각 항목에는 [글로벌](#designing-patterns-for-glob-properties) 패턴과 유형이 포함되어 있습니다.
 
@@ -1163,7 +1163,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
    * 예:속성을 6으로 `statfileslevel` 설정하면 파일이 레벨 5에서 무효화되면 docroot에서 5로 모든 `.stat` 파일이 수정됩니다. 이 예제를 계속 진행하면 파일이 레벨 7에서 무효화되는 경우 에 해당합니다. `stat` docroot에서 6까지 파일이 수정됩니다( `/statfileslevel = "6"`).
 
-유효하지 않은 파일에 대한 경로**에 있는 리소스**만 영향을 받습니다. 다음 예를 고려하십시오.웹 사이트에서는 구조를 사용합니다. `/content/myWebsite/xx/.` 3으로 설정하면 `statfileslevel` `.stat`파일이 다음과 같이 생성됩니다.
+무효화된 파일에 **대한 경로를** 따른 리소스만 영향을 받습니다. 다음 예를 고려하십시오.웹 사이트에서는 구조를 사용합니다. `/content/myWebsite/xx/.` 3으로 설정하면 `statfileslevel` `.stat`파일이 다음과 같이 생성됩니다.
 
 * `docroot`
 * `/content`
@@ -1788,14 +1788,14 @@ https://localhost:80/libs/wcm/core/content/siteadmin.html
 1. 캐시를 올바르게 플러시하고 있는지 확인하려면 페이지를 활성화합니다.
 1. 모든 것이 올바르게 작동하면 에서 `loglevel` 받는 사람 수를 줄일 수 `0`있습니다.
 
-## 여러 디스패처 사용 {#using-multiple-dispatchers}
+## 여러 Dispatcher 사용 {#using-multiple-dispatchers}
 
 복잡한 설정에서 여러 Dispatcher를 사용할 수 있습니다. 예를 들어 다음을 사용할 수 있습니다.
 
-* 인트라넷에 웹 사이트 게시
-* 다른 주소와 보안 설정이 다른 두 번째 디스패처가 동일한 컨텐츠를 인터넷에 게시합니다.
+* 인트라넷에 웹 사이트를 게시할 하나의 Dispatcher
+* 다른 주소와 보안 설정이 다른 두 번째 Dispatcher가 동일한 콘텐츠를 인터넷에 게시합니다.
 
-이러한 경우 각 요청이 하나의 Dispatcher만을 통과하는지 확인하십시오. Dispatcher는 다른 Dispatcher의 요청을 처리하지 않습니다. 따라서 Dispatcher가 모두 AEM 웹 사이트에 직접 액세스하도록 하십시오.
+이러한 경우 각 요청이 하나의 Dispatcher만 통과하는지 확인하십시오. Dispatcher는 다른 Dispatcher의 요청을 처리하지 않습니다. 따라서 Dispatcher가 모두 AEM 웹 사이트에 직접 액세스하도록 하십시오.
 
 ## 디버깅 {#debugging}
 
