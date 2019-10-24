@@ -1,16 +1,16 @@
 ---
 title: Dispatcher 설치
-seo-title: Installing AEM Dispatcher
-description: Learn how to install the Dispatcher module on Microsoft Internet Information Server, Apache Web Server and Sun Java Web Server-iPlanet.
-seo-description: Learn how to install the AEM Dispatcher module on Microsoft Internet Information Server, Apache Web Server and Sun Java Web Server-iPlanet.
+seo-title: AEM Dispatcher 설치
+description: Microsoft Internet Information Server, Apache Web Server 및 Sun Java Web Server-iPlanet에 Dispatcher 모듈을 설치하는 방법을 알아봅니다.
+seo-description: Microsoft Internet Information Server, Apache Web Server 및 Sun Java Web Server-iPlanet에 AEM Dispatcher 모듈을 설치하는 방법을 알아봅니다.
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
 contentOwner: 사용자
 converted: 'true'
-topic-tags: dispatcher
+topic-tags: Dispatcher
 content-type: 참조
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
@@ -27,7 +27,7 @@ Comment Type: draft
 
 >[!NOTE]
 >
->발송자 버전은 AEM과 독립적입니다. 이전 버전의 AEM에 대한 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
+>Dispatcher 버전은 AEM과 독립적입니다. 이전 버전의 AEM에 대한 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
 
 Dispatcher [릴리스 정보](release-notes.md) 페이지에서는 운영 체제 및 웹 서버에 대한 최신 Dispatcher 설치 파일을 얻을 수 있습니다. Dispatcher 릴리스 번호는 Adobe Experience Manager 릴리스 번호와 독립적이며 Adobe Experience Manager 6.x, 5.x 및 Adobe CQ 5.x 릴리스와 호환됩니다.
 
@@ -39,21 +39,21 @@ Dispatcher [릴리스 정보](release-notes.md) 페이지에서는 운영 체제
 
 다음 표에는 각 웹 서버의 파일 이름에 사용되는 웹 서버 식별자가 나열되어 있습니다.
 
-| 웹 서버 | Installation Kit |
+| 웹 서버 | 설치 키트 |
 |--- |--- |
 | Apache 2.4 | dispatcher-apache **2.4**-&lt;기타 매개 변수&gt; |
-| Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-iis-&lt;other parameters&gt;**** |
-| Sun Java Web Server iPlanet | dispatcher-ns-&lt;other parameters&gt;**** |
+| Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;other parameters&gt; |
+| Sun Java Web Server iPlanet | dispatcher-**ns**-&lt;other parameters&gt; |
 
 >[!NOTE]
 >
->You should install the latest version of Dispatcher that is available for your platform. On a yearly basis, you should upgrade your Dispatcher instance to use the latest version to take advantage of product improvements.
+>사용 중인 플랫폼에 사용할 수 있는 최신 버전의 Dispatcher를 설치해야 합니다. 매년 Dispatcher 인스턴스를 업그레이드하여 최신 버전을 사용하여 향상된 제품을 이용해야 합니다.
 
-Each archive contains the following files:
+각 아카이브에는 다음 파일이 포함되어 있습니다.
 
 * 디스패처 모듈
-* an example configuration file
-* the README file that contains installation instructions and last-minute information
+* 예제 구성 파일
+* 설치 지침 및 최종 정보가 포함된 README 파일
 * 현재 및 이전 릴리스에서 해결된 문제를 나열하는 CHANGES 파일
 
 >[!NOTE]
@@ -95,7 +95,7 @@ Comment Type: draft
 
 IIS 버전 8.5 및 10을 사용하려면 다음 IIS 구성 요소가 설치되어 있어야 합니다.
 
-* ISAPI Extensions
+* ISAPI 확장
 
 또한 IIS(웹 서버) 역할을 추가해야 합니다. 서버 관리자를 사용하여 역할 및 구성 요소를 추가합니다.
 
@@ -112,11 +112,11 @@ ZIP 파일에는 다음 파일이 포함되어 있습니다.
 | `disp_iis.dll` | Dispatcher Dynamic Link 라이브러리 파일입니다. |
 | `disp_iis.ini` | IIS의 구성 파일입니다. 이 예는 요구 사항에 맞게 업데이트할 수 있습니다. **참고**:ini 파일의 이름 루트는 dll과 같아야 합니다. |
 | `dispatcher.any` | Dispatcher의 예제 구성 파일입니다. |
-| `author_dispatcher.any` | 작성자 인스턴스로 작업한 Dispatcher의 예제 구성 파일입니다. |
-| README | 설치 지침 및 최종 정보가 포함된 Readme 파일. **Note: Please check this file before starting the installation.** |
-| 변경 사항 | Changes file that lists issues fixed in current and past releases. |
+| `author_dispatcher.any` | 작성자 인스턴스로 작업하는 Dispatcher의 예제 구성 파일입니다. |
+| README | 설치 지침 및 최종 정보가 포함된 Readme 파일. **참고**:설치를 시작하기 전에 이 파일을 확인하십시오. |
+| 변경 사항 | 현재 및 이전 릴리스에서 해결된 문제를 나열하는 파일을 변경합니다. |
 
-Use the following procedure to copy the Dispatcher files to the correct location.
+다음 절차를 사용하여 Dispatcher 파일을 올바른 위치에 복사합니다.
 
 1. Windows 탐색기를 사용하여 `<IIS_INSTALLDIR>/Scripts` 디렉토리를 만듭니다(예: `C:\inetpub\Scripts`).
 
@@ -140,14 +140,14 @@ servervariables=0|1
 replaceauthorization=0|1
 ```
 
-The following table describes each property.
+다음 표에서는 각 속성에 대해 설명합니다.
 
 | 매개 변수 | 설명 |
 |--- |--- |
-| configpath | The location of  within the local file system (absolute path).`dispatcher.any` |
-| logfile | The location of the  file. `dispatcher.log` If this is not set then log messages go to the windows event log. |
-| loglevel | Defines the Log Level used to output messages to the event log. 다음 값을 지정할 수 있습니다.로그 파일의 로그 수준: <br/>0 - 오류 메시지만 해당합니다. <br/>1 - errors and warnings. <br/>2 - errors, warnings and informational messages 3 - errors, warnings, informational and debug messages. <br/> <br/>**참고**:설치 및 테스트 중에 로그 수준을 3으로 설정한 다음 프로덕션 환경에서 실행할 때 0으로 설정하는 것이 좋습니다. |
-| replaceauthorization | HTTP 요청의 인증 헤더가 처리되는 방식을 지정합니다. 다음 값이 유효합니다.<br/>0 - 인증 헤더는 수정되지 않습니다. <br/>1 - "Basic"이 아닌 "Authorization"이라는 헤더를 `Basic <IIS:LOGON\_USER>` 동일한 헤더로 바꿉니다.<br/> |
+| 구성 경로 | 로컬 파일 시스템 내의 위치 `dispatcher.any` (절대 경로). |
+| 로그 파일 | 파일의 위치입니다 `dispatcher.log` . 이 설정이 설정되지 않으면 로그 메시지가 Windows 이벤트 로그로 이동합니다. |
+| 로그 수준 | 이벤트 로그에 메시지를 출력하는 데 사용되는 로그 수준을 정의합니다. 다음 값을 지정할 수 있습니다.로그 파일의 로그 수준: <br/>0 - 오류 메시지만 해당합니다. <br/>1 - 오류 및 경고 <br/>2 - 오류, 경고 및 정보 메시지 <br/>3 - 오류, 경고, 정보 및 디버그 메시지 <br/>**참고**:설치 및 테스트 중에 로그 수준을 3으로 설정한 다음 프로덕션 환경에서 실행할 때 0으로 설정하는 것이 좋습니다. |
+| 재허가 | HTTP 요청의 인증 헤더가 처리되는 방식을 지정합니다. 다음 값이 유효합니다.<br/>0 - 인증 헤더는 수정되지 않습니다. <br/>1 - "Basic"이 아닌 "Authorization"이라는 헤더를 `Basic <IIS:LOGON\_USER>` 동일한 헤더로 바꿉니다.<br/> |
 | servervariables | 서버 변수가 처리되는 방식을 정의합니다.<br/>0 - IIS 서버 변수는 Dispatcher와 AEM에 모두 전송되지 않습니다. <br/>1 - 모든 IIS 서버 변수( `LOGON\_USER, QUERY\_STRING, ...`예:)는 요청 헤더와 함께 Dispatcher로 전송되고 캐시되지 않은 경우 AEM 인스턴스에도 전송됩니다.  <br/>서버 변수에는 `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` 및 기타 여러 가지가 포함됩니다. 자세한 내용은 IIS 설명서를 참조하십시오. |
 | enable_chunked_transfer | 클라이언트 응답에 대해 청크 전송을 활성화(1) 또는 비활성화(0)할지 여부를 정의합니다. 기본값은 0입니다. |
 
@@ -163,7 +163,7 @@ replaceauthorization=0
 
 ### Microsoft IIS 구성 {#configuring-microsoft-iis}
 
-Dispatcher ISAPI 모듈을 통합하도록 IIS를 구성합니다. In IIS you use wildcard application mapping.
+Dispatcher ISAPI 모듈을 통합하도록 IIS를 구성합니다. IIS에서는 와일드카드 응용 프로그램 매핑을 사용합니다.
 
 ### 익명 액세스 구성 - IIS 8.5 및 10 {#configuring-anonymous-access-iis-and}
 
@@ -250,7 +250,7 @@ Dispatcher가 JSON 호출을 허용하려면 다음 절차를 사용하여 JSON 
    `IIS AppPool\DefaultAppPool`
 
 1. 이름 확인 단추를 클릭합니다. Windows에서 사용자 계정을 확인하면 확인을 클릭합니다.
-1. Dispatcher 폴더의 권한 대화 상자에서 방금 추가한 계정을 선택하고 전체 제어를 제외한 계정***에 대한 모든 권한을 활성화한 다음 확인을 클릭합니다. 확인을 클릭하여 폴더 속성 대화 상자를 닫습니다.
+1. 디스패처 폴더의 권한 대화 상자에서 방금 추가한 계정을 선택하고 전체 제어를 **제외한 계정에 대한 모든 권한을 활성화한 다음** 확인을 클릭합니다. 확인을 클릭하여 폴더 속성 대화 상자를 닫습니다.
 1. 텍스트 편집기를 사용하여 `disp_iis.ini` 파일을 엽니다.
 1. 다음 예와 유사한 텍스트 줄을 추가하여 로그 파일의 위치를 구성한 다음 파일을 저장합니다.
 
