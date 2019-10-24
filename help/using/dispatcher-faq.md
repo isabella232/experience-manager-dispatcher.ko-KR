@@ -4,14 +4,14 @@ seo-title: AEM Dispatcher의 주요 문제
 description: AEM Dispatcher의 주요 문제
 seo-description: Adobe AEM Dispatcher의 주요 문제
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
 
 # AEM Dispatcher 주요 문제 FAQ
 
-![디스패처 구성](assets/CQDispatcher_workflow_v2.png)
+![Dispatcher 구성](assets/CQDispatcher_workflow_v2.png)
 
 ## 소개
 
@@ -23,17 +23,17 @@ Dispatcher는 Adobe Experience Manager의 캐싱 및/또는 로드 밸런싱 툴
 
 ### Dispatcher는 어떻게 캐싱을 수행합니까?
 
-Dispatcher는 웹 서버의 정적 컨텐츠 제공 기능을 사용합니다. Dispatcher는 캐시된 문서를 웹 서버의 문서 루트에 저장합니다. Dispatcher에는 웹 사이트를 변경할 때 캐시 컨텐츠를 업데이트하는 두 가지 기본 방법이 있습니다.
+Dispatcher는 웹 서버의 정적 컨텐츠 제공 기능을 사용합니다. Dispatcher는 캐시된 문서를 웹 서버의 문서 루트에 저장합니다. Dispatcher에는 웹 사이트를 변경할 때 캐시 콘텐츠를 업데이트하는 두 가지 기본 방법이 있습니다.
 
-* **컨텐츠** 업데이트는 변경된 페이지와 해당 페이지와 직접 연결된 파일을 제거합니다.
-* **자동 무효화는** 업데이트 후 오래된 캐시 부분을 자동으로 무효화합니다. 예를 들어, 관련 페이지를 삭제하지 않고 최신 상태가 아닌 것으로 효과적으로 플래그를 지정합니다.
+* **콘텐츠 업데이트**&#x200B;는 변경된 파일과 직접 연결된 파일을 제거합니다.
+* **자동 무효화**&#x200B;는 업데이트 후 오래된 캐시 부분을 자동으로 무효화합니다. 예를 들어, 관련 페이지를 삭제하지 않고 최신 상태가 아닌 것으로 효과적으로 플래그를 지정합니다.
 
 ### 로드 밸런싱의 이점은 무엇입니까?
 
 로드 밸런싱은 여러 AEM 인스턴스에 사용자 요청(로드)을 배포합니다. 다음 목록은 로드 밸런싱을 위한 이점을 설명합니다.
 
 * **향상된 처리 능력**:실제로 디스패처가 여러 AEM 인스턴스 간에 문서 요청을 공유한다는 것을 의미합니다. 각 인스턴스에는 처리할 문서가 적으므로 응답 시간이 빨라집니다. Dispatcher는 각 문서 범주에 대한 내부 통계를 유지하므로 로드를 예측하고 쿼리를 효율적으로 배포할 수 있습니다.
-* **장애 조치**&#x200B;증가:Dispatcher가 인스턴스로부터 응답을 받지 않으면 요청을 다른 인스턴스 중 하나로 자동으로 전달합니다. 따라서 인스턴스를 사용할 수 없게 되면 그 유일한 효과는 계산 능력이 손실되는 정도에 비례하여 사이트의 둔화입니다.
+* **장애 조치**&#x200B;증가:Dispatcher가 인스턴스로부터 응답을 받지 않으면 요청을 다른 인스턴스 중 하나로 자동으로 전달합니다. 따라서 인스턴스를 사용할 수 없게 되면 그 유일한 효과는 계산 능력이 손실되는 정도에 비례한 사이트의 둔화입니다.
 
 >[!NOTE]
 >
@@ -153,19 +153,19 @@ Dispatcher [보안 검사 목록](security-checklist.md) 및 AEM [보안 검사 
 Dispatcher는 문서가 최신 상태인지 여부를 어떻게 결정합니까?
 문서가 최신 상태인지 여부를 확인하려면 Dispatcher가 다음 작업을 수행합니다.
 
-문서가 자동 무효화의 대상이 되는지 확인합니다. 그렇지 않으면 문서가 최신 문서로 간주됩니다.
-문서가 자동 무효화되도록 구성된 경우 Dispatcher는 사용 가능한 마지막 변경 내용보다 오래되었는지 여부를 확인합니다. 이전 버전인 경우 디스패처는 AEM 인스턴스에서 현재 버전을 요청하고 캐시에 있는 버전을 대체합니다.
+문서가 자동 무효화 대상인지 여부를 확인합니다. 그렇지 않으면 문서가 최신 문서로 간주됩니다.
+문서가 자동 무효화되도록 구성된 경우 Dispatcher는 사용 가능한 마지막 변경 내용보다 오래되었는지 여부를 확인합니다. 이전 버전인 경우 Dispatcher는 AEM 인스턴스에서 현재 버전을 요청하고 캐시에 있는 버전을 대체합니다.
 
 ### Dispatcher는 문서를 어떻게 반환합니까?
 
-Dispatcher 구성 [파일을 사용하여 Dispatcher가 문서를 캐시하는지 여부를 정의할](dispatcher-configuration.md) 수 `dispatcher.any`있습니다. Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 디스패처가 AEM 인스턴스에서 문서를 요청합니다.
+Dispatcher 구성 [파일을 사용하여 Dispatcher가 문서를 캐시하는지 여부를 정의할](dispatcher-configuration.md) 수 `dispatcher.any`있습니다. Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
 
 이 `/rules` 속성은 문서 경로에 따라 캐시되는 문서를 제어합니다. Dispatcher는 `/rules` 속성에 관계없이 다음 상황에서 문서를 캐시하지 않습니다.
 
-* 요청 URI에 물음표가 있는 `(?)`경우
+* If the request URI contains a question mark `(?)`.
 * 일반적으로 이것은 캐시할 필요가 없는 검색 결과와 같은 동적 페이지를 나타냅니다.
-* 파일 확장자가 없습니다.
-* 웹 서버에는 문서 유형(MIME 유형)을 결정하기 위한 확장이 필요합니다.
+* 파일 확장명이 없습니다.
+* 웹 서버에는 문서 유형(MIME 유형)을 결정하기 위한 확장명이 필요합니다.
 * 인증 헤더가 설정됨(구성할 수 있음)
 * AEM 인스턴스가 다음 헤더로 응답하는 경우:
    * no-cache
@@ -176,7 +176,7 @@ Dispatcher는 캐시된 파일을 정적 웹 사이트의 일부인 것처럼 �
 
 >[!NOTE]
 >
->GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 액세스할 수 있습니다. 응답 헤더 캐싱에 대한 자세한 내용은 HTTP 응답 [헤더 캐싱 섹션을 참조하십시오](dispatcher-configuration.md#caching-http-response-headers) .
+>GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 자세한 내용은 HTTP 응답 [헤더 캐싱 섹션을 참조하십시오](dispatcher-configuration.md#caching-http-response-headers) .
 
 ### 설정에서 여러 디스패처를 구현할 수 있습니까?
 
