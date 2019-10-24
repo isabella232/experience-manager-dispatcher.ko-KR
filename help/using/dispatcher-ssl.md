@@ -1,24 +1,24 @@
 ---
-title: Dispatcher에서 SSL 사용
-seo-title: Dispatcher에서 SSL 사용
+title: Dispatcher에 SSL 사용
+seo-title: Dispatcher에 SSL 사용
 description: SSL 연결을 사용하여 AEM과 통신하도록 Dispatcher를 구성하는 방법을 알아봅니다.
 seo-description: SSL 연결을 사용하여 AEM과 통신하도록 Dispatcher를 구성하는 방법을 알아봅니다.
 uuid: 1a8f448c-d3d8-4798-a5cb-9579171ed
 contentOwner: 사용자
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: dispatcher
+topic-tags: Dispatcher
 content-type: 참조
 discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
 
-# Dispatcher에서 SSL 사용 {#using-ssl-with-dispatcher}
+# Dispatcher에 SSL 사용 {#using-ssl-with-dispatcher}
 
 Dispatcher와 렌더링 컴퓨터 간의 SSL 연결 사용:
 
