@@ -4,13 +4,13 @@ seo-title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법을 알아봅니다.
 seo-description: Dispatcher를 구성하는 방법을 알아봅니다.
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
-cmgrlastmodified: 01.11.2007 08 22 29 [aheidmoz]
-pageversionid: '1193211344162'
-topic-tags: Dispatcher
-content-type: 참조
+cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
+pageversionid: 1193211344162
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
 
 ---
 
@@ -1383,19 +1383,13 @@ FileETag none
 
 자세한 내용은 위의 `/invalidate` 및 `/statfileslevel`섹션을 참조하십시오.
 
-## 시간 기반 캐시 무효화 구성 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
+### 시간 기반 캐시 무효화 구성 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-이 `enableTTL` 속성을 설정하면 백엔드 응답 헤더를 평가하고, 응답 헤더가 `Cache-Control` 최대 기간 또는 `Expires` 날짜를 포함하는 경우, 수정 시간과 만료 날짜가 동일한 상태로 캐시 파일 옆에 빈 보조 파일이 만들어집니다. 캐시된 파일이 수정 시간 이후에 요청되면 백 엔드에서 자동으로 다시 요청됩니다.
-
-이 줄을 `dispatcher.any` 파일에 추가하여 기능을 활성화할 수 있습니다.
-
-```xml
-/enableTTL "1"
-```
+이 `/enableTTL` 속성을 설정하면 백엔드 응답 헤더를 평가하고, 응답 헤더가 `Cache-Control` 최대 기간 또는 `Expires` 날짜를 포함하는 경우, 수정 시간과 만료 날짜가 동일한 상태로 캐시 파일 옆에 빈 보조 파일이 만들어집니다. 캐시된 파일이 수정 시간 이후에 요청되면 백 엔드에서 자동으로 다시 요청됩니다.
 
 >[!NOTE]
 >
->이 기능은 Dispatcher 버전 **4.1.11에서** 사용할 수 있습니다.
+>이 기능은 Dispatcher의 버전 **4.1.11** 이상에서 사용할 수 있습니다.
 
 ## 로드 밸런싱 구성 - /statistics {#configuring-load-balancing-statistics}
 
