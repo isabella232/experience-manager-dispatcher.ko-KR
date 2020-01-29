@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
+source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
 
 ---
 
@@ -118,7 +118,7 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
   }
 ```
 
-별표("*")를 와일드카드로 사용하여 포함할 파일 범위를 지정합니다.
+별표(&quot;*&quot;)를 와일드카드로 사용하여 포함할 파일 범위를 지정합니다.
 
 예를 들어, `farm_1.any` 까지 전달되는 파일에 팜 1~5의 `farm_5.any` 구성이 포함되어 있으면 다음과 같이 포함시킬 수 있습니다.
 
@@ -221,7 +221,7 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 >
 >매개 `/homepage`변수(IIS만 해당)가 더 이상 작동하지 않습니다. 대신 IIS URL 다시 [작성 모듈을 사용해야 합니다](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module).
 >
->Apache를 사용하는 경우 `mod_rewrite` 모듈을 사용해야 합니다. 자세한 내용은 Apache 웹 사이트 설명서를 `mod_rewrite` 참조하십시오(예: [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). 사용 `mod_rewrite`시, **['passthrough|PT'(다음 처리기로 통과)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** 플래그를 사용하여 다시 작성 엔진을 강제 사용하여 내부 `uri` 구조의 `request_rec` 필드를 `filename` 필드 값으로 설정하는 것이 좋습니다.
+>Apache를 사용하는 경우 `mod_rewrite` 모듈을 사용해야 합니다. 자세한 내용은 Apache 웹 사이트 설명서를 `mod_rewrite` 참조하십시오(예: [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). 사용 `mod_rewrite`시, **[&#39;passthrough|PT&#39;(다음 처리기로 통과)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**플래그를 사용하여 다시 작성 엔진을 강제 사용하여 내부`uri`구조의`request_rec`필드를`filename`필드 값으로 설정하는 것이 좋습니다.
 
 <!-- 
 
@@ -322,7 +322,7 @@ Comment Type: draft
 
 ## 가상 호스트 식별 {#identifying-virtual-hosts-virtualhosts}
 
-이 `/virtualhosts` 속성은 Dispatcher가 이 팜에 대해 허용하는 모든 호스트 이름/URI 조합 목록을 정의합니다. 별표("*") 문자를 와일드카드로 사용할 수 있습니다. / 속성에 대한 값은 다음 형식을 사용합니다 `virtualhosts` .
+이 `/virtualhosts` 속성은 Dispatcher가 이 팜에 대해 허용하는 모든 호스트 이름/URI 조합 목록을 정의합니다. 별표(&quot;*&quot;) 문자를 와일드카드로 사용할 수 있습니다. / 속성에 대한 값은 다음 형식을 사용합니다 `virtualhosts` .
 
 ```xml
 [scheme]host[uri][*]
@@ -405,7 +405,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 | 요청 URL | 해결된 가상 호스트 |
 |---|---|
-| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*;` |
+| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
 ## 보안 세션 활성화 - /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
@@ -441,7 +441,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 **/encode** (선택 사항)
 
-세션 정보가 인코딩되는 방법입니다. md5 알고리즘을 사용한 암호화에 "md5"를 사용하고 16진수 인코딩에 "16진수"를 사용합니다. 세션 데이터를 암호화하면 파일 시스템에 액세스할 수 있는 사용자는 세션 내용을 읽을 수 없습니다. 기본값은 "md5"입니다.
+세션 정보가 인코딩되는 방법입니다. md5 알고리즘을 사용한 암호화에 &quot;md5&quot;를 사용하고 16진수 인코딩에 &quot;16진수&quot;를 사용합니다. 세션 데이터를 암호화하면 파일 시스템에 액세스할 수 있는 사용자는 세션 내용을 읽을 수 없습니다. 기본값은 &quot;md5&quot;입니다.
 
 **/header** (선택 사항)
 
@@ -449,7 +449,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 **/timeout** (선택 사항)
 
-세션이 마지막으로 사용된 후 시간이 초과될 때까지 남은 시간(초)입니다. "800"을 지정하지 않은 경우 사용자의 마지막 요청 후 세션이 약 13분 이상 시간이 초과됩니다.
+세션이 마지막으로 사용된 후 시간이 초과될 때까지 남은 시간(초)입니다. &quot;800&quot;을 지정하지 않은 경우 사용자의 마지막 요청 후 세션이 약 13분 이상 시간이 초과됩니다.
 
 구성 예는 다음과 같습니다.
 
@@ -482,7 +482,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
   }
 ```
 
-다음 예제 /renders 섹션은 Dispatcher와 동일한 컴퓨터에서 실행되는 AEM 인스턴스를 식별합니다.
+다음 예제 /renders 섹션은 디스패처와 동일한 컴퓨터에서 실행되는 AEM 인스턴스를 식별합니다.
 
 ```xml
 /renders
@@ -517,11 +517,11 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 **/timeout**
 
-AEM 인스턴스에 액세스하는 연결 시간 초과를 밀리초 단위로 지정합니다. 기본값은 "0"으로, 디스패처가 무기한 대기합니다.
+AEM 인스턴스에 액세스하는 연결 시간 초과를 밀리초 단위로 지정합니다. 기본값은 &quot;0&quot;으로, 디스패처가 무기한 대기합니다.
 
 **/receiveTimeout**
 
-응답이 허용된 시간(밀리초)을 지정합니다. 기본값은 "600000"으로, Dispatcher가 10분 동안 기다립니다. "0"을 설정하면 시간 초과가 완전히 제거됩니다.\
+응답이 허용된 시간(밀리초)을 지정합니다. 기본값은 &quot;600000&quot;으로, Dispatcher가 10분 동안 기다립니다. &quot;0&quot;을 설정하면 시간 초과가 완전히 제거됩니다.\
 응답 헤더를 구문 분석하는 동안 시간 제한에 도달하면 HTTP 상태 504(잘못된 게이트웨이)가 반환됩니다. 응답 본문을 읽는 동안 시간 제한에 도달하면 디스패처는 클라이언트에 불완전한 응답을 반환하지만 기록되었을 수 있는 캐시 파일을 삭제합니다.
 
 **/ipv4**
@@ -534,13 +534,13 @@ Amazon Elastic Load Balancing(ELB)은 잠재적으로 동일한 순서로 IP 주
 
 **/secure**
 
-속성에 "1" 값이 `/secure` 있는 경우 디스패처는 HTTPS를 사용하여 AEM 인스턴스와 통신합니다. 자세한 내용은 Dispatcher가 SSL [을 사용하도록 구성을 참조하십시오](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
+속성에 &quot;1&quot; 값이 `/secure` 있는 경우 디스패처는 HTTPS를 사용하여 AEM 인스턴스와 통신합니다. 자세한 내용은 Dispatcher가 SSL [을 사용하도록 구성을 참조하십시오](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
 
 **/always-resolve**
 
 Dispatcher 버전 **4.1.6에서는**&#x200B;다음과 같이 `/always-resolve` 속성을 구성할 수 있습니다.
 
-* "1"으로 설정하면 모든 요청에서 호스트 이름을 확인합니다(디스패처는 IP 주소를 캐시하지 않음). 각 요청에 대한 호스트 정보를 얻는 데 필요한 추가 호출로 인해 약간의 성능 영향이 있을 수 있습니다.
+* &quot;1&quot;으로 설정하면 모든 요청에서 호스트 이름을 확인합니다(디스패처는 IP 주소를 캐시하지 않음). 각 요청에 대한 호스트 정보를 얻는 데 필요한 추가 호출로 인해 약간의 성능 영향이 있을 수 있습니다.
 * 속성이 설정되지 않으면 IP 주소가 기본적으로 캐시됩니다.
 
 또한 다음 샘플에서와 같이 동적 IP 해상도 문제가 발생하는 경우에도 이 속성을 사용할 수 있습니다.
@@ -601,13 +601,13 @@ You should use
 
 HTTP/1.1은 [요청 라인을](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) 다음과 같이 정의합니다.
 
-*메서드 요청-URI HTTP-Version*&lt;CRLF&gt;
+*메서드 요청-URI HTTP-Version*&lt;CRLF>
 
-&lt;CRLF&gt; 문자는 캐리지 리턴 후 줄 피드를 나타냅니다. 다음은 클라이언트가 Geometrixx-Outers 사이트의 en 페이지를 요청할 때 수신되는 요청 라인입니다.
+&lt;CRLF> 문자는 캐리지 리턴 후 줄 피드를 나타냅니다. 다음은 클라이언트가 Geometrixx-Outers 사이트의 en 페이지를 요청할 때 수신되는 요청 라인입니다.
 
-/content/geometrixx-outdoors/en.html HTTP.1.1 다운로드&lt;CRLF&gt;
+/content/geometrixx-outdoors/en.html HTTP.1.1 다운로드&lt;CRLF>
 
-패턴은 요청줄의 공백 문자와 &lt;CRLF&gt; 문자를 고려해야 합니다.
+패턴은 요청줄의 공백 문자와 &lt;CRLF> 문자를 고려해야 합니다.
 
 #### 큰따옴표와 작은따옴표 {#double-quotes-vs-single-quotes}
 
@@ -955,7 +955,7 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 신디케이션 요청은 일반적으로 디스패처용이므로 기본적으로 렌더러(예: AEM 인스턴스)로 전송되지 않습니다.
 
-필요한 경우 /propagateSyncPost 속성을 "1"로 설정하여 신디케이션 요청을 Dispatcher로 전달합니다. 설정된 경우 필터 섹션에서 POST 요청이 거부되지 않도록 해야 합니다.
+필요한 경우 /propagateSyncPost 속성을 &quot;1&quot;로 설정하여 신디케이션 요청을 Dispatcher로 전달합니다. 설정된 경우 필터 섹션에서 POST 요청이 거부되지 않도록 해야 합니다.
 
 ## 발송자 캐시 구성 - /cache {#configuring-the-dispatcher-cache-cache}
 
@@ -1029,7 +1029,7 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 이 `/serveStaleOnError` 속성은 렌더링 서버에서 오류를 반환할 때 Dispatcher가 무효화된 문서를 반환할지 여부를 제어합니다. 기본적으로 상태 파일을 터치하고 캐시된 컨텐츠를 무효화하면 Dispatcher는 다음에 요청할 때 캐시된 컨텐츠를 삭제합니다.
 
-이 `/serveStaleOnError` 가 "1"로 설정된 경우, 렌더링 서버가 성공적인 응답을 반환하지 않는 한 Dispatcher는 무효화된 컨텐츠를 캐시에서 삭제하지 않습니다. AEM의 5xx 응답이나 연결 시간 초과로 인해 Dispatcher가 오래된 컨텐츠를 제공하고 HTTP 상태(재유효성 검사 실패)를 사용하여 응답합니다.
+이 `/serveStaleOnError` 가 &quot;1&quot;로 설정된 경우, 렌더링 서버가 성공적인 응답을 반환하지 않는 한 Dispatcher는 무효화된 컨텐츠를 캐시에서 삭제하지 않습니다. AEM의 5xx 응답이나 연결 시간 초과로 인해 Dispatcher가 오래된 컨텐츠를 제공하고 HTTP 상태(재유효성 검사 실패)를 사용하여 응답합니다.
 
 ### 인증이 사용될 때 캐싱 {#caching-when-authentication-is-used}
 
@@ -1053,7 +1053,7 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 이 `/rules` 속성은 문서 경로에 따라 캐시되는 문서를 제어합니다. /rules 속성에 관계없이 Dispatcher는 다음 상황에서 문서를 캐시하지 않습니다.
 
-* 요청 URI에 물음표("?")가 포함된 경우.\
+* 요청 URI에 물음표(&quot;?&quot;)가 포함된 경우.\
    일반적으로 이것은 캐시할 필요가 없는 검색 결과와 같은 동적 페이지를 나타냅니다.
 * 파일 확장명이 없습니다.\
    웹 서버에는 문서 유형(MIME 유형)을 결정하기 위한 확장명이 필요합니다.
@@ -1292,7 +1292,7 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 * 매개 변수를 무시하려면 매개 변수를 허용하는 global 속성을 만듭니다.
 * 페이지가 캐시되지 않도록 하려면 매개 변수를 거부하는 글로벌 속성을 만듭니다.
 
-다음 예제에서는 Dispatcher가 "q" 매개 변수를 무시하여 q 매개 변수를 포함하는 요청 URL이 캐시되도록 합니다.
+다음 예제에서는 Dispatcher가 &quot;q&quot; 매개 변수를 무시하여 q 매개 변수를 포함하는 요청 URL이 캐시되도록 합니다.
 
 ```xml
 /ignoreUrlParams
@@ -1377,7 +1377,7 @@ FileETag none
 
 ### 조절 .stat 파일 수정 {#throttling-stat-file-touching}
 
-기본 `/invalidate` 속성을 사용하는 모든 활성화는 모든 `.html` 파일을 효과적으로 무효화합니다(경로가 `/invalidate` 섹션과 일치하는 경우). 트래픽이 많은 웹 사이트에서 후속 활동을 여러 번 수행하면 백엔드의 CPU 로드가 증가합니다. 이러한 경우 웹 사이트의 응답 속도를 유지하기 위해 "스로틀" `.stat` 파일을 수정하는 것이 좋습니다. 이 작업은 `/gracePeriod` 속성을 사용하여 수행할 수 있습니다.
+기본 `/invalidate` 속성을 사용하는 모든 활성화는 모든 `.html` 파일을 효과적으로 무효화합니다(경로가 `/invalidate` 섹션과 일치하는 경우). 트래픽이 많은 웹 사이트에서 후속 활동을 여러 번 수행하면 백엔드의 CPU 로드가 증가합니다. 이러한 경우 웹 사이트의 응답 속도를 유지하기 위해 &quot;스로틀&quot; `.stat` 파일을 수정하는 것이 좋습니다. 이 작업은 `/gracePeriod` 속성을 사용하여 수행할 수 있습니다.
 
 이 `/gracePeriod` 속성은 지난 번 활성화 이후 캐시에서 부실 자동 무효화된 리소스가 계속 제공될 수 있는 시간(초)을 정의합니다. 이 속성은 일련의 활동이 전체 캐시를 반복적으로 무효화하는 설정에서 사용할 수 있습니다. 권장 값은 2초입니다.
 
@@ -1465,7 +1465,7 @@ URI의 카테고리를 결정하기 위해 Dispatcher는 일치 항목을 찾을
 
 이 `/unavailablePenalty` 속성은 `/farm` 섹션의 직접 하위 항목입니다( `/statistics` 섹션의 형제).
 
-속성이 없는 `/unavailablePenalty` 경우 "1" 값이 사용됩니다.
+속성이 없는 `/unavailablePenalty` 경우 &quot;1&quot; 값이 사용됩니다.
 
 ```xml
 /unavailablePenalty "1"
@@ -1581,7 +1581,7 @@ Dispatcher 팜의 장애 조치 메커니즘을 사용하여 원래 요청이 �
 read more data  
 }`
 
-이러한 메시지는 " `EINTR` " 섹션에서 `read more data`발생할 때 생성되며 데이터가 수신되기 전에 신호가 수신될 때 생성됩니다.
+이러한 메시지는 &quot; `EINTR` &quot; 섹션에서 `read more data`발생할 때 생성되며 데이터가 수신되기 전에 신호가 수신될 때 생성됩니다.
 
 이러한 인터럽트를 무시하려면 다음 매개 변수를 `dispatcher.any` (before `/farms`)에 추가할 수 있습니다.
 
@@ -1598,7 +1598,7 @@ Dispatcher 구성 파일의 여러 섹션은 클라이언트 요청에 대한 �
 | 와일드카드 문자 | 설명 | 예 |
 |--- |--- |--- |
 | `*` | 문자열에서 0개 이상의 인접한 모든 문자와 일치합니다. 일치의 최종 문자는 다음 중 하나에 의해 결정됩니다.문자열의 <br/>문자는 패턴의 다음 문자와 일치하며 패턴 문자에는 다음 특성이 있습니다.<br/><ul><li>* 아님</li><li>아니?</li><li>문자(공백 포함) 또는 문자 클래스입니다.</li><li>패턴의 끝에 도달했습니다.</li></ul>문자 클래스 내부에서 이 캐릭터는 문자 그대로 해석됩니다. | `*/geo*` 노드 `/content/geometrixx` 및 `/content/geometrixx-outdoors` 노드 아래의 모든 페이지와 일치합니다. 다음 HTTP 요청은 글로벌 패턴과 일치합니다. <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*` 노드 <br/>아래의 모든 페이지와 `/content/geometrixx-outdoors` 일치합니다. 예를 들어 다음 HTTP 요청은 글로벌 패턴과 일치합니다. <br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
-| `?` | 모든 단일 문자와 일치합니다. 외부 문자 클래스를 사용합니다. 문자 클래스 내에서 이 문자는 문자 그대로 해석됩니다. | `*outdoors/??/*`<br/> geometrixx-outdoors 사이트의 모든 언어에 대한 페이지와 일치합니다. 예를 들어 다음 HTTP 요청은 글로벌 패턴과 일치합니다. <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>다음 요청이 글로벌 패턴과 일치하지 않습니다. <br/><ul><li>"/content/geometrixx-outdoors/en.html"</li></ul> |
+| `?` | 모든 단일 문자와 일치합니다. 외부 문자 클래스를 사용합니다. 문자 클래스 내에서 이 문자는 문자 그대로 해석됩니다. | `*outdoors/??/*`<br/> geometrixx-outdoors 사이트의 모든 언어에 대한 페이지와 일치합니다. 예를 들어 다음 HTTP 요청은 글로벌 패턴과 일치합니다. <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>다음 요청이 글로벌 패턴과 일치하지 않습니다. <br/><ul><li>&quot;/content/geometrixx-outdoors/en.html&quot;</li></ul> |
 | `[ and ]` | 문자 클래스의 시작과 끝을 표시합니다. 문자 클래스에는 하나 이상의 문자 범위와 단일 문자가 포함될 수 있습니다.<br/>대상 문자가 문자 클래스 또는 정의된 범위 내의 문자와 일치하는 경우 일치합니다.<br/>닫는 괄호가 포함되어 있지 않으면 패턴에서 일치하는 내용이 없습니다. | `*[o]men.html*`<br/> 다음 HTTP 요청과 일치합니다.<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>다음 HTTP 요청과 일치하지 않습니다.<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` 다음 <br/>HTTP 요청과 일치합니다. <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | 문자 범위를 나타냅니다. 문자 클래스에 사용하기 위해  문자 클래스 외부에서 이 문자는 문자 그대로 해석됩니다. | `*[m-p]men.html*` 다음 HTTP 요청과 일치합니다. <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>다음 HTTP 요청과 일치하지 않습니다.<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `!` | 다음에 나오는 문자 또는 문자 클래스를 무효화합니다. 문자 클래스 내에서 문자 및 문자 범위를 무효화하는 경우에만 사용합니다. 에 `^ wildcard`해당합니다. <br/>문자 클래스 외부에서 이 문자는 문자 그대로 해석됩니다. | `*[!o]men.html*`<br/> 다음 HTTP 요청과 일치합니다. <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>다음 HTTP 요청과 일치하지 않습니다. <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> 다음 HTTP 요청과 일치하지 않습니다.<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` 또는 `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
@@ -1827,7 +1827,7 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/we-retail/us/en.h
 * **캐싱**\
    대상 파일이 캐시에 포함되어 있지 않으며 디스패처는 출력을 캐시하여 전달하는 것이 유효하다고 판단했습니다.
 * **캐싱:stat 파일이 더 최근**&#x200B;파일대상 파일이 캐시에 포함되어 있지만, 더 최신 상태 파일에 의해 무효화됩니다. 디스패처가 대상 파일을 삭제하고 출력에서 다시 만들어 전달합니다.
-* **취소할 수 없음:문서 루트**&#x200B;없음팜의 구성에 문서 루트(구성 요소 `cache.docroot`)가 없습니다.
+* **취소할 수 없음:문서 루트**&#x200B;없음팜의 구성에 문서 루트(구성 요소)가 포함되어 있지 않습니다 `cache.docroot`.
 * **취소할 수 없음:캐시 파일 경로가 너무 깁니다.**\
    대상 파일(문서 루트 및 URL 파일의 연결)이 시스템에서 가장 오래 사용할 수 있는 파일 이름을 초과합니다.
 * **취소할 수 없음:임시 파일 경로가 너무 깁니다.**\
@@ -1850,5 +1850,5 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/we-retail/us/en.h
 * **취소할 수 없음:권한 검사기가 액세스를 거부했습니다.**\
    팜의 인증 검사기가 캐시된 파일에 대한 액세스를 거부했습니다.
 * **취소할 수 없음:세션이 잘못되었습니다**. 팜의 캐시는 세션 관리자(구성이 `sessionmanagement` 노드를 포함)의 영향을 받으며 사용자의 세션이 유효하지 않거나 더 이상 유효하지 않습니다.
-* **취소할 수 없음:응답에`no_cache `**&#x200B;포함 원격 서버가 `Dispatcher: no_cache` 헤더를 반환하여 디스패처가 출력을 캐시하도록 했습니다.
+* **취소할 수 없음:응답에`no_cache `**포함 원격 서버가`Dispatcher: no_cache`헤더를 반환하여 디스패처가 출력을 캐시하도록 했습니다.
 * **취소할 수 없음:응답 컨텐츠 길이가 0입니다**. 응답의 컨텐츠 길이는 0입니다.디스패처는 길이가 0인 파일을 만들지 않습니다.
