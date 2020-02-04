@@ -3,15 +3,15 @@ title: '여러 도메인에 Dispatcher 사용 '
 seo-title: '여러 도메인에 Dispatcher 사용 '
 description: Dispatcher를 사용하여 여러 웹 도메인의 페이지 요청을 처리하는 방법을 알아봅니다.
 seo-description: Dispatcher를 사용하여 여러 웹 도메인의 페이지 요청을 처리하는 방법을 알아봅니다.
-uuid: 7342a1c2-fe61-4 파섹
-contentOwner: 사용자
+uuid: 7342a1c2-fe61-49be-a240-b487d53c7ec1
+contentOwner: User
 cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: 참조
+content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
 
 ---
 
@@ -20,7 +20,7 @@ source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 >[!NOTE]
 >
->발송자 버전은 AEM과 독립적입니다. AEM 또는 CQ 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
+>Dispatcher 버전은 AEM과 독립적입니다. AEM 또는 CQ 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
 
 다음 조건을 지원하는 동안 Dispatcher를 사용하여 여러 웹 도메인의 페이지 요청을 처리할 수 있습니다.
 
@@ -70,8 +70,8 @@ Dispatcher Flush 복제 에이전트가 Dispatcher가 캐시된 파일을 무효
 
 도메인 URL과 컨텐츠 경로가 캐시된 파일로 확인되도록 하려면, 처리 중 특정 시점에 파일 경로 또는 페이지 URL을 번역해야 합니다. 경로 또는 URL 번역이 프로세스에서 서로 다른 지점에서 발생하는 다음의 일반적인 전략에 대한 설명이 제공됩니다.
 
-* (권장) AEM 게시 인스턴스는 리소스 해상도에 Sling 매핑을 사용하여 내부 URL 재작성 규칙을 구현합니다. 도메인 URL은 컨텐츠 저장소 경로로 변환됩니다. (AEM [들어오는 URL 다시 쓰기를 참조하십시오](dispatcher-domains.md#main-pars-title-2).)
-* 웹 서버는 도메인 URL을 캐시 경로로 변환하는 내부 URL 재작성 규칙을 사용합니다. 웹 [서버 들어오는 URL 다시 쓰기를 참조하십시오](dispatcher-domains.md#main-pars-title-1).
+* (권장) AEM 게시 인스턴스는 리소스 해상도에 Sling 매핑을 사용하여 내부 URL 재작성 규칙을 구현합니다. 도메인 URL은 컨텐츠 저장소 경로로 변환됩니다. (AEM [들어오는 URL 다시 쓰기를 참조하십시오](#aem-rewrites-incoming-urls).)
+* 웹 서버는 도메인 URL을 캐시 경로로 변환하는 내부 URL 재작성 규칙을 사용합니다. 웹 [서버 들어오는 URL 다시 쓰기를 참조하십시오](#the-web-server-rewrites-incoming-urls).
 
 일반적으로 웹 페이지에 짧은 URL을 사용하는 것이 좋습니다. 일반적으로 페이지 URL은 웹 컨텐츠를 포함하는 저장소 폴더의 구조를 미러링합니다. 그러나 URL은 다음과 같이 가장 높은 저장소 노드를 표시하지 않습니다 `/content`. 클라이언트가 AEM 저장소의 구조를 반드시 알지 못할 수도 있습니다.
 
