@@ -11,7 +11,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
+source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
 
 ---
 
@@ -70,8 +70,8 @@ Dispatcher Flush 복제 에이전트가 Dispatcher가 캐시된 파일을 무효
 
 도메인 URL과 컨텐츠 경로가 캐시된 파일로 확인되도록 하려면, 처리 중 특정 시점에 파일 경로 또는 페이지 URL을 번역해야 합니다. 경로 또는 URL 번역이 프로세스에서 서로 다른 지점에서 발생하는 다음의 일반적인 전략에 대한 설명이 제공됩니다.
 
-* (권장) AEM 게시 인스턴스는 리소스 해상도에 Sling 매핑을 사용하여 내부 URL 재작성 규칙을 구현합니다. 도메인 URL은 컨텐츠 저장소 경로로 변환됩니다. (AEM [들어오는 URL 다시 쓰기를 참조하십시오](#aem-rewrites-incoming-urls).)
-* 웹 서버는 도메인 URL을 캐시 경로로 변환하는 내부 URL 재작성 규칙을 사용합니다. 웹 [서버 들어오는 URL 다시 쓰기를 참조하십시오](#the-web-server-rewrites-incoming-urls).
+* (권장) AEM 게시 인스턴스는 리소스 해상도에 Sling 매핑을 사용하여 내부 URL 재작성 규칙을 구현합니다. 도메인 URL은 컨텐츠 저장소 경로로 변환됩니다. AEM [에서 들어오는 URL 다시 쓰기를 참조하십시오](#aem-rewrites-incoming-urls).
+* 웹 서버는 도메인 URL을 캐시 경로로 변환하는 내부 URL 재작성 규칙을 사용합니다. 웹 [서버에서 들어오는 URL을 다시 쓰기를 참조하십시오](#the-web-server-rewrites-incoming-urls).
 
 일반적으로 웹 페이지에 짧은 URL을 사용하는 것이 좋습니다. 일반적으로 페이지 URL은 웹 컨텐츠를 포함하는 저장소 폴더의 구조를 미러링합니다. 그러나 URL은 다음과 같이 가장 높은 저장소 노드를 표시하지 않습니다 `/content`. 클라이언트가 AEM 저장소의 구조를 반드시 알지 못할 수도 있습니다.
 
