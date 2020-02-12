@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -200,19 +200,19 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 |--- |--- |
 | [/홈 페이지](#specify-a-default-page-iis-only-homepage) | 기본 홈 페이지(선택 사항)(IIS만 해당) |
 | [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | 전달하려는 클라이언트 HTTP 요청의 헤더입니다. |
-| [/virtualhosts](#identifying-virtual-hosts-virtual-hosts) | 이 팜의 가상 호스트입니다. |
-| [/sessionmanagement](#enabling-secure-sessions-session-management) | 세션 관리 및 인증 지원 |
+| [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | 이 팜의 가상 호스트입니다. |
+| [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | 세션 관리 및 인증 지원 |
 | [/renders](#defining-page-renderers-renders) | 렌더링된 페이지를 제공하는 서버(일반적으로 AEM 게시 인스턴스). |
 | [/filter](#configuring-access-to-content-filter) | Dispatcher가 액세스를 허용하는 URL을 정의합니다. |
 | [/vanity_url](#enabling-access-to-vanity-urls-vanity-urls) | 별칭 URL에 대한 액세스를 구성합니다. |
-| [/propagateSyncPost](#forwarding-syndication-requests-propagate-syndpost) | 신디케이션 요청 전달을 지원합니다. |
+| [/propagateSyncPost](#forwarding-syndication-requests-propagatesyndpost) | 신디케이션 요청 전달을 지원합니다. |
 | [/cache](#configuring-the-dispatcher-cache-cache) | 캐싱 동작을 구성합니다. |
 | [/statistics](#configuring-load-balancing-statistics) | 부하 균형 계산을 위한 통계 카테고리 정의 |
-| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-sticky-connections-for) | 고정 문서가 들어 있는 폴더입니다. |
+| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-stickyconnectionsfor) | 고정 문서가 들어 있는 폴더입니다. |
 | [/health_check](#specifying-a-health-check-page) | 서버 가용성을 확인하는 데 사용할 URL입니다. |
 | [/retryDelay](#specifying-the-page-retry-delay) | 실패한 연결을 다시 시도하기 전의 지연. |
 | [/unavailableCountability](#reflecting-server-unavailability-in-dispatcher-statistics) | 로드 밸런싱 계산에 대한 통계에 영향을 주는 벌칙입니다. |
-| [/failover](#using-the-fail-over-mechanism) | 원래 요청이 실패하면 요청을 다른 렌더링으로 다시 보냅니다. |
+| [/failover](#using-the-failover-mechanism) | 원래 요청이 실패하면 요청을 다른 렌더링으로 다시 보냅니다. |
 | [/auth_checker](permissions-cache.md) | 권한 구분 캐싱의 경우 보안 컨텐츠 [캐싱을 참조하십시오](permissions-cache.md). |
 
 ## 기본 페이지 지정(IIS만 해당) - /homepage {#specify-a-default-page-iis-only-homepage}
