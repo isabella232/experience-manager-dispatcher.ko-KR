@@ -4,17 +4,17 @@ seo-title: Dispatcher 보안 검사 목록
 description: 프로덕션을 진행하기 전에 완료해야 하는 보안 확인 목록입니다.
 seo-description: 프로덕션을 진행하기 전에 완료해야 하는 보안 확인 목록입니다.
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
-contentOwner: 사용자
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: 참조
-discoiquuid: fbffaa55-c029-4ed7-ab3e-1bebfde18248
+content-type: reference
+discoiquuid: fbfafa55-c029-4ed7-ab3e-1bebfde18248
 jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -91,7 +91,7 @@ Dispatcher를 구성할 때는 외부 액세스를 최대한 제한해야 합니
 
 ## 전용 시스템 사용자와 Dispatcher 실행 {#run-dispatcher-with-a-dedicated-system-user}
 
-Dispatcher를 구성할 때 권한이 가장 적은 전용 사용자가 웹 서버를 실행했는지 확인해야 합니다. 디스패처 캐시 폴더에만 쓰기 권한을 부여하는 것이 좋습니다.
+Dispatcher를 구성할 때 권한이 가장 적은 전용 사용자가 웹 서버를 실행했는지 확인해야 합니다. 디스패처 캐시 폴더에만 쓰기 액세스 권한을 부여하는 것이 좋습니다.
 
 또한 IIS 사용자는 다음과 같이 웹 사이트를 구성해야 합니다.
 
@@ -147,7 +147,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## CSRF 공격을 방지하도록 Dispatcher 구성 {#configure-dispatcher-to-prevent-csrf-attacks}
+## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
 
 AEM은 교차 사이트 요청 위조 공격을 방지하기 위한 [프레임워크를](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) 제공합니다. 이 프레임워크를 제대로 사용하려면 디스패처에서 CSRF 토큰 지원을 화이트리스트해야 합니다. 다음을 통해 이 작업을 수행할 수 있습니다.
 
