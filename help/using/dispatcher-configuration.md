@@ -1,8 +1,8 @@
 ---
 title: Dispatcher 구성
 seo-title: Dispatcher 구성
-description: Dispatcher를 구성하는 방법을 알아봅니다.
-seo-description: Dispatcher를 구성하는 방법을 알아봅니다.
+description: Learn how to configure Dispatcher.
+seo-description: Learn how to configure Dispatcher.
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
+source-git-commit: 183131dec51b67e152a8660c325ed980ae9ef458
 
 ---
 
@@ -21,17 +21,17 @@ source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 >
 >Dispatcher 버전은 AEM과 독립적입니다. 이전 버전의 AEM에 대한 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
 
-다음 섹션에서는 Dispatcher의 다양한 측면을 구성하는 방법에 대해 설명합니다.
+The following sections describe how to configure various aspects of the Dispatcher.
 
-## IPv4 및 IPv6 지원 {#support-for-ipv-and-ipv}
+## Support for IPv4 and IPv6 {#support-for-ipv-and-ipv}
 
-AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설치할 수 있습니다. IPV4 [및 IPV6을](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html#AdditionalPlatformNotes)참조하십시오.
+All elements of AEM and Dispatcher can be installed in both IPv4 and IPv6 networks. See [IPV4 and IPV6](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html#AdditionalPlatformNotes).
 
 ## 발송자 구성 파일 {#dispatcher-configuration-files}
 
 설치 중에 이 파일의 이름과 위치를 변경할 수 있지만 기본적으로 Dispatcher 구성은 `dispatcher.any` 텍스트 파일에 저장됩니다.
 
-구성 파일에는 Dispatcher의 동작을 제어하는 일련의 단일 값 또는 다중 값 속성이 포함되어 있습니다.
+The configuration file contains a series of single-valued or multi-valued properties that control the behavior of Dispatcher:
 
 * 속성 이름 앞에 슬래시가 붙습니다 `/`.
 * 다중 값 속성은 중괄호를 사용하여 하위 항목을 묶습니다 `{ }`.
@@ -405,7 +405,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 | 요청 URL | 해결된 가상 호스트 |
 |---|---|
-| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*` |
+| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
 ## 보안 세션 활성화 - /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
@@ -560,7 +560,7 @@ Dispatcher 버전 **4.1.6에서는**&#x200B;다음과 같이 `/always-resolve` �
 
 이 `/filter` 섹션을 사용하여 Dispatcher가 허용하는 HTTP 요청을 지정합니다. 다른 모든 요청은 404 오류 코드(페이지를 찾을 수 없음)와 함께 웹 서버로 다시 전송됩니다. 섹션이 없는 `/filter` 경우 모든 요청이 허용됩니다.
 
-**** 참고:상태 파일에 대한 [요청은](dispatcher-configuration.md#main-pars-title-28) 항상 거부됩니다.
+**참고:** 상태 파일에 대한 [요청은](dispatcher-configuration.md#main-pars-title-28) 항상 거부됩니다.
 
 >[!CAUTION]
 >
@@ -577,9 +577,9 @@ Dispatcher 버전 **4.1.6에서는**&#x200B;다음과 같이 `/always-resolve` �
 
 * **유형**:패턴과 일치하는 요청에 대한 액세스를 허용할지 또는 거부할지를 `/type` 나타냅니다. 값은 `allow` 또는 `deny`일 수 있습니다.
 
-* **** 요청 라인의 요소:HTTP 요청의 요청 라인 `/method`부분의 이러한 특정 부분에 따라 요청을 필터링하기 위한 패턴, `/url``/query``/protocol` 또는 패턴을 포함합니다. 전체 요청 라인이 아닌 요청 라인의 요소에 대한 필터링은 기본 필터 방법입니다.
+* **요청 라인의 요소:** HTTP 요청의 요청 라인 `/method`부분의 이러한 특정 부분에 따라 요청을 필터링하기 위한 패턴, `/url``/query``/protocol` 또는 패턴을 포함합니다. 전체 요청 라인이 아닌 요청 라인의 요소에 대한 필터링은 기본 필터 방법입니다.
 
-* **** 요청 라인의 고급 요소:Dispatcher 4.2.0부터 4개의 새로운 필터 요소를 사용할 수 있습니다. 이러한 새로운 요소는 `/path`각각 `/selectors``/extension` 및 `/suffix` 입니다. URL 패턴을 추가로 제어하려면 이러한 항목 중 하나 이상을 포함합니다.
+* **요청 라인의 고급 요소:** Dispatcher 4.2.0부터 4개의 새로운 필터 요소를 사용할 수 있습니다. 이러한 새로운 요소는 `/path`각각 `/selectors``/extension` 및 `/suffix` 입니다. URL 패턴을 추가로 제어하려면 이러한 항목 중 하나 이상을 포함합니다.
 
 >[!NOTE]
 >
@@ -863,13 +863,13 @@ Dispatcher 버전 4.1.5부터는 `/filter` 섹션을 사용하여 쿼리 문자�
 * /home/users/a/admin/profile.xml
 * /libs/cq/core/content/login.json
 * ../libs/foundation/components/text/text.jsp
-* /컨텐츠/.{.}/libs/foundation/components/text/text.jsp
+* /content/.{.}/libs/foundation/components/text/text.jsp
 * /apps/sling/config/org.apache.felix.webconsole.internal.servlet.OsgiManager.config/jcr%3acontent/jcr%3adata
 * /libs/foundation/components/primary/cq/workflow/components/participants/json.GET.servlet
 * /content.pages.json
 * /content.languages.json
 * /content.blueprint.json
-* /컨텐츠.-1.json
+* /content.-1.json
 * /content.10.json
 * /content.infinity.json
 * /content.tidy.json
@@ -919,7 +919,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">The "com.adobe.granite.dispatcher.vanityurl.content" package needs to be made public before publishing this contnet.</p>
  -->
 
-CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있도록 Dispatcher를 구성합니다.
+Configure Dispatcher to enable access to vanity URLs that are configured for your CQ or AEM pages.
 
 별칭 URL에 대한 액세스가 활성화되면 Dispatcher는 렌더링 인스턴스에서 실행되는 서비스를 정기적으로 호출하여 별칭 URL 목록을 가져옵니다. Dispatcher는 이 목록을 로컬 파일에 저장합니다. 섹션의 필터로 인해 페이지 요청이 거부되면 Dispatcher는 `/filter` 별칭 URL 목록을 참조합니다. 거부된 URL이 목록에 있으면 Dispatcher에서 별칭 URL에 액세스할 수 있습니다.
 
@@ -1070,10 +1070,10 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 /rules 속성의 각 항목에는 [글로벌](#designing-patterns-for-glob-properties) 패턴과 유형이 포함되어 있습니다.
 
-* 문서의 경로와 일치하는 글로벌 패턴을 사용합니다.
+* The glob pattern is used to match the path of the document.
 * 유형은 글로벌 패턴과 일치하는 문서를 캐시할지 여부를 나타냅니다. 이 값은 허용(문서 캐시) 또는 거부(문서를 항상 렌더링하기 위해)일 수 있습니다.
 
-동적 페이지가 없는 경우(위의 규칙에서 이미 제외된 페이지 제외) Dispatcher가 모든 것을 캐시하도록 구성할 수 있습니다. 이에 대한 규칙 섹션은 다음과 같습니다.
+If you do not have dynamic pages (beyond those already excluded by the above rules), you can configure Dispatcher to cache everything. 이에 대한 규칙 섹션은 다음과 같습니다.
 
 ```xml
 /rules
@@ -1101,13 +1101,13 @@ CQ 또는 AEM 페이지에 대해 구성된 별칭 URL에 액세스할 수 있�
 
 **압축**
 
-Apache 웹 서버에서는 캐시된 문서를 압축할 수 있습니다. 압축으로 인해 Apache는 클라이언트에서 요청한 경우 문서를 압축된 형식으로 반환할 수 있습니다. 압축은 Apache 모듈을 활성화하여 자동으로 수행됩니다. `mod_deflate`예:
+Apache 웹 서버에서는 캐시된 문서를 압축할 수 있습니다. 압축으로 인해 Apache는 클라이언트가 요청한 경우 문서를 압축된 형식으로 반환할 수 있습니다. Compression is done automatically by enabling the Apache module `mod_deflate`, for example:
 
 ```xml
 AddOutputFilterByType DEFLATE text/plain
 ```
 
-모듈은 Apache 2.x와 함께 기본적으로 설치됩니다.
+The module is installed by default with Apache 2.x.
 
 <!-- 
 
@@ -1156,37 +1156,37 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
 이 `/statfileslevel` 속성을 사용하여 경로에 따라 캐시된 파일을 무효화합니다.
 
-* Dispatcher는 문서 루트 폴더에서 지정한 수준으로 각 폴더에 `.stat`파일을 만듭니다. docroot 폴더는 수준 0입니다.
-* 파일을 터치하면 파일이 `.stat` 무효화됩니다. 파일의 마지막 수정 날짜는 캐시된 문서의 마지막 수정 날짜와 비교됩니다. `.stat` 파일이 최신 버전이면 문서를 다시 `.stat` 가져옵니다.
+* Dispatcher creates `.stat`files in each folder from the docroot folder to the level that you specify. The docroot folder is level 0.
+* Files are invalidated by touching the `.stat` file. The `.stat` file&#39;s last modification date is compared to the last modification date of a cached document. The document is re-fetched if the `.stat` file is newer.
 
-* 특정 수준에 있는 파일이 무효화되면 무효화된 파일 **또는 구성된 파일(둘 중 더 작은 파일)** 의 `.stat` 모든 **** 파일이 `statsfilevel` 수정됩니다.
+* When a file located at a certain level is invalidated then **all** `.stat` files from the docroot **to** the level of the invalidated file or the configured `statsfilevel` (whichever is smaller) will be touched.
 
-   * 예:속성을 6으로 `statfileslevel` 설정하면 파일이 레벨 5에서 무효화되면 docroot에서 5로 모든 `.stat` 파일이 수정됩니다. 이 예제를 계속 진행하면 파일이 레벨 7에서 무효화되는 경우 에 해당합니다. `stat` docroot에서 6까지 파일이 수정됩니다( `/statfileslevel = "6"`).
+   * For example: if you set the `statfileslevel` property to 6 and a file is invalidated at level 5 then every `.stat` file from docroot to 5 will be touched. Continuing with this example, if a file is invalidated at level 7 then every . `stat` file from docroot to 6 will be touched (since `/statfileslevel = "6"`).
 
-무효화된 파일에 **대한 경로를** 따른 리소스만 영향을 받습니다. 다음 예를 고려하십시오.웹 사이트에서는 구조를 사용합니다. `/content/myWebsite/xx/.` 3으로 설정하면 `statfileslevel` `.stat`파일이 다음과 같이 생성됩니다.
+Only resources **along the path** to the invalidated file are affected. Consider the following example: a website uses the structure `/content/myWebsite/xx/.` If you set `statfileslevel` as 3, a `.stat`file is created as follows:
 
 * `docroot`
 * `/content`
 * `/content/myWebsite`
 * `/content/myWebsite/*xx*`
 
-의 파일이 `/content/myWebsite/xx` 무효화되면 doroot에서 `.stat` to까지의 모든 파일이 `/content/myWebsite/xx`수정됩니다. 이것은 예와 같은 `/content/myWebsite/xx` 경우나 `/content/myWebsite/yy` 같은 경우는 `/content/anotherWebSite`아닙니다.
+When a file in `/content/myWebsite/xx` is invalidated then every `.stat` file from docroot down to `/content/myWebsite/xx`is touched. This would be the case only for `/content/myWebsite/xx` and not for example `/content/myWebsite/yy` or `/content/anotherWebSite`.
 
 >[!NOTE]
 >
->추가 헤더를 전송하여 무효화를 방지할 수 `CQ-Action-Scope:ResourceOnly`있습니다. 이 기능은 캐시의 다른 부분을 무효화하지 않고 특정 리소스를 플러시하는 데 사용할 수 있습니다. 자세한 내용은 [이 페이지](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) 및 [수동으로 발송자 캐시 무효화를](https://helpx.adobe.com/experience-manager/dispatcher/using/page-invalidate.html) 참조하십시오.
+>Invalidation can be prevented by sending an additional Header `CQ-Action-Scope:ResourceOnly`. This can be used to flush particular resources without invalidating other parts of the cache. See [this page](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) and [Manually Invalidating the Dispatcher Cache](https://helpx.adobe.com/experience-manager/dispatcher/using/page-invalidate.html) for additional details.
 
 >[!NOTE]
 >
->속성 값을 지정하면 `/statfileslevel` 속성이 `/statfile` 무시됩니다.
+>If you specify a value for the `/statfileslevel` property, the `/statfile` property is ignored.
 
-### 캐시된 파일 자동 무효화 {#automatically-invalidating-cached-files}
+### Automatically Invalidating Cached Files {#automatically-invalidating-cached-files}
 
-이 `/invalidate` 속성은 컨텐츠를 업데이트할 때 자동으로 무효화되는 문서를 정의합니다.
+The `/invalidate` property defines the documents that are automatically invalidated when content is updated.
 
-자동 무효화를 통해 디스패처는 컨텐츠 업데이트 후 캐시된 파일을 삭제하지 않고 다음에 요청할 때 해당 파일의 유효성을 확인합니다. 자동 무효화되지 않은 캐시에 있는 문서는 컨텐츠 업데이트로 명시적으로 삭제될 때까지 캐시에 유지됩니다.
+With automatic invalidation, Dispatcher does not delete cached files after a content update, but checks their validity when they are next requested. Documents in the cache that are not auto-invalidated will remain in the cache until a content update explicitly deletes them.
 
-자동 무효화는 일반적으로 HTML 페이지에 사용됩니다. HTML 페이지에는 종종 다른 페이지에 대한 링크가 포함되어 있으므로 컨텐츠 업데이트가 페이지에 영향을 주는지 여부를 판단하기가 어렵습니다. 컨텐츠가 업데이트될 때 관련 페이지가 모두 무효화되도록 하려면 모든 HTML 페이지를 자동으로 무효화합니다. 다음 구성은 모든 HTML 페이지를 무효화합니다.
+Automatic invalidation is typically used for HTML pages. HTML pages often contain links to other pages, making it difficult to determine whether a content update affects a page. To make sure that all relevant pages are invalidated when content is updated, automatically invalidate all HTML pages. The following configuration invalidates all HTML pages:
 
 ```xml
   /invalidate
@@ -1196,15 +1196,15 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
   }
 ```
 
-전역 속성에 대한 자세한 내용은 전역 속성에 [대한 패턴 디자인을 참조하십시오](#designing-patterns-for-glob-properties).
+For information about glob properties, see [Designing Patterns for glob Properties](#designing-patterns-for-glob-properties).
 
 이 구성으로 인해 /content/geometrixx/en이 활성화되면 다음 작업이 발생합니다.
 
-* 패턴 엔이 있는 모든 파일*가 /content/geometrixx/ 폴더에서 제거됩니다.
+* 패턴 엔이 있는 모든 파일* are removed from the /content/geometrixx/ folder.
 * /content/geometrixx/en/_jcr_content 폴더가 제거됩니다.
-* /invalidate 구성과 일치하는 다른 모든 파일은 즉시 삭제되지 않습니다. 이러한 파일은 다음 요청이 발생하면 삭제됩니다. /content/geometrixx.html이 삭제되지 않은 경우 /content/geometrixx.html이 요청되면 삭제됩니다.
+* /invalidate 구성과 일치하는 다른 모든 파일은 즉시 삭제되지 않습니다. These files are deleted when the next request occurs. In our example /content/geometrixx.html is not deleted, it will be deleted when /content/geometrixx.html is requested.
 
-다운로드용으로 자동으로 생성된 PDF 및 ZIP 파일을 제공하는 경우 이러한 파일도 자동으로 무효화해야 할 수 있습니다. 구성 예는 다음과 같습니다.
+If you offer automatically generated PDF and ZIP files for download, you might have to automatically invalidate these as well. A configuration example this looks as follows:
 
 ```xml
 /invalidate
@@ -1216,7 +1216,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
   }
 ```
 
-Adobe Analytics와 AEM 통합은 웹 사이트의 analytics.sitecatalyst.js 파일에서 구성 데이터를 제공합니다. Dispatcher와 함께 제공되는 예제 dispatcher.any 파일에는 이 파일에 대한 다음 무효화 규칙이 포함되어 있습니다.
+The AEM integration with Adobe Analytics delivers configuration data in an analytics.sitecatalyst.js file in your website. The example dispatcher.any file that is provided with Dispatcher includes the following invalidation rule for this file:
 
 ```xml
 {
@@ -1224,20 +1224,20 @@ Adobe Analytics와 AEM 통합은 웹 사이트의 analytics.sitecatalyst.js 파�
 }
 ```
 
-### 사용자 정의 무효화 스크립트 사용 {#using-custom-invalidation-scripts}
+### Using custom invalidation scripts {#using-custom-invalidation-scripts}
 
-/invalidateHandler 속성을 사용하면 Dispatcher가 수신한 각 무효화 요청에 대해 호출되는 스크립트를 정의할 수 있습니다.
+The /invalidateHandler property allows you to define a script which is called for each invalidation request received by Dispatcher.
 
-다음 인수를 사용하여 호출됩니다.
+It is called with the following arguments:
 
 * 핸들\
-   무효화된 컨텐츠 경로
+   The content path that is invalidated
 * 작업\
-   복제 작업(예: 활성화, 비활성화)
-* 작업 범위\
+   The replication Action (e.g. Activate, Deactivate)
+* Action Scope\
    복제 작업의 범위(헤더가 전송되지 않는 경우 비어 있음) `CQ-Action-Scope: ResourceOnly` 에 [대한 자세한 내용은 AEM에서 캐시된 페이지 무효화를](page-invalidate.md) 참조하십시오.
 
-다른 애플리케이션별 캐시를 무효화하는 등 다양한 사용 사례를 다루거나, 페이지의 외부화된 URL과 문서 루트의 위치가 컨텐츠 경로와 일치하지 않는 경우를 처리하는 데 사용할 수 있습니다.
+This can be used to cover a number of different use cases, such as invalidating other application specific caches, or to handle cases where the externalized URL of a page and its place in the docroot does not match the content path.
 
 아래 예제는 각 무효화 요청을 파일에 기록합니다.
 
@@ -1245,7 +1245,7 @@ Adobe Analytics와 AEM 통합은 웹 사이트의 analytics.sitecatalyst.js 파�
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
 ```
 
-#### 샘플 무효화 처리기 스크립트 {#sample-invalidation-handler-script}
+#### sample invalidation handler script {#sample-invalidation-handler-script}
 
 ```shell
 #!/bin/bash
@@ -1253,9 +1253,9 @@ Adobe Analytics와 AEM 통합은 웹 사이트의 analytics.sitecatalyst.js 파�
 printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 ```
 
-### 캐시를 플러시할 수 있는 클라이언트 제한 {#limiting-the-clients-that-can-flush-the-cache}
+### Limiting the Clients That Can Flush the Cache {#limiting-the-clients-that-can-flush-the-cache}
 
-/allowedClients 속성은 캐시를 플러시할 수 있는 특정 클라이언트를 정의합니다. 글로빙 패턴은 IP와 일치합니다.
+The /allowedClients property defines specific clients that are allowed to flush the cache. The globbing patterns are matched against the IP.
 
 다음 예:
 
@@ -1308,7 +1308,7 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 GET /mypage.html?q=5
 ```
 
-다음 HTTP `ignoreUrlParams` 요청을 사용하면 **매개 변수가 무시되지 않으므로 페이지가 캐시되지** 않습니다 `p` .
+Using the example `ignoreUrlParams` value, the following HTTP request causes the page to **not** be cached because the `p` parameter is not ignored:
 
 ```xml
 GET /mypage.html?q=5&p=4
