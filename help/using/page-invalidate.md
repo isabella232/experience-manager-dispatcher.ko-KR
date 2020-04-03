@@ -4,16 +4,16 @@ seo-title: Adobe AEM에서 캐시된 페이지 무효화
 description: 효과적인 캐시 관리를 위해 Dispatcher와 AEM 간의 상호 작용을 구성하는 방법을 알아봅니다.
 seo-description: 효율적인 캐시 관리를 위해 Adobe AEM Dispatcher와 AEM 간의 상호 작용을 구성하는 방법을 알아봅니다.
 uuid: 66533299-55c0-4864-9beb-77e281af9359
-cmgrlastmodified: 01.11.2007 08 22 29 [aheidmoz]
-pageversionid: '1193211344162'
+cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
+pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
-contentOwner: 사용자
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
-content-type: 참조
+content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 85497651ce29c8564da4b52c60819a48b776af7b
 
 ---
 
@@ -24,7 +24,7 @@ AEM 파섹 환경에 따라 구성이 성능을 높일 수도 있습니다.
 
 ## AEM 사용자 계정 설정 {#setting-up-aem-user-accounts}
 
-기본 `admin` 사용자 계정은 기본적으로 설치된 복제 에이전트를 인증하는 데 사용됩니다. 복제 에이전트와 함께 사용할 전용 사용자 계정을 만들어야 합니다. [](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps)
+기본 `admin` 사용자 계정은 기본적으로 설치된 복제 에이전트를 인증하는 데 사용됩니다. 복제 에이전트와 함께 사용할 전용 사용자 계정을 만들어야 합니다.
 
 자세한 내용은 AEM 보안 [체크리스트의 복제 및](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) 전송 사용자 구성 섹션을 참조하십시오.
 
@@ -58,9 +58,9 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
 1. (선택 사항) 별칭 또는 별칭 경로 무효화 요청을 활성화하려면 별칭 **업데이트** 옵션을 선택합니다.
 1. 전송 탭에서 발송자에 액세스하는 데 필요한 URI를 입력합니다.\
-   표준 Dispatcher Flush 에이전트를 사용하는 경우 호스트 이름 및 포트를 업데이트해야 합니다.예: https://&lt;*dispatcherHost*&gt;:&lt;*portApache*&gt;/dispatcher/invalidate.cache
+   표준 Dispatcher Flush 에이전트를 사용하는 경우 호스트 이름 및 포트를 업데이트해야 합니다.예: https://&lt;*dispatcherHost*>:&lt;*portApache*>/dispatcher/invalidate.cache
 
-   **** 참고:Dispatcher Flush 에이전트의 경우 URI 속성은 경로 기반 가상 호스트 항목을 사용하여 팜 간을 구분하는 경우에만 사용됩니다. 이 필드를 사용하여 무효화할 팜을 타깃팅합니다. 예를 들어 팜 #1에는 가상 호스트가 `www.mysite.com/path1/*` 있고 팜 #2에는 가상 호스트가 `www.mysite.com/path2/*`있습니다. 의 URL을 `/path1/invalidate.cache` 사용하여 첫 번째 팜을 타깃팅하고 두 번째 팜을 타깃팅할 `/path2/invalidate.cache` 수 있습니다. 자세한 내용은 여러 도메인에 [디스패처 사용을 참조하십시오](dispatcher-domains.md).
+   **참고:** Dispatcher Flush 에이전트의 경우 URI 속성은 경로 기반 가상 호스트 항목을 사용하여 팜 간을 구분하는 경우에만 사용됩니다. 이 필드를 사용하여 무효화할 팜을 타깃팅합니다. 예를 들어 팜 #1에는 가상 호스트가 `www.mysite.com/path1/*` 있고 팜 #2에는 가상 호스트가 `www.mysite.com/path2/*`있습니다. 의 URL을 `/path1/invalidate.cache` 사용하여 첫 번째 팜을 타깃팅하고 두 번째 팜을 타깃팅할 `/path2/invalidate.cache` 수 있습니다. 자세한 내용은 여러 도메인에 [디스패처 사용을 참조하십시오](dispatcher-domains.md).
 
 1. 필요에 따라 다른 매개 변수를 구성합니다.
 1. 확인을 클릭하여 에이전트를 활성화합니다.
@@ -109,7 +109,7 @@ Comment Type: draft
 1. 전송 탭에서 발송자에 액세스하는 데 필요한 URI를 입력합니다.\
    표준 Dispatcher Flush 에이전트를 사용하는 경우 호스트 이름 및 포트를 업데이트해야 합니다.예를 들면 `http://<dispatcherHost>:<portApache>/dispatcher/invalidate.cache`
 
-   **** 참고:Dispatcher Flush 에이전트의 경우 URI 속성은 경로 기반 가상 호스트 항목을 사용하여 팜 간을 구분하는 경우에만 사용됩니다. 이 필드를 사용하여 무효화할 팜을 타깃팅합니다. 예를 들어 팜 #1에는 가상 호스트가 `www.mysite.com/path1/*` 있고 팜 #2에는 가상 호스트가 `www.mysite.com/path2/*`있습니다. 의 URL을 `/path1/invalidate.cache` 사용하여 첫 번째 팜을 타깃팅하고 두 번째 팜을 타깃팅할 `/path2/invalidate.cache` 수 있습니다. 자세한 내용은 여러 도메인에 [디스패처 사용을 참조하십시오](dispatcher-domains.md).
+   **참고:** Dispatcher Flush 에이전트의 경우 URI 속성은 경로 기반 가상 호스트 항목을 사용하여 팜 간을 구분하는 경우에만 사용됩니다. 이 필드를 사용하여 무효화할 팜을 타깃팅합니다. 예를 들어 팜 #1에는 가상 호스트가 `www.mysite.com/path1/*` 있고 팜 #2에는 가상 호스트가 `www.mysite.com/path2/*`있습니다. 의 URL을 `/path1/invalidate.cache` 사용하여 첫 번째 팜을 타깃팅하고 두 번째 팜을 타깃팅할 `/path2/invalidate.cache` 수 있습니다. 자세한 내용은 여러 도메인에 [디스패처 사용을 참조하십시오](dispatcher-domains.md).
 
 1. 필요에 따라 다른 매개 변수를 구성합니다.
 1. 영향을 받는 모든 게시 인스턴스에 대해 반복합니다.
@@ -141,7 +141,7 @@ Content-Length: 0
 
 * 디렉토리에 `en` 있는 모든 파일(모든 파일 확장명) `geometrixx-outdoors`
 
-* en 디렉토리 아래에 " `_jcr_content`"라는 이름의 모든 디렉토리(존재하는 경우 페이지의 하위 노드의 캐시된 렌더링 포함)
+* en 디렉토리 아래에 &quot; `_jcr_content`&quot;라는 이름의 모든 디렉토리(존재하는 경우 페이지의 하위 노드의 캐시된 렌더링 포함)
 
 디스패처 캐시에 있는 다른 모든 파일(또는 `/statfileslevel` 설정에 따라 특정 수준까지)은 `.stat` 파일을 터치하면 무효화됩니다. 이 파일의 마지막 수정 날짜는 캐시된 문서의 마지막 수정 날짜와 비교되며 파일이 최신 파일인 경우 문서를 다시 `.stat` 가져옵니다. 자세한 [내용은 폴더 수준별 파일 무효화를](dispatcher-configuration.md#main-pars_title_26) 참조하십시오.
 
@@ -151,7 +151,7 @@ Content-Length: 0
 
 Dispatcher가 캐시된 파일을 삭제하고 파일을 즉시 검색하고 다시 캐시하는 HTTP 요청을 발행합니다. 웹 사이트에서 동일한 페이지에 대한 동시 클라이언트 요청을 받을 가능성이 높을 때 파일을 삭제하고 즉시 다시 캐시합니다. 즉시 다시 연결을 통해 Dispatcher는 동시에 실행되는 각 클라이언트 요청에 대해 한 번이 아니라 한 번만 페이지를 검색하고 캐시합니다.
 
-**** 참고:게시 인스턴스에서만 파일 삭제 및 재캡처를 수행해야 합니다. 작성자 인스턴스에서 수행되는 경우 리소스를 캐시하려는 시도가 게시되기 전에 발생할 때 경합 조건이 발생합니다.
+**참고:** 게시 인스턴스에서만 파일 삭제 및 재캡처를 수행해야 합니다. 작성자 인스턴스에서 수행되는 경우 리소스를 캐시하려는 시도가 게시되기 전에 발생할 때 경합 조건이 발생합니다.
 
 HTTP 요청에는 다음 양식이 있습니다.
 
