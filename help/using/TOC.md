@@ -2,10 +2,14 @@
 cloud: experience-cloud
 product: experience manager
 sub-product: experience manager dispatcher
-archetype: 관리자
+archetype: Administrator
 user-guide-title: Experience Manager Dispatcher 도움말
-translation-type: ht
-source-git-commit: 5cd966c0e317949582084d3268c6914540b707b1
+user-guide-description: Learn to use Dispatcher for caching, load balancing, and improving security for your AEM server.
+translation-type: tm+mt
+source-git-commit: 02a082ec66e32f2c4c0b3a6135eacbb4c5e9de7b
+workflow-type: tm+mt
+source-wordcount: '70'
+ht-degree: 81%
 
 ---
 
@@ -20,7 +24,7 @@ source-git-commit: 5cd966c0e317949582084d3268c6914540b707b1
 + 구성 {#configuring}
    + [Dispatcher 구성](dispatcher-configuration.md)
    + [AEM에서 캐시된 페이지 무효화](page-invalidate.md)
-   + [캐시 성능을 위한 웹 사이트 최적화](https://helpx.adobe.com/kr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+   + [캐시 성능을 위한 웹 사이트 최적화](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
    + [보안 콘텐츠 캐싱](permissions-cache.md)
    + [여러 도메인에 Dispatcher 사용 ](dispatcher-domains.md)
    + [Dispatcher에 SSL 사용](dispatcher-ssl.md)
