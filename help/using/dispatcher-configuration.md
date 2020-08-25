@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+source-git-commit: 31dc02adc1d16ec61d5191b86d0d1276c2e1da46
 workflow-type: tm+mt
-source-wordcount: '8802'
+source-wordcount: '8582'
 ht-degree: 2%
 
 ---
@@ -273,7 +273,7 @@ Comment Type: draft
 * AEM 인스턴스에서 HTTP 요청에 기대하는 사용자 지정 헤더와 같은 헤더를 추가합니다.
 * 웹 서버와 관련된 인증 헤더와 같은 헤더를 제거합니다.
 
-통과하도록 헤더 집합을 사용자 지정하는 경우, 기본적으로 기본적으로 포함되어 있는 헤더를 포함하여 전체 헤더 목록을 지정해야 합니다.
+통과하도록 헤더 세트를 사용자 지정하는 경우, 기본적으로 기본적으로 포함되어 있는 헤더 목록을 포함하여 전체 헤더 목록을 지정해야 합니다.
 
 예를 들어 게시 인스턴스에 대한 페이지 활성화 요청을 처리하는 Dispatcher 인스턴스에는 섹션 `PATH` 의 헤더가 `/clientheaders` 필요합니다. 헤더는 복제 에이전트와 디스패처 간의 통신을 활성화합니다. `PATH`
 
@@ -847,60 +847,60 @@ Dispatcher 버전 4.1.5부터는 `/filter` 섹션을 사용하여 쿼리 문자�
 
 디스패처 필터는 AEM 게시 인스턴스의 다음 페이지 및 스크립트에 대한 액세스를 차단해야 합니다. 웹 브라우저를 사용하여 다음 페이지를 사이트 방문자로 열고 코드 404가 반환되는지 확인합니다. 다른 결과가 나오면 필터를 조정합니다.
 
-/content/add_valid_page.html?debug=layout에 대한 일반 페이지 렌더링이 표시되어야 합니다.
+에 대한 일반 페이지 렌더링이 표시되어야 합니다 `/content/add_valid_page.html?debug=layout`.
 
 
-* /admin
-* /system/console
-* /dav/crx.default
-* /crx
-* /bin/crxde/logs
-* /jcr:system/jcr:versionStorage.json
-* /_jcr_system/_jcr_versionStorage.json
-* /libs/wcm/core/content/siteadmin.html
-* /libs/collab/core/content/admin.html
-* /libs/cq/ui/content/dumplibs.html
-* /var/linkchecker.html
-* /etc/linkchecker.html
-* /home/users/a/admin/profile.json
-* /home/users/a/admin/profile.xml
-* /libs/cq/core/content/login.json
-* ../libs/foundation/components/text/text.jsp
-* /content/.{.}/libs/foundation/components/text/text.jsp
-* /apps/sling/config/org.apache.felix.webconsole.internal.servlet.OsgiManager.config/jcr%3acontent/jcr%3adata
-* /libs/foundation/components/primary/cq/workflow/components/participants/json.GET.servlet
-* /content.pages.json
-* /content.languages.json
-* /content.blueprint.json
-* /content.-1.json
-* /content.10.json
-* /content.infinity.json
-* /content.tidy.json
-* /content.tidy.-1.blubber.json
-* /content/dam.tidy.-100.json
-* /content/content/geometrixx.sitemap.txt
-* /content/add_valid_page.query.json?statement=//*
-* /content/add_valid_page.qu%65ry.js%6Fn?statement=//*
-* /content/add_valid_page.query.json?statement=//*[@transportPassword]/(@transportPassword%20|%20@transportUri%20|%20@transportUser)
-* /content/add_valid_path_to_a_page/_jcr_content.json
-* /content/add_valid_path_to_a_page/jcr:content.json
-* /content/add_valid_path_to_a_page/_jcr_content.feed
-* /content/add_valid_path_to_a_page/jcr:content.feed
-* /content/add_valid_path_to_a_page/pagename._jcr_content.feed
-* /content/add_valid_path_to_a_page/pagename.jcr:content.feed
-* /content/add_valid_path_to_a_page/pagename.docview.xml
-* /content/add_valid_path_to_a_page/pagename.docview.json
-* /content/add_valid_path_to_a_page/pagename.sysview.xml
-* /etc.xml
-* /content.feed.xml
-* /content.rss.xml
-* /content.feed
-* /content/add_valid_page.html?debug=layout
-* /projects
-* /tagging
-* /etc/replication.html
-* /etc/cloudservices.html
-* /시작
+* `/admin`
+* `/system/console`
+* `/dav/crx.default`
+* `/crx`
+* `/bin/crxde/logs`
+* `/jcr:system/jcr:versionStorage.json`
+* `/_jcr_system/_jcr_versionStorage.json`
+* `/libs/wcm/core/content/siteadmin.html`
+* `/libs/collab/core/content/admin.html`
+* `/libs/cq/ui/content/dumplibs.html`
+* `/var/linkchecker.html`
+* `/etc/linkchecker.html`
+* `/home/users/a/admin/profile.json`
+* `/home/users/a/admin/profile.xml`
+* `/libs/cq/core/content/login.json`
+* `/content/../libs/foundation/components/text/text.jsp`
+* `/content/.{.}/libs/foundation/components/text/text.jsp`
+* `/apps/sling/config/org.apache.felix.webconsole.internal.servlet.OsgiManager.config/jcr%3acontent/jcr%3adata`
+* `/libs/foundation/components/primary/cq/workflow/components/participants/json.GET.servlet`
+* `/content.pages.json`
+* `/content.languages.json`
+* `/content.blueprint.json`
+* `/content.-1.json`
+* `/content.10.json`
+* `/content.infinity.json`
+* `/content.tidy.json`
+* `/content.tidy.-1.blubber.json`
+* `/content/dam.tidy.-100.json`
+* `/content/content/geometrixx.sitemap.txt `
+* `/content/add_valid_page.query.json?statement=//*`
+* `/content/add_valid_page.qu%65ry.js%6Fn?statement=//*`
+* `/content/add_valid_page.query.json?statement=//*[@transportPassword]/(@transportPassword%20|%20@transportUri%20|%20@transportUser)`
+* `/content/add_valid_path_to_a_page/_jcr_content.json`
+* `/content/add_valid_path_to_a_page/jcr:content.json`
+* `/content/add_valid_path_to_a_page/_jcr_content.feed`
+* `/content/add_valid_path_to_a_page/jcr:content.feed`
+* `/content/add_valid_path_to_a_page/pagename._jcr_content.feed`
+* `/content/add_valid_path_to_a_page/pagename.jcr:content.feed`
+* `/content/add_valid_path_to_a_page/pagename.docview.xml`
+* `/content/add_valid_path_to_a_page/pagename.docview.json`
+* `/content/add_valid_path_to_a_page/pagename.sysview.xml`
+* `/etc.xml`
+* `/content.feed.xml`
+* `/content.rss.xml`
+* `/content.feed.html`
+* `/content/add_valid_page.html?debug=layout`
+* `/projects`
+* `/tagging`
+* `/etc/replication.html`
+* `/etc/cloudservices.html`
+* `/welcome`
 
 익명 쓰기 액세스 허용 여부를 확인하려면 터미널 또는 명령 프롬프트에서 다음 명령을 실행합니다. 노드에 데이터를 쓸 수 없습니다.
 
