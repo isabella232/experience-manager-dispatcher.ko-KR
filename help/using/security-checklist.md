@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+source-git-commit: 7889c025fb8fb29e6f11ea01c5248470556d3160
 workflow-type: tm+mt
-source-wordcount: '672'
+source-wordcount: '653'
 ht-degree: 1%
 
 ---
@@ -35,7 +35,7 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-프런트 엔드 시스템으로 디스패처는 Adobe Experience Manager 인프라에 추가 보안 계층을 제공합니다. 프로덕션 전 다음 체크리스트를 완료하는 것이 좋습니다.
+Adobe은 프로덕션을 시작하기 전에 다음 체크리스트를 완료하는 것이 좋습니다.
 
 >[!CAUTION]
 >
@@ -43,7 +43,7 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
 ## 최신 버전의 Dispatcher 사용 {#use-the-latest-version-of-dispatcher}
 
-사용 가능한 최신 버전을 플랫폼에 설치해야 합니다. Dispatcher 인스턴스를 업그레이드하여 최신 버전을 사용하여 제품 및 보안 향상 기능을 활용해야 합니다. Dispatcher [설치를 참조하십시오](dispatcher-install.md).
+사용 가능한 최신 버전을 플랫폼에 설치해야 합니다. 제품 및 보안 개선 사항을 활용하려면 최신 버전을 사용하려면 Dispatcher 인스턴스를 업그레이드해야 합니다. 디스패처 [설치를 참조하십시오](dispatcher-install.md).
 
 >[!NOTE]
 >
@@ -55,7 +55,7 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
 ## 캐시를 플러시할 수 있는 클라이언트 제한 {#restrict-clients-that-can-flush-your-cache}
 
-캐시를 플러시할 수 있는 클라이언트를 [제한하는 것이 좋습니다.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
+Adobe에서는 캐시를 플러시할 수 있는 클라이언트를 [제한하는 것이 좋습니다.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
 ## 전송 레이어 보안을 위해 HTTPS 사용 {#enable-https-for-transport-layer-security}
 
@@ -80,21 +80,21 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## 액세스 제한 {#restrict-access}
 
-Dispatcher을 구성할 때는 외부 액세스를 가능한 한 많이 제한해야 합니다. Dispatcher [설명서의 /filter 섹션](dispatcher-configuration.md#main-pars_184_1_title) 예를 참조하십시오.
+Dispatcher를 구성할 때는 외부 액세스를 가능한 한 제한해야 합니다. Dispatcher [설명서의 /filter 섹션](dispatcher-configuration.md#main-pars_184_1_title) 예를 참조하십시오.
 
 ## 관리 URL에 대한 액세스가 거부되었는지 확인하십시오. {#make-sure-access-to-administrative-urls-is-denied}
 
 필터를 사용하여 웹 콘솔과 같은 모든 관리 URL에 대한 외부 액세스를 차단해야 합니다.
 
-차단해야 [하는 URL 목록은 Dispatcher 보안](dispatcher-configuration.md#testing-dispatcher-security) 테스트를 참조하십시오.
+차단해야 [하는](dispatcher-configuration.md#testing-dispatcher-security) URL 목록은 Dispatcher 보안 테스트를 참조하십시오.
 
-## 블록 목록 대신 Allowlists 사용 {#use-allowlists-instead-of-blocklists}
+## 차단 목록 대신 허용 목록 사용 {#use-allowlists-instead-of-blocklists}
 
-Allowlists는 기본적으로 모든 액세스 요청이 허용 목록에 명시적으로 포함되지 않은 경우 거부되어야 한다고 간주하므로 액세스 제어를 제공하는 더 나은 방법입니다. 이 모델은 특정 구성 단계 동안 아직 검토되지 않았거나 고려되지 않았을 수 있는 새 요청에 대해 보다 제한적인 제어를 제공합니다.
+허용 목록은 기본적으로 액세스 제어를 제공하는 더 나은 방법이므로, 모든 액세스 요청은 명시적으로에 속하지 않는 한 거부되어야 한다고 허용 목록에 추가하다 가정합니다. 이 모델은 특정 구성 단계 동안 아직 검토되지 않았거나 고려되지 않았을 수 있는 새 요청에 대해 보다 제한적인 제어를 제공합니다.
 
 ## 전용 시스템 사용자로 Dispatcher 실행 {#run-dispatcher-with-a-dedicated-system-user}
 
-Dispatcher을 구성할 때는 권한이 가장 적은 전용 사용자가 웹 서버를 실행했는지 확인해야 합니다. 디스패처 캐시 폴더에만 쓰기 액세스 권한을 부여하는 것이 좋습니다.
+Dispatcher를 구성할 때는 웹 서버가 최소한의 권한을 가진 전용 사용자에 의해 실행되어야 합니다. 디스패처 캐시 폴더에만 쓰기 액세스 권한을 부여하는 것이 좋습니다.
 
 또한 IIS 사용자는 다음과 같이 웹 사이트를 구성해야 합니다.
 
@@ -153,7 +153,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM은 교차 사이트 요청 위조 공격을 방지하기 위한 [프레임워크를](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) 제공합니다. 이 프레임워크를 제대로 사용하려면 디스패처에서 CSRF 토큰 지원을 허용해야 합니다. 다음을 통해 이 작업을 수행할 수 있습니다.
+AEM은 교차 사이트 요청 위조 공격을 방지하기 위한 [프레임워크를](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) 제공합니다. 이 프레임워크를 제대로 사용하려면 디스패처에서 CSRF 토큰 지원을허용 목록에 추가하다해야 합니다. 다음을 통해 이 작업을 수행할 수 있습니다.
 
 1. 경로를 허용하는 필터 `/libs/granite/csrf/token.json` 만들기;
 1. Dispatcher 구성 `CSRF-Token` 섹션에 `clientheaders` 헤더를 추가합니다.
@@ -166,5 +166,5 @@ AEM은 교차 사이트 요청 위조 공격을 방지하기 위한 [프레임�
 
 ## 침투 테스트 수행 {#perform-a-penetration-test}
 
-프로덕션을 시작하기 전에 AEM 인프라에 대한 침투 테스트를 수행하는 것이 좋습니다.
+Adobe은 프로덕션을 시작하기 전에 AEM 인프라의 보급률 테스트를 수행하는 것이 좋습니다.
 
