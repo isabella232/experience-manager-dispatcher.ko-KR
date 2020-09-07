@@ -9,10 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 translation-type: tm+mt
-source-git-commit: 88ea38c9ad7fe67edbaf68c4882a01c3f9a475d9
+source-git-commit: 590a9a2b6005cd48676cf525b0e029e42d1b3ca6
 workflow-type: tm+mt
-source-wordcount: '3222'
-ht-degree: 91%
+source-wordcount: '3199'
+ht-degree: 90%
 
 ---
 
@@ -23,9 +23,9 @@ ht-degree: 91%
 >
 >Dispatcher 버전은 AEM과 독립적입니다. 이전 버전의 AEM에 대한 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
 
-Dispatcher는 Adobe Experience Manager의 캐싱 및/또는 로드 밸런싱 도구입니다. AEM의 Dispatcher를 사용하면 AEM 서버를 공격으로부터 보호할 수 있습니다. 따라서 Dispatcher를 엔터프라이즈급 웹 서버와 함께 사용하여 AEM 인스턴스의 보안을 강화할 수 있습니다.
+Dispatcher는 엔터프라이즈급 웹 서버와 함께 사용할 수 있는 Adobe Experience Manager의 캐싱 및/또는 로드 밸런싱 도구입니다.
 
-Dispatcher를 배포하는 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독립적입니다.
+디스패처 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과는 별개입니다.
 
 1. Dispatcher에 대해 알아보십시오(이 페이지). 또한 발송자에 대한 [FAQ를 참조하십시오](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html).
 1. 웹 서버 설명서에 따라 [지원되는 웹 서버를](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) 설치합니다.
