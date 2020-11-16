@@ -13,7 +13,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
-source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+source-git-commit: 9af0dc22d32f1176b84c28a70b1a4701414d434e
 workflow-type: tm+mt
 source-wordcount: '553'
 ht-degree: 7%
@@ -37,10 +37,10 @@ ht-degree: 7%
 
 항상 첫 번째 단계는 기본 사항을 확인하는 것입니다.
 
-* [기본 작업 확인](#ConfirmBasicOperation)
-* 웹 서버 및 디스패처의 모든 로그 파일을 확인합니다. 필요한 경우 디스패처 로깅 `loglevel` 에 사용되는 필드를 [늘립니다](#Logging).
+* [기본 작업 확인](/help/using/dispatcher-configuration.md#confirming-basic-operation)
+* 웹 서버 및 디스패처의 모든 로그 파일을 확인합니다. 필요한 경우 디스패처 로깅 `loglevel` 에 사용되는 필드를 [늘립니다](/help/using/dispatcher-configuration.md#logging).
 
-* [구성 확인](#ConfiguringtheDispatcher):
+* [구성 확인](/help/using/dispatcher-configuration.md):
 
    * 여러 디스패처가 있습니까?
 
