@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: ef0fc34cbf2f07090f39613811d6f015ba2305ab
+source-git-commit: 024348672c2a9a4f8a01429572eba27ea8b8a490
 workflow-type: tm+mt
-source-wordcount: '3689'
-ht-degree: 1%
+source-wordcount: '3684'
+ht-degree: 0%
 
 ---
 
@@ -28,11 +28,11 @@ Comment Type: draft
 
  -->
 
+Dispatcher [릴리스 정보](release-notes.md) 페이지를 사용하여 운영 체제 및 웹 서버에 대한 최신 Dispatcher 설치 파일을 받습니다. 디스패처 릴리스 번호는 Adobe Experience Manager 릴리스 번호와 독립적으로 제공되며 Adobe Experience Manager 6.x, 5.x 및 Adobe CQ 5.x 릴리스와 호환됩니다.
+
 >[!NOTE]
 >
->Dispatcher 버전은 AEM과 독립적입니다. 이전 버전의 AEM에 대한 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
-
-Dispatcher [릴리스 정보](release-notes.md) 페이지를 사용하여 운영 체제 및 웹 서버에 대한 최신 Dispatcher 설치 파일을 받습니다. 디스패처 릴리스 번호는 Adobe Experience Manager 릴리스 번호와 독립적으로 제공되며 Adobe Experience Manager 6.x, 5.x 및 Adobe CQ 5.x 릴리스와 호환됩니다.
+>Adobe Experience Manager 6.5를 사용하려면 Dispatcher 버전 4.3.2 이상이 필요합니다. 즉, 디스패처 버전은 AEM에 독립적입니다. 예를 들어 디스패처 버전 4.3.2는 Adobe Experience Manager 6.4와 호환됩니다.
 
 다음 파일 이름 지정 규칙이 사용됩니다.
 
@@ -48,7 +48,7 @@ Dispatcher [릴리스 정보](release-notes.md) 페이지를 사용하여 운영
 | Microsoft Internet Information Server 7.5, 8, 8.5 | dispatcher-**iis**-&lt;기타 매개 변수> |
 | Sun Java Web Server iPlanet | dispatcher-**ns**-&lt;other parameters> |
 
->[!NOTE]
+>[!CAUTION]
 >
 >사용 중인 플랫폼에 사용 가능한 최신 버전의 Dispatcher를 설치해야 합니다. 매년 향상된 제품을 이용하려면 최신 버전을 사용하도록 Dispatcher 인스턴스를 업그레이드해야 합니다.
 
