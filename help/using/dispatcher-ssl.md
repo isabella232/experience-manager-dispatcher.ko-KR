@@ -32,15 +32,15 @@ ht-degree: 0%
 >
 >SSL 인증서와 관련된 작업은 타사 제품에 바인딩됩니다. Adobe Platinum Maintenance and Support 계약의 적용을 받지 않습니다.
 
-## Dispatcher가 AEM에 연결할 때 SSL 사용 {#use-ssl-when-dispatcher-connects-to-aem}
+## Dispatcher가 AEM {#use-ssl-when-dispatcher-connects-to-aem}에 연결할 때 SSL 사용
 
 SSL 연결을 사용하여 AEM 또는 CQ 렌더링 인스턴스와 통신하도록 Dispatcher를 구성합니다.
 
 디스패처를 구성하려면 먼저 AEM 또는 CQ에서 SSL을 사용하도록 구성하십시오.
 
-* AEM 6.2: [SSL을 통해 HTTP 활성화](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [SSL을 통해 HTTP 활성화](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* 이전 AEM 버전:이 페이지 [를 참조하십시오](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
+* AEM 6.2:[SSL을 통해 HTTP 활성화](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1:[SSL을 통해 HTTP 활성화](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* 이전 AEM 버전:[이 페이지](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)를 참조하십시오.
 
 ### SSL 관련 요청 헤더 {#ssl-related-request-headers}
 
@@ -51,7 +51,7 @@ Dispatcher가 HTTPS 요청을 받으면 Dispatcher는 AEM 또는 CQ로 보내는
 * `X-Forwarded-SSL-Keysize`
 * `X-Forwarded-SSL-Session-ID`
 
-Apache-2.4를 통한 요청에는 다음 예와 유사한 헤더를 `mod_ssl` 포함합니다.
+`mod_ssl`이 있는 Apache-2.4를 통한 요청에는 다음 예와 유사한 헤더가 포함됩니다.
 
 ```shell
 X-Forwarded-SSL: on
@@ -59,17 +59,17 @@ X-Forwarded-SSL-Cipher: DHE-RSA-AES256-SHA
 X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239D5C771CB5B4D
 ```
 
-### SSL을 사용하도록 Dispatcher 구성 {#configuring-dispatcher-to-use-ssl}
+### SSL {#configuring-dispatcher-to-use-ssl}을 사용하도록 Dispatcher 구성
 
 SSL을 통해 AEM 또는 CQ와 연결하도록 Dispatcher를 구성하려면 [dispatcher.any](dispatcher-configuration.md) 파일에 다음 속성이 필요합니다.
 
 * HTTPS 요청을 처리하는 가상 호스트입니다.
 * 가상 호스트의 `renders` 섹션에는 HTTPS를 사용하는 CQ 또는 AEM 인스턴스의 호스트 이름과 포트를 식별하는 항목이 포함됩니다.
-* 이 `renders` 항목에는 값 `secure` 이라는 속성이 포함됩니다 `1`.
+* `renders` 항목에는 값 `1`의 `secure`이라는 속성이 포함되어 있습니다.
 
 참고:필요한 경우 HTTP 요청을 처리할 다른 가상 호스트를 만듭니다.
 
-다음 예제 dispatcher.any 파일은 HTTPS를 사용하여 호스트 `localhost` 및 포트에서 실행 중인 CQ 인스턴스에 연결하는 속성 값을 보여줍니다 `8443`.
+다음 예제 dispatcher.any 파일은 HTTPS를 사용하여 호스트 `localhost` 및 포트 `8443`에서 실행되는 CQ 인스턴스에 연결하는 속성 값을 보여줍니다.
 
 ```
 /farms
@@ -117,7 +117,7 @@ SSL을 통해 AEM 또는 CQ와 연결하도록 Dispatcher를 구성하려면 [di
 }
 ```
 
-## Dispatcher와 AEM 간 상호 SSL 구성 {#configuring-mutual-ssl-between-dispatcher-and-aem}
+## Dispatcher와 AEM {#configuring-mutual-ssl-between-dispatcher-and-aem} 간 상호 SSL 구성
 
 Mutual SSL을 사용하도록 Dispatcher와 렌더링 컴퓨터(일반적으로 AEM 또는 CQ 게시 인스턴스) 간의 연결을 구성합니다.
 
@@ -134,20 +134,20 @@ Mutual SSL을 사용하도록 Dispatcher와 렌더링 컴퓨터(일반적으로 
 
 상호 SSL을 구성하려면 다음 단계를 수행하십시오.
 
-1. [플랫폼용 최신 버전의 Dispatcher를 설치합니다](dispatcher-install.md) . SSL을 지원하는 Dispatcher 바이너리를 사용합니다(예: dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar).
-1. [Dispatcher 및 렌더링 인스턴스용 CA 서명 인증서를](dispatcher-ssl.md#main-pars-title-3) 만들거나 가져옵니다.
-1. [렌더링 인증서가 포함된 키 저장소를](dispatcher-ssl.md#main-pars-title-6) 만들고 렌더의 HTTP 서비스를 구성하여 사용합니다.
-1. [상호 SSL을 위한 Dispatcher 웹 서버 모듈](dispatcher-ssl.md#main-pars-title-4) 구성
+1. [플랫폼용 최신 버전의 Dispatcher를 ](dispatcher-install.md) 설치합니다. SSL을 지원하는 Dispatcher 바이너리를 사용합니다(예: dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar).
+1. [Dispatcher 및 렌더링 인스턴스용 CA 서명 ](dispatcher-ssl.md#main-pars-title-3) 인증서를 만들거나 얻습니다.
+1. [렌더링 인증서가 포함된 키 ](dispatcher-ssl.md#main-pars-title-6) 저장소를 만들고 렌더의 HTTP 서비스를 구성하여 사용합니다.
+1. [상호 SSL을 위해 Dispatcher 웹 서버 ](dispatcher-ssl.md#main-pars-title-4) 모듈을 구성합니다.
 
 ### CA 서명 인증서 만들기 또는 얻기 {#creating-or-obtaining-ca-signed-certificates}
 
 게시 인스턴스 및 발송자를 인증하는 CA 서명 인증서를 만들거나 얻습니다.
 
-#### CA 만들기 {#creating-your-ca}
+#### CA {#creating-your-ca} 만들기
 
-인증 기관(CA) 역할을 하는 경우 [OpenSSL을](https://www.openssl.org/) 사용하여 서버와 클라이언트 인증서를 서명하는 인증 기관을 만듭니다. OpenSSL 라이브러리가 설치되어 있어야 합니다. 타사 CA를 사용하는 경우 이 절차를 수행하지 마십시오.
+CA 역할을 하는 경우 [OpenSSL](https://www.openssl.org/)을 사용하여 서버 및 클라이언트 인증서를 서명하는 인증 기관을 만듭니다. OpenSSL 라이브러리가 설치되어 있어야 합니다. 타사 CA를 사용하는 경우 이 절차를 수행하지 마십시오.
 
-1. 터미널을 열고 현재 디렉토리를 CA.sh 파일을 포함하는 디렉토리로 변경합니다(예: `/usr/local/ssl/misc`).
+1. 터미널을 열고 현재 디렉토리를 `/usr/local/ssl/misc` 같은 CA.sh 파일을 포함하는 디렉토리로 변경합니다.
 1. CA를 만들려면 다음 명령을 입력한 다음 값을 입력합니다.
 
    ```shell
@@ -158,11 +158,11 @@ Mutual SSL을 사용하도록 Dispatcher와 렌더링 컴퓨터(일반적으로 
    >
    >openssl.cnf 파일의 여러 속성은 CA.sh 스크립트의 동작을 제어합니다. CA를 만들기 전에 이 파일을 필요에 따라 수정해야 합니다.
 
-#### 인증서 만들기 {#creating-the-certificates}
+#### 인증서 {#creating-the-certificates} 만들기
 
 OpenSSL을 사용하여 타사 CA로 보내거나 CA로 서명하도록 인증서 요청을 만듭니다.
 
-인증서를 만들 때 OpenSSL은 [일반 이름] 속성을 사용하여 인증서 보유자를 식별합니다. 렌더링 인스턴스의 인증서에 대해 Dispatcher가 게시 인스턴스의 호스트 이름과 일치하는 경우에만 인증서를 수락하도록 구성하는 경우 인스턴스 컴퓨터의 호스트 이름을 일반 이름으로 사용합니다. (DispatcherCheckPeerCN [속성을](dispatcher-ssl.md#main-pars-title-11) 참조하십시오.)
+인증서를 만들 때 OpenSSL은 [일반 이름] 속성을 사용하여 인증서 보유자를 식별합니다. 렌더링 인스턴스의 인증서에 대해 Dispatcher가 게시 인스턴스의 호스트 이름과 일치하는 경우에만 인증서를 수락하도록 구성하는 경우 인스턴스 컴퓨터의 호스트 이름을 일반 이름으로 사용합니다. ([DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) 속성 참조)
 
 1. 터미널을 열고 현재 디렉토리를 OpenSSL 라이브러리의 CH.sh 파일이 포함된 디렉토리로 변경합니다.
 1. 다음 명령을 입력하고 메시지가 표시되면 값을 입력합니다. 필요한 경우 게시 인스턴스의 호스트 이름을 공통 이름으로 사용합니다. 호스트 이름은 렌더링의 IP 주소에 대한 DNS 확인 가능 이름입니다.
@@ -189,7 +189,7 @@ OpenSSL을 사용하여 타사 CA로 보내거나 CA로 서명하도록 인증�
 
 rendercert.pem 및 renderkey.pem 파일을 사용하여 렌더링 인스턴스에서 SSL을 구성합니다.
 
-#### 렌더링 인증서를 JKS 형식으로 변환 {#converting-the-render-certificate-to-jks-format}
+#### 렌더링 인증서를 JKS 형식 {#converting-the-render-certificate-to-jks-format}으로 변환
 
 PEM 파일인 렌더링 인증서를 PKCS#12 파일로 변환하려면 다음 명령을 사용합니다. 렌더링 인증서에 서명한 CA의 인증서도 포함합니다.
 
@@ -212,7 +212,7 @@ PEM 파일인 렌더링 인증서를 PKCS#12 파일로 변환하려면 다음 �
    keytool -changealias -alias 1 -destalias jettyhttp -keystore render.keystore
    ```
 
-#### Render의 Truststore에 CA 인증서 추가 {#adding-the-ca-cert-to-the-render-s-truststore}
+#### Render의 Truststore {#adding-the-ca-cert-to-the-render-s-truststore}에 CA 인증서 추가
 
 CA 역할을 하는 경우 CA 인증서를 키 저장소에 가져옵니다. 그런 다음 렌더링 인스턴스를 실행하는 JVM을 구성하여 keystore를 신뢰합니다.
 
@@ -252,19 +252,19 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 #### 렌더링 인스턴스 구성 {#configuring-the-render-instance}
 
-렌더링 인증서와 함께 게시 인스턴스 *의 SSL* 사용 섹션에 있는 지침에 따라 렌더링 인증서를 사용하여 렌더링 인스턴스의 HTTP 서비스를 SSL을 사용하도록 구성합니다.
+렌더링 인증서를 사용하여 SSL을 사용하도록 렌더링 인스턴스의 HTTP 서비스를 구성하려면 게시 인스턴스&#x200B;*섹션에서* SSL 활성화 섹션에 있는 지침을 따르십시오.
 
-* AEM 6.2: [SSL을 통해 HTTP 활성화](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM 6.1: [SSL을 통해 HTTP 활성화](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* 이전 AEM 버전:이 [페이지를 참조하십시오.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
+* AEM 6.2:[SSL을 통해 HTTP 활성화](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1:[SSL을 통해 HTTP 활성화](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* 이전 AEM 버전:[이 페이지를 참조하십시오.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
-### 발송자 모듈에 대한 SSL 구성 {#configuring-ssl-for-the-dispatcher-module}
+### 발송자 모듈 {#configuring-ssl-for-the-dispatcher-module}에 대한 SSL 구성
 
 Dispatcher가 상호 SSL을 사용하도록 구성하려면 Dispatcher 인증서를 준비한 다음 웹 서버 모듈을 구성합니다.
 
 ### 통합 발송자 인증서 만들기 {#creating-a-unified-dispatcher-certificate}
 
-발송자 인증서와 비밀번호화되지 않은 개인 키를 하나의 PEM 파일에 결합합니다. 텍스트 편집기 또는 명령을 사용하여 다음 `cat` 예와 유사한 파일을 만듭니다.
+발송자 인증서와 비밀번호화되지 않은 개인 키를 하나의 PEM 파일에 결합합니다. 텍스트 편집기 또는 `cat` 명령을 사용하여 다음 예제와 유사한 파일을 만듭니다.
 
 1. 터미널을 열고 현재 디렉토리를 display.pem 파일의 위치로 변경합니다.
 1. 개인 키를 해독하려면 다음 명령을 입력합니다.
@@ -273,7 +273,7 @@ Dispatcher가 상호 SSL을 사용하도록 구성하려면 Dispatcher 인증서
    openssl rsa -in dispkey.pem -out dispkey_unencrypted.pem
    ```
 
-1. 텍스트 편집기 또는 `cat` 명령을 사용하여 암호화되지 않은 개인 키와 인증서를 다음 예제와 유사한 단일 파일로 결합합니다.
+1. 텍스트 편집기 또는 `cat` 명령을 사용하여 암호화되지 않은 개인 키와 인증서를 다음 예제와 유사한 하나의 파일에 결합합니다.
 
    ```xml
    -----BEGIN RSA PRIVATE KEY-----
@@ -288,11 +288,11 @@ Dispatcher가 상호 SSL을 사용하도록 구성하려면 Dispatcher 인증서
 
 ### 발송자에 사용할 인증서 지정 {#specifying-the-certificate-to-use-for-dispatcher}
 
-Dispatcher 모듈 구성 [(in](dispatcher-install.md#main-pars-55-35-1022) `httpd.conf`)에 다음 속성을 추가합니다.
+[디스패처 모듈 구성](dispatcher-install.md#main-pars-55-35-1022)(`httpd.conf`)에 다음 속성을 추가합니다.
 
 * `DispatcherCertificateFile`:공개 인증서와 암호화되지 않은 개인 키가 포함된 Dispatcher 통합 인증서 파일의 경로입니다. 이 파일은 SSL 서버가 Dispatcher 클라이언트 인증서를 요청할 때 사용됩니다.
 * `DispatcherCACertificateFile`:SSL 서버가 루트 인증 기관에서 신뢰하지 않는 CA를 나타낼 때 사용되는 CA 인증서 파일의 경로입니다.
-* `DispatcherCheckPeerCN`:원격 서버 인증서에 대한 호스트 이름 확인을 활성화( `On`) 또는 비활성화( `Off`)할지 여부.
+* `DispatcherCheckPeerCN`:원격 서버 인증서에 대한 호스트 이름 확인을 활성화(  `On`) 또는 비활성화(  `Off`)할지 여부.
 
 다음 코드는 구성 예입니다.
 
