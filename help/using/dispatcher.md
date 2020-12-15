@@ -25,27 +25,27 @@ ht-degree: 90%
 
 Dispatcher는 엔터프라이즈급 웹 서버와 함께 사용할 수 있는 Adobe Experience Manager의 캐싱 및/또는 로드 밸런싱 도구입니다.
 
-디스패처 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과는 별개입니다.
+디스패처 배포 프로세스는 다음 웹 서버 및 선택한 OS 플랫폼과는 별개입니다.
 
 1. Dispatcher에 대해 알아보십시오(이 페이지). 또한 디스패처](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html)에 대한 [FAQ를 참조하십시오.
-1. 웹 서버 설명서에 따라 지원되는 웹 서버[를 설치합니다.](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html)
+1. 웹 서버 설명서에 따라 [지원되는 웹 서버](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html)를 설치합니다.
 1. 웹 서버에 [Dispatcher 모듈을 설치](dispatcher-install.md)하고 그에 따라 웹 서버를 구성합니다.
 1. [Dispatcher 구성](dispatcher-configuration.md)(dispatcher.any 파일).
 1. 콘텐츠 업데이트가 캐시를 무효화하도록 [AEM을 구성](page-invalidate.md)합니다.
 
 >[!NOTE]
 >
->Dispatcher가 AEM과 작동하는 방식을 더 잘 이해하려면
+>AEM에서 Dispatcher를 사용하는 방법을 보다 잘 이해하려면
 >
->* [AEM 커뮤니티 전문가에게 2017년 7월 문의](https://bit.ly/ATACE0717)를 참조하십시오.
->* [이 저장소](https://github.com/adobe/aem-dispatcher-experiments)에 액세스합니다. 실험용 실습실 형태로 수집해 놓은 것이다.
+>* [2017년 7월 AEM 커뮤니티 전문가에게 질문하기](https://bit.ly/ATACE0717)를 참조하십시오.
+>* [이 저장소](https://github.com/adobe/aem-dispatcher-experiments)에 액세스합니다. 실험용 집에서는 &quot;테이크 홈&quot; 형식의 실험들이 들어 있다.
 
 
 
 필요에 따라 다음 정보를 사용하십시오.
 
 * [Dispatcher 보안 검사 목록](security-checklist.md)
-* [발송자 기술 자료](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
+* [Dispatcher 기술 자료](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
 * [캐시 성능을 위한 웹 사이트 최적화](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [여러 도메인에 Dispatcher 사용](dispatcher-domains.md)
 * [Dispatcher에 SSL 사용](dispatcher-ssl.md)
@@ -272,7 +272,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
    MIME 유형, 확장, 요청 유형 등에 따라 CDN의 캐시에서 특정 리소스가 얼마나 오래 보관되는지를 구성합니다.
 
 1. 만료 및 캐시 제어 헤더\
-   대부분의 CDN은 업스트림 서버에서 보내는 경우 `Expires:` 및 `Cache-Control:` HTTP 헤더를 처리합니다. 이러한 작업은 [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) Apache 모듈을 사용하여 수행할 수 있습니다.
+   대부분의 CDN은 업스트림 서버에서 보내는 경우 `Expires:` 및 `Cache-Control:` HTTP 헤더를 처리합니다. 예를 들어 [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) Apache 모듈을 사용하여 이 작업을 수행할 수 있습니다.
 
 1. 수동 무효화\
    CDN을 사용하면 웹 인터페이스를 통해 캐시에서 리소스를 제거할 수 있습니다.
@@ -283,7 +283,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 
 이 방법을 사용하여 관리 콘텐츠를 캐시하는 경우 구성된 캐싱 기간이 만료되고 문서를 다시 Dispatcher에서 가져오는 경우에만 콘텐츠 변경 사항이 최종 사용자에게 표시된다는 의미입니다.
 
-보다 세밀하게 조정하기 위해 API 기반 무효화를 사용하면 Dispatcher 캐시가 무효화되므로 CDN 캐시를 무효화할 수 있습니다. CDNs API를 기반으로 하여, 자신의 [ContentBuilder](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) 및 [TransportHandler](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html)(API가 REST 기반이 아닌 경우)를 구현하고, CDN의 캐시를 무효화하는 데 사용할 복제 에이전트를 설정할 수 있습니다.
+보다 세밀하게 조정하기 위해 API 기반 무효화를 사용하면 Dispatcher 캐시가 무효화되므로 CDN 캐시를 무효화할 수 있습니다. CDN API를 기반으로, 자신의 [ContentBuilder](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) 및 [TransportHandler](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html)(API가 REST 기반이 아닌 경우)를 구현하고, CDN의 캐시를 무효화하는 데 사용할 복제 에이전트를 설정할 수 있습니다.
 
 >[!NOTE]
 >
@@ -293,7 +293,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 
 >[!CAUTION]
 >
->Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)에서 [AEM을 사용하는 경우&#x200B;**의 작성자 인스턴스 내용을 캐시하지 않아야 합니다.** 작성자 인스턴스에 대해 캐싱이 활성화된 경우 이를 비활성화하고 캐시 디렉토리의 콘텐츠를 삭제해야 합니다. 캐싱을 비활성화하려면 `author_dispatcher.any` 파일을 편집하고 `/rule` 섹션의 `/cache` 속성을 다음과 같이 수정해야 합니다.
+>Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)에서 [AEM을 사용하는 경우&#x200B;**이(가) 작성자 인스턴스 내용을 캐시하지 않아야 합니다.** 작성자 인스턴스에 대해 캐싱이 활성화된 경우 이를 비활성화하고 캐시 디렉토리의 콘텐츠를 삭제해야 합니다. 캐싱을 비활성화하려면 `author_dispatcher.any` 파일을 편집하고 `/rule` 섹션의 `/cache` 속성을 다음과 같이 수정해야 합니다.
 
 ```xml
 /rules
