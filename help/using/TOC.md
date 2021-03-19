@@ -6,10 +6,14 @@ archetype: Administrator
 user-guide-title: Experience Manager Dispatcher 도움말
 breadcrumb-title: Dispatcher 안내서
 user-guide-description: AEM 서버의 캐싱, 로드 밸런싱 및 보안 개선에 Dispatcher를 사용하는 방법을 학습합니다.
+feature-set: Experience Manager
+feature: Dispatcher
+topic: 관리
+role: 관리자
 translation-type: tm+mt
-source-git-commit: 5765970c0335df084b5d49efae60997b3a021c47
+source-git-commit: d03518767918288f03d289f19253f15803a313c7
 workflow-type: tm+mt
-source-wordcount: '87'
+source-wordcount: '90'
 ht-degree: 85%
 
 ---
