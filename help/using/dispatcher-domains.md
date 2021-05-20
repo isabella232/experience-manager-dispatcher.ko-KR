@@ -1,8 +1,8 @@
 ---
 title: '여러 도메인에 Dispatcher 사용 '
 seo-title: '여러 도메인에 Dispatcher 사용 '
-description: Dispatcher를 사용하여 여러 웹 도메인의 페이지 요청을 처리하는 방법을 알아봅니다.
-seo-description: Dispatcher를 사용하여 여러 웹 도메인의 페이지 요청을 처리하는 방법을 알아봅니다.
+description: Dispatcher를 사용하여 여러 웹 도메인에서 페이지 요청을 처리하는 방법을 알아봅니다.
+seo-description: Dispatcher를 사용하여 여러 웹 도메인에서 페이지 요청을 처리하는 방법을 알아봅니다.
 uuid: 7342a1c2-fe61-49be-a240-b487d53c7ec1
 contentOwner: User
 cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
@@ -10,27 +10,26 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
-translation-type: tm+mt
-source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
+exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
+source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: tm+mt
 source-wordcount: '2983'
 ht-degree: 0%
 
 ---
 
-
 # 여러 도메인에 Dispatcher 사용 {#using-dispatcher-with-multiple-domains}
 
 >[!NOTE]
 >
->Dispatcher 버전은 AEM과 독립적입니다. AEM 또는 CQ 문서에 포함된 Dispatcher 설명서에 대한 링크를 따라갔다면 이 페이지로 리디렉션되었을 수 있습니다.
+>Dispatcher 버전은 AEM과 독립적입니다. AEM 또는 CQ 설명서에 포함된 Dispatcher 설명서에 대한 링크를 따라간 경우 이 페이지로 리디렉션되었을 수 있습니다.
 
-다음 조건을 지원하는 동안 Dispatcher를 사용하여 여러 웹 도메인의 페이지 요청을 처리할 수 있습니다.
+다음 조건을 지원하는 동안 Dispatcher를 사용하여 여러 웹 도메인에서 페이지 요청을 처리합니다.
 
 * 두 도메인의 웹 컨텐츠는 단일 AEM 저장소에 저장됩니다.
 * Dispatcher 캐시의 파일은 각 도메인에 대해 별도로 무효화할 수 있습니다.
 
-예를 들어 한 회사는 두 개의 브랜드에 대한 웹 사이트를 게시합니다.브랜드 A와 브랜드 B.웹 사이트 페이지에 대한 컨텐츠는 AEM에서 작성되고 동일한 저장소 작업 공간에 저장됩니다.
+예를 들어 한 회사는 두 개의 브랜드에 대한 웹 사이트를 게시합니다.브랜드 A와 브랜드 B.웹 사이트 페이지의 컨텐츠는 AEM에서 작성되며 동일한 저장소 작업 공간에 저장됩니다.
 
 ```
 /
@@ -41,13 +40,13 @@ ht-degree: 0%
        | - content nodes
 ```
 
-`BrandA.com`의 페이지는 `/content/sitea` 아래에 저장됩니다. URL `https://BrandA.com/en.html`에 대한 클라이언트 요청은 `/content/sitea/en` 노드에 대해 렌더링된 페이지가 반환됩니다. 마찬가지로 `BrandB.com`의 페이지가 `/content/siteb` 아래에 저장됩니다.
+`BrandA.com`에 대한 페이지는 `/content/sitea` 아래에 저장됩니다. URL `https://BrandA.com/en.html`에 대한 클라이언트 요청이 `/content/sitea/en` 노드에 대해 렌더링된 페이지에 반환됩니다. 마찬가지로 `BrandB.com`에 대한 페이지는 `/content/siteb` 아래에 저장됩니다.
 
-Dispatcher를 사용하여 컨텐츠를 캐시하는 경우 클라이언트 HTTP 요청의 페이지 URL, 캐시에 있는 해당 파일의 경로 및 보관소에 있는 해당 파일의 경로 간에 연결이 이루어져야 합니다.
+Dispatcher를 사용하여 콘텐츠를 캐시할 때는 클라이언트 HTTP 요청의 페이지 URL, 캐시의 해당 파일의 경로 및 리포지토리의 해당 파일의 경로 간에 연결을 만들어야 합니다.
 
 ## 클라이언트 요청
 
-클라이언트가 HTTP 요청을 웹 서버로 보낼 때 요청된 페이지의 URL이 Dispatcher 캐시의 콘텐츠로 확인되고 결국 저장소의 콘텐츠로 확인되어야 합니다.
+클라이언트가 웹 서버에 HTTP 요청을 보낼 때 요청된 페이지의 URL이 Dispatcher 캐시의 콘텐츠로 확인되고 결과적으로 리포지토리의 콘텐츠로 확인되어야 합니다.
 
 ![](assets/chlimage_1-8.png)
 
@@ -59,41 +58,41 @@ Dispatcher를 사용하여 컨텐츠를 캐시하는 경우 클라이언트 HTTP
 
 ## 캐시 무효화
 
-Dispatcher Flush 복제 에이전트가 Dispatcher가 캐시된 파일을 무효화하도록 요청하면 저장소의 컨텐츠 경로가 캐시에 있는 컨텐츠로 확인되어야 합니다.
+Dispatcher 플러시 복제 에이전트가 Dispatcher가 캐시된 파일을 무효화하도록 요청하면 저장소의 컨텐츠 경로는 캐시의 콘텐츠로 확인되어야 합니다.
 
 ![](assets/chlimage_1-9.png)
 
-1. AEM 작성자 인스턴스에서 페이지가 활성화되고 컨텐츠가 게시 인스턴스에 복제됩니다.
-1. Dispatcher Flush Agent는 Dispatcher를 호출하여 복제된 컨텐츠에 대한 캐시를 무효화합니다.
-1. 디스패처는 하나 이상의 .stat 파일을 터치하여 캐시된 파일을 무효화합니다.
+1. 페이지가 AEM 작성자 인스턴스에서 활성화되고 컨텐츠가 게시 인스턴스에 복제됩니다.
+1. 디스패처 초기화 에이전트는 Dispatcher를 호출하여 복제된 컨텐츠에 대한 캐시를 무효화합니다.
+1. Dispatcher가 하나 이상의 .stat 파일을 터치하여 캐시된 파일을 무효화합니다.
 
-여러 도메인에 Dispatcher를 사용하려면 AEM, Dispatcher 및 웹 서버를 구성해야 합니다. 이 페이지에 설명된 솔루션은 일반적이며 대부분의 환경에 적용됩니다. 일부 AEM 토폴로지의 복잡성으로 인해 특정 문제를 해결하려면 추가 사용자 정의 구성이 필요할 수 있습니다. 기존 IT 인프라 및 관리 정책을 충족하기 위해 예제를 조정해야 할 수도 있습니다.
+여러 도메인에 Dispatcher를 사용하려면 AEM, Dispatcher 및 웹 서버를 구성해야 합니다. 이 페이지에 설명된 솔루션은 일반적으로 대부분의 환경에 적용됩니다. 일부 AEM 토폴로지의 복잡성으로 인해 솔루션은 특정 문제를 해결하기 위해 추가 사용자 지정 구성이 필요할 수 있습니다. 기존 IT 인프라 및 관리 정책을 충족하기 위해서는 예제를 조정해야 할 것입니다.
 
 ## URL 매핑 {#url-mapping}
 
-도메인 URL 및 컨텐츠 경로를 활성화하여 캐시된 파일로 확인하려면 파일 경로 또는 페이지 URL을 변환해야 합니다. 처리 과정의 서로 다른 지점에서 경로 또는 URL 번역이 발생하는 경우 다음과 같은 일반적인 전략에 대한 설명이 제공됩니다.
+도메인 URL 및 컨텐츠 경로가 캐시된 파일로 확인되도록 하려면 프로세스의 일부 지점에서 파일 경로 또는 페이지 URL을 번역해야 합니다. 프로세스의 다른 지점에서 경로나 URL 번역이 발생하는 다음과 같은 공통 전략에 대한 설명이 제공됩니다.
 
-* (권장) AEM 게시 인스턴스는 리소스 해상도에 Sling 매핑을 사용하여 내부 URL 재작성 규칙을 구현합니다. 도메인 URL은 컨텐츠 저장소 경로로 변환됩니다. [AEM 수신 URL 다시 쓰기](#aem-rewrites-incoming-urls)를 참조하십시오.
-* 웹 서버는 도메인 URL을 변환하여 경로를 캐시하는 내부 URL 재작성 규칙을 사용합니다. [웹 서버에서 들어오는 URL 다시 쓰기를 참조하십시오](#the-web-server-rewrites-incoming-urls).
+* (권장) AEM 게시 인스턴스는 리소스 확인을 위해 Sling 매핑을 사용하여 내부 URL 재작성 규칙을 구현합니다. 도메인 URL은 컨텐츠 저장소 경로로 변환됩니다. [AEM 수신 URL 다시 작성](#aem-rewrites-incoming-urls)을 참조하십시오.
+* 웹 서버는 도메인 URL을 캐시 경로로 변환하는 내부 URL 재작성 규칙을 사용합니다. [웹 서버가 들어오는 URL을 다시 기록합니다](#the-web-server-rewrites-incoming-urls).
 
-일반적으로 웹 페이지에 짧은 URL을 사용하는 것이 좋습니다. 일반적으로 페이지 URL은 웹 컨텐츠를 포함하는 저장소 폴더의 구조를 반영합니다. 그러나 URL은 `/content`과 같이 가장 높은 저장소 노드를 표시하지 않습니다. 클라이언트가 AEM 저장소의 구조를 반드시 알지 못합니다.
+일반적으로 웹 페이지에 짧은 URL을 사용하는 것이 좋습니다. 일반적으로 페이지 URL은 웹 컨텐츠가 포함된 저장소 폴더의 구조를 미러링합니다. 그러나 URL은 `/content` 과 같이 가장 높은 저장소 노드를 표시하지 않습니다. 클라이언트가 AEM 저장소의 구조를 반드시 알지 못합니다.
 
 ## 일반 요구 사항 {#general-requirements}
 
-사용자 환경은 여러 도메인 작업을 수행하는 Dispatcher를 지원하기 위해 다음 구성을 구현해야 합니다.
+환경은 여러 도메인에서 Dispatcher를 사용할 수 있도록 다음 구성을 구현해야 합니다.
 
-* 각 도메인의 내용은 저장소의 개별 분기에 있습니다(아래 예제 환경 참조).
-* Dispatcher Flush 복제 에이전트가 AEM 게시 인스턴스에 구성됩니다. (게시 인스턴스](page-invalidate.md)에서 [디스패처 캐시 무효화를 참조하십시오.)
-* 도메인 이름 시스템은 도메인 이름을 웹 서버의 IP 주소로 확인합니다.
+* 각 도메인에 대한 컨텐츠는 저장소의 개별 분기에 있습니다(아래 예제 환경 참조).
+* Dispatcher 플러시 복제 에이전트가 AEM 게시 인스턴스에 구성됩니다. ([게시 인스턴스에서 Dispatcher 캐시 무효화](page-invalidate.md)를 참조하십시오.)
+* 도메인 이름 시스템이 도메인 이름을 웹 서버의 IP 주소로 확인합니다.
 * Dispatcher 캐시는 AEM 컨텐츠 저장소의 디렉토리 구조를 미러링합니다. 웹 서버의 문서 루트 아래에 있는 파일 경로는 저장소에 있는 파일의 경로와 동일합니다.
 
-## 제공된 예제의 환경 {#environment-for-the-provided-examples}
+## 제공된 예제 환경 {#environment-for-the-provided-examples}
 
-제공되는 예제 솔루션은 다음과 같은 특성이 있는 환경에 적용됩니다.
+제공된 예제 솔루션은 다음과 같은 특성이 있는 환경에 적용됩니다.
 
 * AEM 작성자 및 게시 인스턴스는 Linux 시스템에 배포됩니다.
-* Apache HTTPD는 Linux 시스템에 배포되는 웹 서버입니다.
-* AEM 컨텐츠 저장소 및 웹 서버의 문서 루트는 다음 파일 구조를 사용합니다(Apache 웹 서버의 문서 루트는 /`usr/lib/apache/httpd-2.4.3/htdocs)`:
+* Apache HTTPD는 Linux 시스템에 배포된 웹 서버입니다.
+* 웹 서버의 AEM 컨텐츠 저장소 및 문서 루트는 다음 파일 구조를 사용합니다(Apache 웹 서버의 문서 루트는 /`usr/lib/apache/httpd-2.4.3/htdocs)`입니다.).
 
    **저장소**
 
@@ -120,36 +119,36 @@ Dispatcher Flush 복제 에이전트가 Dispatcher가 캐시된 파일을 무효
                  | - content nodes
 ```
 
-## AEM에서 들어오는 URL {#aem-rewrites-incoming-urls} 다시 쓰기
+## AEM에서 들어오는 URL {#aem-rewrites-incoming-urls} 다시 작성
 
-리소스 해상도에 대한 Sling 매핑을 사용하면 들어오는 URL을 AEM 컨텐츠 경로와 연결할 수 있습니다. AEM 게시 인스턴스에서 매핑을 만들어 Dispatcher의 요청을 렌더링하여 저장소의 올바른 컨텐츠로 확인합니다.
+리소스 확인을 위한 Sling 매핑을 사용하면 들어오는 URL을 AEM 컨텐츠 경로와 연결할 수 있습니다. Dispatcher의 요청을 렌더링하여 저장소의 올바른 콘텐츠로 확인하도록 AEM 게시 인스턴스에 매핑을 만듭니다.
 
-페이지 렌더링을 위한 디스패처 요청은 웹 서버에서 전달된 URL을 사용하여 페이지를 식별합니다. URL에 도메인 이름이 포함되어 있으면 Sling 매핑은 컨텐츠에 대한 URL을 확인합니다. 다음 그래픽은 `branda.com/en.html` URL의 `/content/sitea/en` 노드 매핑을 보여 줍니다.
+페이지 렌더링을 위한 Dispatcher 요청은 웹 서버에서 전달되는 URL을 사용하여 페이지를 식별합니다. URL에 도메인 이름이 포함되어 있으면 Sling 매핑이 URL을 컨텐츠에 확인합니다. 다음 그래픽에서는 `branda.com/en.html` URL을 `/content/sitea/en` 노드에 매핑하는 방법을 보여줍니다.
 
 ![](assets/chlimage_1-10.png)
 
-Dispatcher 캐시는 저장소 노드 구조를 미러링합니다. 따라서 페이지 활성화가 발생하는 경우 캐시된 페이지를 무효화하는 요청에 URL 또는 경로 번역이 필요하지 않습니다.
+Dispatcher 캐시는 저장소 노드 구조를 미러링합니다. 따라서 페이지 활성화가 발생하면 캐시된 페이지를 무효화하기 위한 결과 요청에는 URL 또는 경로 번역이 필요하지 않습니다.
 
 ![](assets/chlimage_1-11.png)
 
-## 웹 서버 {#define-virtual-hosts-on-the-web-server}에서 가상 호스트 정의
+## 웹 서버에서 가상 호스트 정의 {#define-virtual-hosts-on-the-web-server}
 
 각 웹 도메인에 다른 문서 루트를 할당할 수 있도록 웹 서버에서 가상 호스트를 정의합니다.
 
 * 웹 서버는 각 웹 도메인에 대해 가상 도메인을 정의해야 합니다.
-* 각 도메인에 대해 도메인의 웹 내용이 포함된 저장소의 폴더와 일치하도록 문서 루트를 구성합니다.
-* 또한 각 가상 도메인은 [Dispatcher 설치](dispatcher-install.md) 페이지에 설명된 대로 Dispatcher 관련 구성도 포함해야 합니다.
+* 각 도메인에 대해 도메인의 웹 컨텐츠를 포함하는 저장소의 폴더와 일치하도록 문서 루트를 구성합니다.
+* 각 가상 도메인은 [Dispatcher 설치](dispatcher-install.md) 페이지에 설명된 대로 Dispatcher 관련 구성도 포함해야 합니다.
 
-다음 예 `httpd.conf` 파일은 Apache 웹 서버에 대한 두 개의 가상 도메인을 구성합니다.
+다음 예제 `httpd.conf` 파일은 Apache 웹 서버에 대해 두 개의 가상 도메인을 구성합니다.
 
-* 도메인 이름과 일치하는 서버 이름은 branda.com(16행)과 brandb.com(30행)입니다.
-* 각 가상 도메인의 문서 루트는 사이트 페이지가 포함된 Dispatcher 캐시의 디렉토리입니다. (17 및 31행)
+* 서버 이름(도메인 이름과 일치함)은 branda.com(16행)과 brandb.com(30행)입니다.
+* 각 가상 도메인의 문서 루트는 사이트의 페이지를 포함하는 Dispatcher 캐시의 디렉토리입니다. (라인 17 및 31)
 
 이 구성으로 웹 서버는 `https://branda.com/en/products.html`에 대한 요청을 받을 때 다음 작업을 수행합니다.
 
-* URL을 `branda.com.`의 `ServerName`이(가) 있는 가상 호스트와 연결합니다.
+* `branda.com.` 의 `ServerName`이 있는 가상 호스트와 URL을 연결합니다
 
-* URL을 Dispatcher로 전달합니다.
+* URL을 Dispatcher에 전달합니다.
 
 ### httpd.conf {#httpd-conf}
 
@@ -199,23 +198,23 @@ LoadModule dispatcher_module modules/mod_dispatcher.so
 DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
-가상 호스트는 주 서버 섹션에 구성된 [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) 속성 값을 상속합니다. 가상 호스트는 자체 DispatcherConfig 속성을 포함하여 주 서버 구성을 재정의할 수 있습니다.
+가상 호스트는 기본 서버 섹션에 구성된 [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) 속성 값을 상속합니다. 가상 호스트는 고유한 DispatcherConfig 속성을 포함하여 주 서버 구성을 재정의할 수 있습니다.
 
-### 여러 도메인 {#configure-dispatcher-to-handle-multiple-domains}을(를) 처리하도록 Dispatcher 구성
+### 여러 도메인을 처리하도록 Dispatcher 구성 {#configure-dispatcher-to-handle-multiple-domains}
 
-도메인 이름과 해당 가상 호스트가 포함된 URL을 지원하려면 다음 Dispatcher 팜을 정의합니다.
+도메인 이름 및 해당 가상 호스트를 포함하는 URL을 지원하려면 다음 Dispatcher 팜을 정의합니다.
 
-* 각 가상 호스트에 대해 Dispatcher 팜을 구성합니다. 이러한 팜은 각 도메인에 대한 웹 서버의 요청을 처리하고, 캐시된 파일을 확인하고, 렌더에서 페이지를 요청합니다.
-* 컨텐츠가 속한 도메인에 상관없이 캐시에서 컨텐츠를 무효화하는 데 사용되는 Dispatcher 팜을 구성합니다. 이 팜은 Flush Dispatcher 복제 에이전트의 파일 무효화 요청을 처리합니다.
+* 각 가상 호스트에 대한 Dispatcher 팜을 구성합니다. 이러한 팜은 각 도메인에 대한 웹 서버의 요청을 처리하고, 캐시된 파일을 확인하고, 렌더링에서 페이지를 요청합니다.
+* 컨텐츠가 속한 도메인에 관계없이 캐시에서 컨텐츠를 무효화하는 데 사용되는 Dispatcher 팜을 구성합니다. 이 팜은 초기화 디스패처 복제 에이전트의 파일 무효화 요청을 처리합니다.
 
-### 가상 호스트에 대한 발송자 팜 만들기
+### 가상 호스트용 Dispatcher 팜 만들기
 
-클라이언트 HTTP 요청의 URL이 Dispatcher 캐시에서 올바른 파일로 확인되도록 가상 호스트에 대한 팜에는 다음 구성이 있어야 합니다.
+가상 호스트의 팜에는 클라이언트 HTTP 요청의 URL이 Dispatcher 캐시의 올바른 파일로 확인되도록 다음 구성이 있어야 합니다.
 
-* `/virtualhosts` 속성은 도메인 이름으로 설정됩니다. 이 속성을 사용하면 디스패처가 팜을 도메인에 연결할 수 있습니다.
-* `/filter` 속성을 사용하면 도메인 이름 부분 뒤에 잘린 요청 URL의 경로에 액세스할 수 있습니다. 예를 들어 `https://branda.com/en.html` URL의 경우 경로는 `/en.html`로 해석되므로 필터는 이 경로에 대한 액세스를 허용해야 합니다.
+* `/virtualhosts` 속성이 도메인 이름으로 설정되어 있습니다. 이 속성을 사용하면 Dispatcher가 팜을 도메인과 연결할 수 있습니다.
+* `/filter` 속성을 사용하면 도메인 이름 부분 이후에 잘린 요청 URL의 경로에 액세스할 수 있습니다. 예를 들어 `https://branda.com/en.html` URL의 경우 경로가 `/en.html`로 해석되므로 필터가 이 경로에 대한 액세스를 허용해야 합니다.
 
-* `/docroot` 속성은 Dispatcher 캐시에서 도메인 사이트 컨텐츠의 루트 디렉토리 경로로 설정됩니다. 이 경로는 원래 요청에서 연결된 URL의 접두어로 사용됩니다. 예를 들어 `/usr/lib/apache/httpd-2.4.3/htdocs/sitea`의 doroot를 사용하면 `https://branda.com/en.html` 요청이 `/usr/lib/apache/httpd-2.4.3/htdocs/sitea/en.html` 파일로 확인될 수 있습니다.
+* `/docroot` 속성은 Dispatcher 캐시에서 도메인 사이트 컨텐츠의 루트 디렉토리의 경로로 설정됩니다. 이 경로는 원래 요청에서 연결된 URL의 접두사로 사용됩니다. 예를 들어 `/usr/lib/apache/httpd-2.4.3/htdocs/sitea`의 docroot가 `https://branda.com/en.html` 파일에 대한 확인을 요청합니다.`/usr/lib/apache/httpd-2.4.3/htdocs/sitea/en.html`
 
 또한 AEM 게시 인스턴스를 가상 호스트에 대한 렌더링으로 지정해야 합니다. 필요에 따라 다른 팜 속성을 구성합니다. 다음 코드는 branda.com 도메인에 대한 축약된 팜 구성입니다.
 
@@ -239,18 +238,18 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 }
 ```
 
-### 캐시 무효화를 위한 디스패처 팜 만들기
+### 캐시 무효화를 위한 Dispatcher 팜 만들기
 
-캐시된 파일을 무효화하는 요청을 처리하려면 Dispatcher 팜이 필요합니다. 이 팜은 각 가상 호스트의 문서 루트 디렉토리에 있는 .stat 파일에 액세스할 수 있어야 합니다.
+캐시된 파일을 무효화하는 요청을 처리하는 데 Dispatcher 팜이 필요합니다. 이 팜은 각 가상 호스트의 docroot 디렉토리에서 .stat 파일에 액세스할 수 있어야 합니다.
 
-다음 속성 구성을 사용하여 Dispatcher가 캐시에 있는 파일에서 AEM 컨텐츠 저장소의 파일을 해결할 수 있습니다.
+다음 속성 구성을 사용하여 Dispatcher가 캐시의 파일에서 AEM 컨텐츠 리포지토리의 파일을 확인할 수 있습니다.
 
-* `/docroot` 속성은 웹 서버의 기본 문서 루트로 설정됩니다. 일반적으로 이 디렉토리는 `/content` 폴더가 생성되는 디렉토리입니다. Linux에서 Apache의 예 값은 `/usr/lib/apache/httpd-2.4.3/htdocs`입니다.
-* `/filter` 속성을 사용하면 `/content` 디렉터리 아래의 파일에 액세스할 수 있습니다.
+* `/docroot` 속성은 웹 서버의 기본 docroot로 설정됩니다. 일반적으로 이 디렉토리는 `/content` 폴더가 생성되는 디렉토리입니다. Linux의 Apache에 대한 예제 값은 `/usr/lib/apache/httpd-2.4.3/htdocs`입니다.
+* `/filter` 속성을 사용하면 `/content` 디렉토리 아래의 파일에 액세스할 수 있습니다.
 
-각 가상 호스트의 루트 디렉토리에 .stat 파일이 생성되도록 `/statfileslevel` 속성이 충분히 높아야 합니다. 이 속성을 사용하면 각 도메인의 캐시를 개별적으로 무효화할 수 있습니다. 예제 설정의 경우 `2`의 `/statfileslevel` 값은 `*docroot*/content/sitea` 디렉토리 및 `*docroot*/content/siteb` 디렉토리에 .stat 파일을 만듭니다.
+각 가상 호스트의 루트 디렉토리에 .stat 파일이 생성되도록 `/statfileslevel`속성이 충분히 높아야 합니다. 이 속성을 사용하면 각 도메인의 캐시를 별도로 무효화할 수 있습니다. 예제 설정의 경우 `2`의 `/statfileslevel` 값은 `*docroot*/content/sitea` 디렉토리 및 `*docroot*/content/siteb` 디렉토리에 .stat 파일을 생성합니다.
 
-또한 게시 인스턴스를 가상 호스트에 대한 렌더링으로 지정해야 합니다. 필요에 따라 다른 팜 속성을 구성합니다. 다음 코드는 캐시를 무효화하는 데 사용되는 팜에 대한 축약된 구성입니다.
+또한 게시 인스턴스를 가상 호스트에 대한 렌더링으로 지정해야 합니다. 필요에 따라 다른 팜 속성을 구성합니다. 다음 코드는 캐시를 무효화하는 데 사용되는 팜에 대한 약식 구성입니다.
 
 ```xml
 /farm_flush {  
@@ -273,7 +272,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 }
 ```
 
-웹 서버를 시작할 때 Dispatcher 로그(디버그 모드에서)는 모든 팜의 초기화를 나타냅니다.
+웹 서버를 시작할 때 Dispatcher 로그(디버그 모드)는 모든 팜의 초기화를 나타냅니다.
 
 ```shell
 Dispatcher initializing (build 4.1.2)
@@ -285,17 +284,17 @@ Dispatcher initializing (build 4.1.2)
 
 ### 리소스 해상도 {#configure-sling-mapping-for-resource-resolution}에 대한 Sling 매핑 구성
 
-도메인 기반 URL이 AEM 게시 인스턴스의 콘텐츠로 확인되도록 리소스 해상도에 Sling 매핑을 사용합니다. 리소스 매핑은 Dispatcher에서 들어오는 URL(원래 클라이언트 HTTP 요청에서)을 콘텐트 노드로 변환합니다.
+도메인 기반 URL이 AEM 게시 인스턴스의 컨텐츠로 확인되도록 리소스 확인을 위해 Sling 매핑을 사용합니다. 리소스 매핑은 Dispatcher에서 들어오는 URL(원래 클라이언트 HTTP 요청에서)을 컨텐츠 노드로 변환합니다.
 
-Sling 리소스 매핑에 대한 자세한 내용은 Sling 설명서의 [리소스 해상도에 대한 매핑](https://sling.apache.org/site/mappings-for-resource-resolution.html)을 참조하십시오.
+Sling 리소스 매핑에 대해 알려면 Sling 설명서에서 [리소스 해상도](https://sling.apache.org/site/mappings-for-resource-resolution.html)에 대한 매핑 을 참조하십시오.
 
-추가 매핑이 필요할 수 있지만 일반적으로 다음 리소스에 대해 매핑이 필요합니다.
+일반적으로 추가 매핑이 필요할 수 있지만 다음 리소스에 대해 매핑이 필요합니다.
 
-* 콘텐트 페이지의 루트 노드(`/content` 아래)
-* 페이지가 사용하는 디자인 노드(이하 `/etc/designs` 아래)
+* 컨텐츠 페이지의 루트 노드(`/content` 아래)
+* 페이지에서 사용하는 디자인 노드(`/etc/designs` 아래)
 * `/libs` 폴더
 
-컨텐츠 페이지에 대한 매핑을 만든 후, 추가적인 필수 매핑을 검색하려면 웹 브라우저를 사용하여 웹 서버에서 페이지를 엽니다. 게시 인스턴스의 error.log 파일에서 찾을 수 없는 리소스에 대한 메시지를 찾습니다. 다음 예제 메시지는 `/etc/clientlibs`에 대한 매핑이 필요하다는 것을 나타냅니다.
+컨텐츠 페이지에 대한 매핑을 생성한 후 추가적인 필수 매핑을 검색하려면 웹 브라우저를 사용하여 웹 서버에서 페이지를 엽니다. 게시 인스턴스의 error.log 파일에서 찾을 수 없는 리소스에 대한 메시지를 찾습니다. 다음 예제 메시지는 `/etc/clientlibs`에 대한 매핑이 필요함을 나타냅니다.
 
 ```shell
 01.11.2012 15:59:24.601 *INFO* [10.36.34.243 [1351799964599] GET /etc/clientlibs/foundation/jquery.js HTTP/1.1] org.apache.sling.engine.impl.SlingRequestProcessorImpl service: Resource /content/sitea/etc/clientlibs/foundation/jquery.js not found
@@ -303,11 +302,11 @@ Sling 리소스 매핑에 대한 자세한 내용은 Sling 설명서의 [리소�
 
 >[!NOTE]
 >
->기본 Apache Sling 리writer의 linkchecker 변환기는 링크가 끊기지 않도록 페이지의 하이퍼링크를 자동으로 수정합니다. 그러나 링크 재작성은 링크 대상이 HTML 또는 HTM 파일인 경우에만 수행됩니다. 다른 파일 유형에 대한 링크를 업데이트하려면 변환기 구성 요소를 만들고 이를 HTML 리작성기 파이프라인에 추가합니다.
+>기본 Apache Sling 리라이터의 링크 확인 변환기는 끊어진 링크를 방지하기 위해 페이지에서 하이퍼링크를 자동으로 수정합니다. 그러나 링크 재작성은 링크 대상이 HTML 또는 HTML 파일인 경우에만 수행됩니다. 다른 파일 유형에 대한 링크를 업데이트하려면 변압기 구성 요소를 만들어 HTML 리작성기 파이프라인에 추가합니다.
 
-### 리소스 매핑 노드의 예
+### 리소스 매핑 노드 예
 
-다음 표는 branda.com 도메인에 대한 리소스 매핑을 구현하는 노드를 보여 줍니다. `brandb.com` 도메인에 대해 비슷한 노드가 만들어집니다(예: `/etc/map/http/brandb.com`). 모든 경우 페이지 HTML의 참조가 Sling 컨텍스트에서 올바로 확인되지 않을 때 매핑이 필요합니다.
+다음 표에는 branda.com 도메인에 대한 리소스 매핑을 구현하는 노드가 나와 있습니다. `/etc/map/http/brandb.com` 과 같은 `brandb.com` 도메인에 대해 유사한 노드가 만들어집니다. 모든 경우, 페이지 HTML의 참조가 Sling 컨텍스트에서 올바르게 확인되지 않도록 매핑이 필요합니다.
 
 | 노드 경로 | 유형 | 속성 |
 |--- |--- |--- |
@@ -317,9 +316,9 @@ Sling 리소스 매핑에 대한 자세한 내용은 Sling 설명서의 [리소�
 | `/etc/map/http/branda.com/etc/designs` | sling:Mapping | 이름:sling:internalRedirect <br/>VType:문자열 <br/>값:/etc/designs |
 | `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | 이름:sling:internalRedirect <br/>VType:문자열 <br/>값:/etc/clientlibs |
 
-## Dispatcher Flush 복제 에이전트 {#configuring-the-dispatcher-flush-replication-agent} 구성
+## Dispatcher 플러시 복제 에이전트 구성 {#configuring-the-dispatcher-flush-replication-agent}
 
-AEM 게시 인스턴스의 Dispatcher Flush 복제 에이전트가 무효화 요청을 올바른 Dispatcher 팜에 보내야 합니다. 팜을 타깃팅하려면 [전송] 탭에서 Dispatcher Flush 복제 에이전트의 URI 속성을 사용합니다. 캐시를 무효화하기 위해 구성된 Dispatcher 팜에 대한 `/virtualhost` 속성 값을 포함합니다.
+AEM 게시 인스턴스의 Dispatcher 초기화 복제 에이전트는 무효화 요청을 올바른 Dispatcher 팜에 보내야 합니다. 팜을 타겟팅하려면 Dispatcher 플러시 복제 에이전트( 전송 탭에서)의 URI 속성을 사용합니다. 캐시를 무효화하도록 구성된 Dispatcher 팜에 대한 `/virtualhost` 속성 값을 포함합니다.
 
 `https://*webserver_name*:*port*/*virtual_host*/dispatcher/invalidate.cache`
 
@@ -327,39 +326,39 @@ AEM 게시 인스턴스의 Dispatcher Flush 복제 에이전트가 무효화 요
 
 ![](assets/chlimage_1-12.png)
 
-## 웹 서버가 들어오는 URL {#the-web-server-rewrites-incoming-urls}을 다시 씁니다.
+## 웹 서버가 들어오는 URL {#the-web-server-rewrites-incoming-urls}을 다시 기록합니다.
 
 웹 서버의 내부 URL 재작성 기능을 사용하여 도메인 기반 URL을 Dispatcher 캐시의 파일 경로로 변환합니다. 예를 들어 `https://brandA.com/en.html` 페이지에 대한 클라이언트 요청은 웹 서버의 문서 루트에 있는 `content/sitea/en.html` 파일로 변환됩니다.
 
 ![](assets/chlimage_1-13.png)
 
-Dispatcher 캐시는 저장소 노드 구조를 미러링합니다. 따라서 페이지 활성화가 발생하면 캐시된 페이지를 무효화하는 요청에 URL 또는 경로 번역이 필요하지 않습니다.
+Dispatcher 캐시는 저장소 노드 구조를 미러링합니다. 따라서 페이지 활성화가 발생하면 캐시된 페이지를 무효화하는 결과 요청에 URL 또는 경로 번역이 필요하지 않습니다.
 
 ![](assets/chlimage_1-14.png)
 
-## 웹 서버 {#define-virtual-hosts-and-rewrite-rules-on-the-web-server}에서 가상 호스트 정의 및 다시 쓰기 규칙
+## 웹 서버 {#define-virtual-hosts-and-rewrite-rules-on-the-web-server}에서 가상 호스트 정의 및 재작성 규칙
 
 웹 서버에서 다음 측면을 구성합니다.
 
 * 각 웹 도메인에 대한 가상 호스트를 정의합니다.
-* 각 도메인에 대해 도메인의 웹 내용이 포함된 저장소의 폴더와 일치하도록 문서 루트를 구성합니다.
+* 각 도메인에 대해 도메인의 웹 컨텐츠를 포함하는 저장소의 폴더와 일치하도록 문서 루트를 구성합니다.
 * 각 가상 도메인에 대해 들어오는 URL을 캐시된 파일의 경로로 변환하는 URL 이름 바꾸기 규칙을 만듭니다.
-* 또한 각 가상 도메인은 [Dispatcher 설치](dispatcher-install.md) 페이지에 설명된 대로 Dispatcher 관련 구성도 포함해야 합니다.
-* 웹 서버가 수정한 URL을 사용하도록 Dispatcher 모듈을 구성해야 합니다. ([Dispatcher](dispatcher-install.md)설치 시 `DispatcherUseProcessedURL` 속성을 참조하십시오.)
+* 각 가상 도메인은 [Dispatcher 설치](dispatcher-install.md) 페이지에 설명된 대로 Dispatcher 관련 구성도 포함해야 합니다.
+* Dispatcher 모듈은 웹 서버가 다시 작성한 URL을 사용하도록 구성해야 합니다. ( [Dispatcher 설치](dispatcher-install.md)에서 `DispatcherUseProcessedURL` 속성을 참조하십시오.)
 
-다음 예제는 Apache 웹 서버에 대한 두 개의 가상 호스트를 구성합니다.
+다음 예에서는 httpd.conf 파일이 Apache 웹 서버에 대해 두 개의 가상 호스트를 구성합니다.
 
-* 도메인 이름과 일치하는 서버 이름은 `brandA.com`(16행) 및 `brandB.com`(32행)입니다.
+* 서버 이름(도메인 이름과 일치함)은 `brandA.com`(16행) 및 `brandB.com`(32행)입니다.
 
-* 각 가상 도메인의 문서 루트는 사이트 페이지가 포함된 Dispatcher 캐시의 디렉토리입니다. (20행 및 33)
-* 각 가상 도메인에 대한 URL 다시 작성 규칙은 요청된 페이지의 경로를 캐시에 있는 페이지에 대한 경로로 접두사를 지정하는 정규식입니다. (19 및 35행)
-* `DispatherUseProcessedURL` 속성은 `1`로 설정됩니다. (10행)
+* 각 가상 도메인의 문서 루트는 사이트의 페이지를 포함하는 Dispatcher 캐시의 디렉토리입니다. (20행 및 33행)
+* 각 가상 도메인에 대한 URL rewrite 규칙은 캐시의 페이지 경로를 사용하여 요청된 페이지의 경로를 접두사로 추가하는 정규 표현식입니다. (라인 19 및 35)
+* `DispatherUseProcessedURL` 속성이 `1` 로 설정되어 있습니다. (10행)
 
-예를 들어 웹 서버는 `https://brandA.com/en/products.html` URL로 요청을 받을 때 다음 작업을 수행합니다.
+예를 들어, 웹 서버는 `https://brandA.com/en/products.html` URL이 있는 요청을 받을 때 다음 작업을 수행합니다.
 
-* URL을 `brandA.com.`의 `ServerName`이(가) 있는 가상 호스트와 연결합니다.
+* `brandA.com.` 의 `ServerName`이 있는 가상 호스트와 URL을 연결합니다
 * URL을 `/content/sitea/en/products.html.`으로 다시 씁니다.
-* URL을 Dispatcher로 전달합니다.
+* URL을 Dispatcher에 전달합니다.
 
 ### httpd.conf {#httpd-conf-1}
 
@@ -413,19 +412,19 @@ LoadModule dispatcher_module modules/mod_dispatcher.so
 DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
-### 디스패처 팜 {#configure-a-dispatcher-farm} 구성
+### Dispatcher 팜 구성 {#configure-a-dispatcher-farm}
 
-웹 서버가 URL을 다시 작성할 때 Dispatcher는 [Configuring Dispatcher](dispatcher-configuration.md)에 따라 정의된 단일 팜이 필요합니다. 웹 서버 가상 호스트 및 URL 이름 바꾸기 규칙을 지원하려면 다음 구성이 필요합니다.
+웹 서버가 URL을 다시 작성하는 경우 Dispatcher에는 [Dispatcher 구성](dispatcher-configuration.md)에 따라 정의된 단일 팜이 필요합니다. 웹 서버 가상 호스트 및 URL 이름 바꾸기 규칙을 지원하려면 다음 구성이 필요합니다.
 
-* `/virtualhosts` 속성에는 모든 VirtualHost 정의에 대한 ServerName 값이 포함되어야 합니다.
-* `/statfileslevel` 속성은 각 도메인에 대한 콘텐트 파일을 포함하는 디렉토리에 .stat 파일을 만들 수 있을 만큼 높아야 합니다.
+* `/virtualhosts` 속성은 모든 VirtualHost 정의에 대한 ServerName 값을 포함해야 합니다.
+* `/statfileslevel` 속성은 각 도메인에 대한 컨텐츠 파일이 들어 있는 디렉터리에 .stat 파일을 만들 수 있을 만큼 높아야 합니다.
 
-다음 예제 구성 파일은 Dispatcher와 함께 설치되는 예제 `dispatcher.any` 파일을 기반으로 합니다. 이전 `httpd.conf` 파일의 웹 서버 구성을 지원하려면 다음 변경 사항이 필요합니다.
+다음 구성 파일 예는 Dispatcher와 함께 설치된 `dispatcher.any` 파일 예를 기반으로 합니다. 이전 `httpd.conf` 파일의 웹 서버 구성을 지원하려면 다음 변경 사항이 필요합니다.
 
-* `/virtualhosts` 속성은 Dispatcher가 `brandA.com` 및 `brandB.com` 도메인에 대한 요청을 처리하도록 합니다. (12행)
-* `/statfileslevel` 속성은 2로 설정되므로 도메인의 웹 콘텐트가 들어 있는 각 디렉토리에 통계 파일이 만들어집니다(41행).`/statfileslevel "2"`
+* `/virtualhosts` 속성을 사용하면 Dispatcher가 `brandA.com` 및 `brandB.com` 도메인에 대한 요청을 처리합니다. (12행)
+* `/statfileslevel` 속성은 2로 설정되므로 도메인의 웹 컨텐츠가 포함된 각 디렉토리(41행)에 통계 파일이 생성됩니다.`/statfileslevel "2"`
 
-일반적으로 캐시의 문서 루트는 웹 서버의 문서 루트와 같습니다(40행).`/usr/lib/apache/httpd-2.4.3/htdocs`
+캐시의 문서 루트는 웹 서버의 문서 루트와 동일합니다(40행).`/usr/lib/apache/httpd-2.4.3/htdocs`
 
 ### `dispatcher.any` {#dispatcher-any}
 
@@ -499,59 +498,59 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 >[!NOTE]
 >
->단일 Dispatcher 팜이 정의되므로 AEM 게시 인스턴스의 Dispatcher Flush 복제 에이전트에는 특수 구성이 필요하지 않습니다.
+>단일 Dispatcher 팜이 정의되므로 AEM 게시 인스턴스의 Dispatcher 플러시 복제 에이전트에는 특수 구성이 필요하지 않습니다.
 
-## 비HTML 파일에 대한 링크 다시 작성 {#rewriting-links-to-non-html-files}
+## 비 HTML 파일에 대한 링크 다시 작성 {#rewriting-links-to-non-html-files}
 
-.html 또는 .htm 이외의 확장자가 있는 파일에 대한 참조를 다시 작성하려면 Sling 변환기 구성 요소를 만들고 기본 리작성기 파이프라인에 추가합니다.
+.html 또는 .htm 이외의 확장자가 있는 파일에 대한 참조를 다시 작성하려면 Sling 변환기 구성 요소를 만들고 기본 재작성기 파이프라인에 추가합니다.
 
-웹 서버 컨텍스트에서 리소스 경로가 올바르게 확인되지 않으면 참조를 다시 작성합니다. 예를 들어 이미지 생성 구성 요소가 /content/sitea/en/products.navimage.png와 같은 링크를 만드는 경우 변환기가 필요합니다. [완전한 기능을 갖춘 인터넷 웹 사이트를 만드는 방법](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/the-basics.html)의 최상위 구성 요소는 이러한 링크를 만듭니다.
+웹 서버 컨텍스트에서 리소스 경로가 올바르게 확인되지 않으면 참조를 다시 작성합니다. 예를 들어, 이미지 생성 구성 요소가 /content/sitea/en/products.navimage.png와 같은 링크를 만들 때는 변압기가 필요합니다. [모든 기능을 갖춘 인터넷 웹 사이트를 만드는 방법](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/the-basics.html)의 위쪽 탐색 구성 요소는 이러한 링크를 만듭니다.
 
-[Sling rewriter](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html)는 Sling 출력을 사후 처리하는 모듈입니다. 리필터의 SAX 파이프라인 구현은 생성기와 하나 이상의 트랜스포머 및 직렬 변환기로 구성됩니다.
+[Sling rewriter](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html)는 Sling 출력을 사후 처리하는 모듈입니다. 리라이터의 SAX 파이프라인 구현은 생성기와 하나 이상의 트랜스포머와 직렬 변환기로 구성됩니다.
 
-* **Generator:** Sling 출력 스트림(HTML 문서)을 구문 분석하여 특정 요소 유형이 발견되면 SAX 이벤트를 생성합니다.
-* **Transformer:** SAX 이벤트를 수신하고 결과적으로 이벤트 대상(HTML 요소)을 수정합니다. 리저터 파이프라인에는 0개 이상의 변압기가 포함되어 있습니다. 트랜스포머가 순서대로 실행되어 SAX 이벤트를 시퀀스의 다음 변압기로 전달합니다.
-* **직렬 변환기:** 각 변압기에서 수정한 내용을 포함하여 출력을 직렬화합니다.
+* **생성기:** Sling 출력 스트림(HTML 문서)을 구문 분석하고 특정 요소 유형이 발생하면 SAX 이벤트를 생성합니다.
+* **변압기:** SAX 이벤트를 수신하여 결과적으로 이벤트 대상(HTML 요소)을 수정합니다. 재작성기 파이프라인에는 0개 이상의 트랜스포머가 포함되어 있습니다. 변압기는 순서대로 실행되며, SAX 이벤트를 다음 변압기로 차례로 전달합니다.
+* **직렬 변환기:**  각 변압기의 수정 사항을 포함하여 출력을 serialize합니다.
 
 ![](assets/chlimage_1-15.png)
 
-### AEM 기본 리작성기 파이프라인 {#the-aem-default-rewriter-pipeline}
+### AEM 기본 재작성기 파이프라인 {#the-aem-default-rewriter-pipeline}
 
-AEM에서는 텍스트/html 유형의 문서를 처리하는 기본 파이프라인 리필터를 사용합니다.
+AEM에서는 텍스트/html 유형의 문서를 처리하는 기본 파이프라인 재작성기를 사용합니다.
 
-* 이 생성기는 HTML 문서를 구문 분석하여 a, img, area, form, base, link, script 및 body 요소가 발견되면 SAX 이벤트를 생성합니다. 생성기 별칭은 `htmlparser`입니다.
-* 파이프라인에는 다음과 같은 변압기가 포함됩니다.`linkchecker`, `mobile`, `mobiledebug`, `contentsync`. `linkchecker` 변압기는 참조된 HTML 또는 HTM 파일에 대한 경로를 외부화하여 링크가 끊기지 않도록 합니다.
+* 생성기는 HTML 문서를 구문 분석하고, a, img, area, form, base, link, script 및 body 요소가 발생하면 SAX 이벤트를 생성합니다. 생성기 별칭은 `htmlparser`입니다.
+* 파이프라인에는 다음과 같은 트랜스포머가 포함됩니다.`linkchecker`, `mobile`, `mobiledebug`, `contentsync`. `linkchecker` 변압기는 참조된 HTML 또는 HTML 파일에 대한 경로를 외부화하여 링크가 끊어지지 않도록 합니다.
 * 직렬 변환기는 HTML 출력을 씁니다. 직렬 변환기 별칭은 htmlwriter입니다.
 
 `/libs/cq/config/rewriter/default` 노드는 파이프라인을 정의합니다.
 
 ### 변환기 {#creating-a-transformer} 만들기
 
-다음 작업을 수행하여 변환기 구성 요소를 만들고 파이프라인에서 사용합니다.
+다음 작업을 수행하여 변압기 구성 요소를 만들고 파이프라인에서 사용합니다.
 
-1. `org.apache.sling.rewriter.TransformerFactory` 인터페이스를 구현합니다. 이 클래스는 변압기 클래스의 인스턴스를 만듭니다. `transformer.type` 속성(변환기 별칭)에 대한 값을 지정하고 클래스를 OSGi 서비스 구성 요소로 구성합니다.
-1. `org.apache.sling.rewriter.Transformer` 인터페이스를 구현합니다. 작업을 최소화하려면 `org.apache.cocoon.xml.sax.AbstractSAXPipe` 클래스를 확장할 수 있습니다. startElement 메서드를 재정의하여 재작성 동작을 사용자 지정합니다. 이 메서드는 변압기로 전달되는 모든 SAX 이벤트에 대해 호출됩니다.
-1. 클래스를 번들로 묶어서 배포합니다.
-1. AEM 응용 프로그램에 구성 노드를 추가하여 파이프라인에 변환기를 추가합니다.
+1. `org.apache.sling.rewriter.TransformerFactory` 인터페이스를 구현합니다. 이 클래스는 변압기 클래스의 인스턴스를 만듭니다. `transformer.type` 속성(변환기 별칭)의 값을 지정하고 클래스를 OSGi 서비스 구성 요소로 구성합니다.
+1. `org.apache.sling.rewriter.Transformer` 인터페이스를 구현합니다. 작업을 최소화하기 위해 `org.apache.cocoon.xml.sax.AbstractSAXPipe` 클래스를 확장할 수 있습니다. startElement 메서드를 재정의하여 재작성 동작을 사용자 지정합니다. 이 방법은 변압기에 전달되는 모든 SAX 이벤트에 대해 호출됩니다.
+1. 클래스를 번들 및 배포합니다.
+1. AEM 애플리케이션에 구성 노드를 추가하여 파이프라인에 변압기를 추가합니다.
 
 >[!TIP]
->대신 TransformerFactory를 구성하여 정의된 모든 리필터에 변환기가 삽입되도록 구성할 수 있습니다. 따라서 파이프라인을 구성할 필요가 없습니다.
+>대신 정의된 모든 리필터에 변압기가 삽입되도록 TransformerFactory를 구성할 수 있습니다. 따라서 파이프라인을 구성할 필요가 없습니다.
 >
->* `pipeline.mode` 속성을 `global`로 설정합니다.
+>* `pipeline.mode` 속성을 `global`(으)로 설정합니다.
 >* `service.ranking` 속성을 양의 정수로 설정합니다.
 >* `pipeline.type` 속성을 포함하지 마십시오.
 
 
 >[!NOTE]
 >
->Content Package Maven Plugin의 [다중 모듈](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) 원형 유형을 사용하여 Maven 프로젝트를 만듭니다. POM은 자동으로 콘텐츠 패키지를 생성 및 설치합니다.
+>Content Package Maven 플러그인의 [multimodule](https://helpx.adobe.com/kr/experience-manager/aem-previous-versions.html) 원형 을 사용하여 Maven 프로젝트를 만듭니다. POM은 자동으로 컨텐츠 패키지를 만들고 설치합니다.
 
-다음 예제에서는 이미지 파일에 대한 참조를 다시 쓰는 변환기를 구현합니다.
+다음 예제에서는 이미지 파일에 대한 참조를 다시 작성하는 변압기를 구현합니다.
 
-* MyRewriterTransformerFactory 클래스는 MyRewriterTransformer 객체를 인스턴스화합니다. pipeline.type 속성은 변환기 별칭을 mytransformer로 설정합니다. 파이프라인에 앨리어스를 포함하려면 파이프라인 구성 노드에 transformers 목록에 이 별칭이 포함됩니다.
-* MyRewriterTransformer 클래스는 AbstractSXTransformer 클래스의 startElement 메서드를 재정의합니다. startElement 메서드는 img 요소에 대한 src 특성의 값을 다시 씁니다.
+* MyRewriterTransformerFactory 클래스는 MyRewriterTransformer 개체를 인스턴스화합니다. pipeline.type 속성은 변압기 별칭을 mytransformer로 설정합니다. 파이프라인에 별칭을 포함하기 위해 파이프라인 구성 노드는 트랜스포머 목록에 이 별칭을 포함합니다.
+* MyRewriterTransformer 클래스는 AbstractSXTransformer 클래스의 startElement 메서드를 무시합니다. startElement 메서드는 img 요소에 대해 src 특성의 값을 다시 씁니다.
 
-이 예는 강력하지 않으며 제작 환경에서 사용해서는 안 됩니다.
+이 예는 강력하지 않으므로 프로덕션 환경에서 사용해서는 안 됩니다.
 
 ### TransformerFactory 구현 예 {#example-transformerfactory-implementation}
 
@@ -647,15 +646,15 @@ public class MyRewriterTransformer extends AbstractSAXPipe implements Transforme
 }
 ```
 
-### 리writer 파이프라인에 변환기 추가 {#adding-the-transformer-to-a-rewriter-pipeline}
+### 리작성기 파이프라인 {#adding-the-transformer-to-a-rewriter-pipeline}에 변압기 추가
 
-변압기를 사용하는 파이프라인을 정의하는 JCR 노드를 만듭니다. 다음 노드 정의는 텍스트/html 파일을 처리하는 파이프라인을 만듭니다. HTML용 기본 AEM 생성기 및 파서가 사용됩니다.
+변압기를 사용하는 파이프라인을 정의하는 JCR 노드를 만듭니다. 다음 노드 정의는 텍스트/html 파일을 처리하는 파이프라인을 생성합니다. HTML용 기본 AEM 생성기 및 파서가 사용됩니다.
 
 >[!NOTE]
 >
->Transformer 속성 `pipeline.mode`을 `global`으로 설정하는 경우 파이프라인을 구성할 필요가 없습니다. `global` 모드는 모든 파이프라인에 변환기를 삽입합니다.
+>Transformer 속성 `pipeline.mode`을 `global`(으)로 설정하면 파이프라인을 구성할 필요가 없습니다. `global` 모드에서는 변압기가 모든 파이프라인에 삽입됩니다.
 
-### 다시 기록기 구성 노드 - XML 표현 {#rewriter-configuration-node-xml-representation}
+### 재작성기 구성 노드 - XML 표현 {#rewriter-configuration-node-xml-representation}
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
