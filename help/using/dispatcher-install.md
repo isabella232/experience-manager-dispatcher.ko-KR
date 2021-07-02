@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
 source-wordcount: '3684'
 ht-degree: 0%
@@ -101,7 +101,7 @@ IIS 버전 8.5 및 10을 사용하려면 다음 IIS 구성 요소가 설치되�
 
 또한 웹 서버(IIS) 역할을 추가해야 합니다. 서버 관리자를 사용하여 역할 및 구성 요소를 추가합니다.
 
-## Microsoft IIS - 디스패처 모듈 {#microsoft-iis-installing-the-dispatcher-module} 설치
+## Microsoft IIS - Dispatcher 모듈 설치 {#microsoft-iis-installing-the-dispatcher-module}
 
 Microsoft 인터넷 정보 시스템에 필요한 아카이브는 다음과 같습니다.
 
@@ -163,7 +163,7 @@ servervariables=1
 replaceauthorization=0
 ```
 
-### Microsoft IIS {#configuring-microsoft-iis} 구성
+### Microsoft IIS 구성 {#configuring-microsoft-iis}
 
 Dispatcher ISAPI 모듈을 통합하도록 IIS를 구성합니다. IIS에서는 와일드카드 응용 프로그램 매핑을 사용합니다.
 
@@ -227,7 +227,7 @@ Dispatcher에서 JSON 호출을 허용하도록 할 때 다음 절차를 사용�
    * 파일 이름 확장명:`.json`
    * MIME 유형:`application/json`
 
-### 빈 숨겨진 세그먼트 제거 - IIS 8.5 및 10 {#removing-the-bin-hidden-segment-iis-and}
+### 숨겨진 세그먼트 제거 - IIS 8.5 및 10 {#removing-the-bin-hidden-segment-iis-and}
 
 다음 절차를 사용하여 `bin` 숨겨진 세그먼트를 제거합니다. 새 세그먼트가 아닌 웹 사이트에는 이 숨겨진 세그먼트가 포함될 수 있습니다.
 
@@ -273,7 +273,7 @@ Dispatcher 사용을 시작하려면 먼저 알고 있어야 합니다.
 >
 >**Windows** 및 **Unix**&#x200B;모두 아래의 설치 지침은 여기에서 다룹니다. 단계를 수행할 때는 주의하십시오.
 
-### Apache 웹 서버 {#installing-apache-web-server} 설치
+### Apache 웹 서버 설치 {#installing-apache-web-server}
 
 Apache 웹 서버를 설치하는 방법에 대한 자세한 내용은 설치 설명서( [online](https://httpd.apache.org/) 또는 배포)를 참조하십시오.
 
@@ -339,7 +339,7 @@ chcon -R --type httpd_sys_content_t [path to the docroot]
 semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
 ```
 
-### Apache 웹 서버 - Dispatcher에 대한 Apache 웹 서버 구성 {#apache-web-server-configure-apache-web-server-for-dispatcher}
+### Apache 웹 서버 - Dispatcher용 Apache 웹 서버 구성 {#apache-web-server-configure-apache-web-server-for-dispatcher}
 
 `httpd.conf` 을 사용하여 Apache 웹 서버를 구성해야 합니다. Dispatcher 설치 키트에서 `httpd.conf.disp<x>` 구성 파일 예를 찾을 수 있습니다.
 
@@ -420,12 +420,17 @@ DispatcherKeepAliveTimeout 60
 
 >[!NOTE]
 >
->서버 헤더의 기본 설정은 다음과 같습니다.`  
-ServerTokens Full` `  
-DispatcherNoServerHeader 0`\
-(통계적 목적을 위해) AEM 버전을 표시합니다. 헤더에서 사용할 수 있는 이러한 정보를 비활성화하려면 다음을 설정할 수 있습니다.`  
-ServerTokens Prod`\
-자세한 내용은 [ServerTokens Directive(예: Apache 2.4)에 대한 Apache 설명서](https://httpd.apache.org/docs/2.4/mod/core.html)를 참조하십시오.
+>서버 헤더의 기본 설정은 다음과 같습니다.
+>
+>`ServerTokens Full`
+>
+>`DispatcherNoServerHeader 0`
+>
+>(통계적 목적을 위해) AEM 버전을 표시합니다. 헤더에서 사용할 수 있는 이러한 정보를 비활성화하려면 다음을 설정할 수 있습니다.
+>
+>`ServerTokens Prod`
+>
+>자세한 내용은 [ServerTokens Directive(예: Apache 2.4)에 대한 Apache 설명서](https://httpd.apache.org/docs/2.4/mod/core.html)를 참조하십시오.
 
 **SetHandler**
 
@@ -483,16 +488,20 @@ AllowOverride None
 ```
 
 >[!NOTE]
-**SetHandler** 문의 매개 변수는 모듈에 정의된 처리기의 이름이므로 위의 예제&#x200B;*와 동일하게*&#x200B;기록되어야 합니다.
-이 명령에 대한 자세한 내용은 제공된 예제 구성 파일 및 Apache 웹 서버 설명서 를 참조하십시오.
+>
+>**SetHandler** 문의 매개 변수는 모듈에 정의된 처리기의 이름이므로 위의 예제&#x200B;*와 동일하게*&#x200B;기록되어야 합니다.
+>
+>이 명령에 대한 자세한 내용은 제공된 예제 구성 파일 및 Apache 웹 서버 설명서 를 참조하십시오.
 
 **ModMimeUsePathInfo**
 
 **SetHandler** 문 다음에 **ModMimeUsePathInfo** 정의도 추가해야 합니다.
 
 >[!NOTE]
-`ModMimeUsePathInfo` 매개 변수는 Dispatcher 버전 4.0.9 이상을 사용하는 경우에만 사용하고 구성해야 합니다.
-(Dispatcher 버전 4.0.9는 2011년에 릴리스되었습니다. 이전 버전을 사용하는 경우 최신 Dispatcher 버전으로 업그레이드하는 것이 적절합니다.
+>
+>`ModMimeUsePathInfo` 매개 변수는 Dispatcher 버전 4.0.9 이상을 사용하는 경우에만 사용하고 구성해야 합니다.
+>
+>(Dispatcher 버전 4.0.9는 2011년에 릴리스되었습니다. 이전 버전을 사용하는 경우 최신 Dispatcher 버전으로 업그레이드하는 것이 적절합니다.
 
 모든 Apache 구성에 대해 **ModMimeUsePathInfo** 매개 변수를 `On`로 설정해야 합니다.
 
@@ -520,7 +529,7 @@ AllowOverride None
 ...
 ```
 
-### HTTPS(Unix 및 Linux)에 대한 지원 활성화 {#enable-support-for-https-unix-and-linux}
+### HTTPS(Unix 및 Linux) 지원 활성화 {#enable-support-for-https-unix-and-linux}
 
 Dispatcher는 OpenSSL을 사용하여 HTTP를 통해 보안 커뮤니케이션을 구현합니다. Dispatcher 버전 **4.2.0**&#x200B;부터 OpenSSL 1.0.0 및 OpenSSL 1.0.1이 지원됩니다. Dispatcher는 기본적으로 OpenSSL 1.0.0을 사용합니다. OpenSSL 1.0.1을 사용하려면 다음 절차를 사용하여 Dispatcher가 설치된 OpenSSL 라이브러리를 사용하도록 심볼 링크를 만듭니다.
 
@@ -538,7 +547,8 @@ Dispatcher는 OpenSSL을 사용하여 HTTP를 통해 보안 커뮤니케이션�
    ```
 
 >[!NOTE]
-사용자 지정된 Apache 버전을 사용하는 경우 Apache와 Dispatcher가 동일한 버전의 [OpenSSL](https://www.openssl.org/source/)을 사용하여 컴파일되었는지 확인하십시오.
+>
+>사용자 지정된 Apache 버전을 사용하는 경우 Apache와 Dispatcher가 동일한 버전의 [OpenSSL](https://www.openssl.org/source/)을 사용하여 컴파일되었는지 확인하십시오.
 
 ### 다음 단계 {#next-steps-1}
 
@@ -550,17 +560,19 @@ Dispatcher 사용을 시작하려면 먼저 다음을 수행해야 합니다.
 ## Sun Java System Web Server / iPlanet {#sun-java-system-web-server-iplanet}
 
 >[!NOTE]
-Windows 및 Unix 환경에 대한 지침은 여기에서 다룹니다.
-실행할 항목을 선택할 때는 주의하십시오.
+>
+>Windows 및 Unix 환경에 대한 지침은 여기에서 다룹니다.
+>
+>실행할 항목을 선택할 때는 주의하십시오.
 
-### Sun Java System Web Server / iPlanet - 웹 서버 {#sun-java-system-web-server-iplanet-installing-your-web-server} 설치
+### Sun Java System Web Server / iPlanet - 웹 서버 설치 {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
 이러한 웹 서버를 설치하는 방법에 대한 자세한 내용은 해당 설명서를 참조하십시오.
 
 * Sun Java System 웹 서버
 * iPlanet Web Server
 
-### Sun Java System Web Server / iPlanet - 디스패처 모듈 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module} 추가
+### Sun Java System Web Server / iPlanet - 디스패처 모듈 추가 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Dispatcher는 다음 중 하나로 제공됩니다.
 
@@ -583,7 +595,7 @@ Dispatcher는 다음 중 하나로 제공됩니다.
 
 1. 웹 서버의 `plugin` 디렉토리에 Dispatcher 파일을 배치합니다.
 
-### Sun Java System Web Server / iPlanet - Dispatcher {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher} 구성
+### Sun Java System Web Server / iPlanet - Dispatcher에 대한 구성 {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
 
 `obj.conf` 을 사용하여 웹 서버를 구성해야 합니다. Dispatcher 설치 키트에서 `obj.conf.disp` 구성 파일 예를 찾을 수 있습니다.
 
@@ -604,7 +616,8 @@ Dispatcher는 다음 중 하나로 제공됩니다.
 1. 변경 사항을 저장합니다.
 
 >[!NOTE]
-다음 구성은 모두 한 줄에 있어야 하며 `$(SERVER_ROOT)` 및 `$(PRODUCT_SUBDIR)`은(는) 각 값으로 대체해야 합니다.
+>
+>다음 구성은 모두 한 줄에 있어야 하며 `$(SERVER_ROOT)` 및 `$(PRODUCT_SUBDIR)`은(는) 각 값으로 대체해야 합니다.
 
 **초기화**
 
