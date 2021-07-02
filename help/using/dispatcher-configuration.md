@@ -2,9 +2,9 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법을 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
-source-wordcount: '8513'
+source-wordcount: '8512'
 ht-degree: 2%
 
 ---
@@ -255,7 +255,7 @@ Comment Type: draft
 
  -->
 
-## {#specifying-the-http-headers-to-pass-through-clientheaders} 전달을 위한 HTTP 헤더 지정
+## 전달할 HTTP 헤더 지정 {#specifying-the-http-headers-to-pass-through-clientheaders}
 
 `/clientheaders` 속성은 Dispatcher가 클라이언트 HTTP 요청에서 렌더러(AEM 인스턴스)로 전달하는 HTTP 헤더 목록을 정의합니다.
 
@@ -346,7 +346,7 @@ Comment Type: draft
     }
 ```
 
-### 가상 호스트 {#resolving-the-virtual-host} 해결
+### 가상 호스트 해결 {#resolving-the-virtual-host}
 
 Dispatcher가 HTTP 또는 HTTPS 요청을 받으면 요청의 `host,` `uri` 및 `scheme` 헤더와 가장 일치하는 가상 호스트 값을 찾습니다. Dispatcher는 `virtualhosts` 속성의 값을 다음 순서로 평가합니다.
 
@@ -361,7 +361,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 따라서 기본 가상 호스트를 `dispatcher.any` 파일의 맨 위 팜에 있는 `virtualhosts` 속성의 맨 위에 배치해야 합니다.
 
-### 가상 호스트 해상도 {#example-virtual-host-resolution} 예
+### 가상 호스트 해상도 예 {#example-virtual-host-resolution}
 
 다음 예제는 두 Dispatcher 팜을 정의하는 `dispatcher.any` 파일의 코드 조각을 나타내며 각 팜은 `virtualhosts` 속성을 정의합니다.
 
@@ -507,7 +507,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
   }
 ```
 
-### 옵션 {#renders-options}을 렌더링합니다.
+### 렌더링 옵션 {#renders-options}
 
 **/timeout**
 
@@ -551,7 +551,7 @@ Dispatcher 버전 **4.1.6**&#x200B;을 사용하면 `/always-resolve` 속성을 
   }
 ```
 
-## 콘텐츠에 대한 액세스 구성 {#configuring-access-to-content-filter}
+## 컨텐츠에 대한 액세스 구성 {#configuring-access-to-content-filter}
 
 `/filter` 섹션을 사용하여 Dispatcher에서 허용하는 HTTP 요청을 지정합니다. 다른 모든 요청은 404 오류 코드(페이지를 찾을 수 없음)가 있는 웹 서버로 다시 전송됩니다. `/filter` 섹션이 없으면 모든 요청이 수락됩니다.
 
@@ -592,7 +592,7 @@ Dispatcher 버전 **4.1.6**&#x200B;을 사용하면 `/always-resolve` 속성을 
 >
 >`/url "*.css"`
 
-#### HTTP 요청의 요청 줄 부분 {#the-request-line-part-of-http-requests}
+#### HTTP 요청의 요청 라인 부분 {#the-request-line-part-of-http-requests}
 
 HTTP/1.1은 [request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)을 다음과 같이 정의합니다.
 
@@ -672,7 +672,7 @@ HTTP/1.1은 [request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.htm
 >
 >여러 필터 패턴이 요청에 적용되면 마지막으로 적용되는 필터 패턴이 유효합니다.
 
-#### 예제 필터:정규 표현식 {#example-filter-using-regular-expressions} 사용
+#### 예제 필터:정규 표현식 사용 {#example-filter-using-regular-expressions}
 
 이 필터를 사용하면 작은 따옴표 사이에 여기에 정의된 정규 표현식을 사용하여 비공개 컨텐츠 디렉토리의 확장을 사용할 수 있습니다.
 
@@ -680,7 +680,7 @@ HTTP/1.1은 [request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.htm
 /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
 ```
 
-#### 예제 필터:요청 URL {#example-filter-filter-additional-elements-of-a-request-url} 의 추가 요소 필터링
+#### 예제 필터:요청 URL의 추가 요소 필터링 {#example-filter-filter-additional-elements-of-a-request-url}
 
 다음은 경로, 선택기 및 확장에 대한 필터를 사용하여 `/content` 경로 및 해당 하위 트리에서 컨텐츠를 수집하는 규칙 예입니다.
 
@@ -693,7 +693,7 @@ HTTP/1.1은 [request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.htm
         }
 ```
 
-### 예 /filter 섹션 {#example-filter-section}
+### 예제 /filter 섹션 {#example-filter-section}
 
 Dispatcher 구성 시 외부 액세스를 가능한 한 제한해야 합니다. 다음 예제는 외부 방문자에 대한 최소한의 액세스 권한을 제공합니다.
 
@@ -940,7 +940,7 @@ AEM 페이지에 대해 구성된 별칭 URL에 대한 액세스를 허용하도
 
 별칭 URL에 대한 액세스를 활성화하려면 다음 절차를 사용합니다.
 
-1. 렌더링 서비스가 AEM 인스턴스인 경우 게시 인스턴스에 &#39;com.adobe.granite.dispatcher.vanityurl.content 패키지를 설치합니다(위의 참고 참조).
+1. 렌더링 서비스가 AEM 인스턴스인 경우 게시 인스턴스에 `com.adobe.granite.dispatcher.vanityurl.content` 패키지를 설치합니다(위의 참고 참조).
 1. AEM 또는 CQ 페이지에 대해 구성한 각 별칭 URL에 대해 [`/filter`](#configuring-access-to-content-filter) 구성이 URL을 거부하는지 확인합니다. 필요한 경우 URL을 거부하는 필터를 추가합니다.
 1. `/farms` 아래에 `/vanity_urls` 섹션을 추가합니다.
 1. Apache 웹 서버를 다시 시작합니다.
@@ -1007,7 +1007,7 @@ AEM 페이지에 대해 구성된 별칭 URL에 대한 액세스를 허용하도
 
 여러 팜을 사용하는 경우 각 팜에서 다른 문서 루트를 사용해야 합니다.
 
-### 상태 파일 이름 지정 {#naming-the-statfile}
+### 상태 파일의 이름 지정 {#naming-the-statfile}
 
 `/statfile` 속성은 상태 파일로 사용할 파일을 식별합니다. Dispatcher는 이 파일을 사용하여 최신 콘텐츠 업데이트 시간을 등록합니다. 상태 파일은 웹 서버의 모든 파일일 수 있습니다.
 
@@ -1023,7 +1023,7 @@ AEM 페이지에 대해 구성된 별칭 URL에 대한 액세스를 허용하도
 
 `/serveStaleOnError`이 `"1"`로 설정된 경우, 렌더링 서버가 성공적인 응답을 반환하지 않는 한 Dispatcher가 캐시에서 무효화된 콘텐츠를 삭제하지 않습니다. AEM의 5xx 응답이나 연결 시간 초과로 인해 Dispatcher가 오래된 콘텐츠를 제공하고 HTTP 상태 111에 응답합니다(재유효성 검사 실패).
 
-### 인증이 사용될 때 캐싱{#caching-when-authentication-is-used}
+### 인증 사용 시 캐싱 {#caching-when-authentication-is-used}
 
 `/allowAuthorized` 속성은 다음 인증 정보를 포함하는 요청이 캐시되는지 여부를 제어합니다.
 
@@ -1144,7 +1144,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
  -->
 
-### 폴더 수준 {#invalidating-files-by-folder-level}별로 파일 무효화
+### 폴더 수준별로 파일 무효화 {#invalidating-files-by-folder-level}
 
 경로에 따라 캐시된 파일을 무효화하려면 `/statfileslevel` 속성을 사용합니다.
 
@@ -1267,7 +1267,7 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 >
 >이 작업이 수행되지 않으면 모든 클라이언트가 캐시를 지우도록 호출을 실행할 수 있습니다.이러한 작업이 반복적으로 수행되면 사이트 성능에 심각한 영향을 줄 수 있습니다.
 
-### URL 매개 변수 {#ignoring-url-parameters} 무시
+### URL 매개 변수 무시 {#ignoring-url-parameters}
 
 `ignoreUrlParams` 섹션에서는 페이지가 캐시되거나 캐시에서 전달되는지 여부를 결정할 때 무시되는 URL 매개 변수를 정의합니다.
 
@@ -1363,7 +1363,7 @@ GET /mypage.html?q=5&p=4
 
 기본값은 `0755`로, 소유자가 읽기, 쓰기 또는 검색과 그룹 및 기타 사용자가 읽거나 검색할 수 있도록 합니다.
 
-### {#throttling-stat-file-touching} 수정 .stat 파일
+### 조절 .stat 파일 수정 {#throttling-stat-file-touching}
 
 기본 `/invalidate` 속성을 사용하면 모든 활성화는 모든 `.html` 파일을 효과적으로 무효화합니다(경로가 `/invalidate` 섹션과 일치할 때). 트래픽이 많은 웹 사이트에서 여러 번 활성화하면 백엔드의 CPU 로드가 증가합니다. 이러한 시나리오에서는 웹 사이트가 응답하도록 &quot;throttle&quot; `.stat` 파일을 수정하는 것이 좋습니다. 이 작업은 `/gracePeriod` 속성을 사용하여 수행할 수 있습니다.
 
@@ -1459,7 +1459,7 @@ URI의 카테고리를 결정하기 위해 Dispatcher는 일치하는 항목이 
 /unavailablePenalty "1"
 ```
 
-## 고정 연결 폴더 식별 - /stickyConnectionsFor {#identifying-a-sticky-connection-folder-stickyconnectionsfor}
+## 고정 연결 폴더 식별 - /stickyConnections대상 {#identifying-a-sticky-connection-folder-stickyconnectionsfor}
 
 `/stickyConnectionsFor` 속성은 고정 문서를 포함하는 하나의 폴더를 정의합니다.이렇게 하려면 URL을 사용하여 액세스해야 합니다. Dispatcher는 이 폴더에 있는 단일 사용자로부터 동일한 렌더링 인스턴스로 모든 요청을 보냅니다. 고정 연결은 모든 문서에 대해 세션 데이터가 존재하고 일관되도록 합니다. 이 메커니즘은 `renderid` 쿠키를 사용합니다.
 
@@ -1495,7 +1495,7 @@ URI의 카테고리를 결정하기 위해 Dispatcher는 일치하는 항목이 
 
 렌더링 서버에서 500 오류를 반환하거나 사용할 수 없을 때 Dispatcher 동작을 구성합니다.
 
-### 상태 확인 페이지 {#specifying-a-health-check-page} 지정
+### 상태 확인 페이지 지정 {#specifying-a-health-check-page}
 
 `/health_check` 속성을 사용하여 500 상태 코드가 발생할 때 확인할 URL을 지정합니다. 이 페이지가 500 상태 코드도 반환하는 경우, 인스턴스는 사용할 수 없는 것으로 간주되며, 재시도하기 전에 렌더링에 구성 가능한 시간 과징금( `/unavailablePenalty`)이 적용됩니다.
 
