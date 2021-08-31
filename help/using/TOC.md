@@ -11,9 +11,9 @@ feature: Dispatcher
 topic: 관리
 role: Admin
 source-git-commit: 4439a4f0adfb8e2e0d08636225d2399638d27af3
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '89'
-ht-degree: 85%
+ht-degree: 100%
 
 ---
 
@@ -24,7 +24,7 @@ ht-degree: 85%
 + 시작하기 {#getting-started}
    + [Dispatcher 설치](dispatcher-install.md)
    + [Dispatcher 보안 검사 목록](security-checklist.md)
-   + [AEM Dispatcher 릴리스 노트](release-notes.md)
+   + [AEM Dispatcher 릴리스 정보](release-notes.md)
 + 구성 {#configuring}
    + [Dispatcher 구성](dispatcher-configuration.md)
    + [AEM에서 캐시된 페이지 무효화](page-invalidate.md)
