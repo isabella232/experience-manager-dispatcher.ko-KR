@@ -1,8 +1,8 @@
 ---
 title: Dispatcher 보안 검사 목록
-seo-title: Dispatcher 보안 검사 목록
+seo-title: The Dispatcher Security Checklist
 description: 프로덕션을 시작하기 전에 완료해야 하는 보안 체크리스트입니다.
-seo-description: 프로덕션을 시작하기 전에 완료해야 하는 보안 체크리스트입니다.
+seo-description: A security checklist that should be completed before going on production.
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -16,7 +16,7 @@ snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '653'
+source-wordcount: '638'
 ht-degree: 100%
 
 ---
@@ -38,7 +38,7 @@ Adobe는 프로덕션을 시작하기 전에 다음 체크리스트를 완료할
 
 >[!CAUTION]
 >
->시작하기 전에 AEM 버전의 보안 체크리스트도 완료해야 합니다. 해당 [Adobe Experience Manager 설명서](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)를 참조하십시오.
+>시작하기 전에 AEM 버전의 보안 체크리스트도 완료해야 합니다. 해당 [Adobe Experience Manager 설명서](https://helpx.adobe.com/kr/experience-manager/6-3/sites/administering/using/security-checklist.html)를 참조하십시오.
 
 ## 최신 버전의 Dispatcher 사용 {#use-the-latest-version-of-dispatcher}
 
@@ -152,7 +152,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## CSRF 공격을 방지하도록 Dispatcher 구성 {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM은 크로스 사이트 요청 위조 공격을 방지하는 [프레임워크](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps)를 제공합니다. 이 프레임워크를 적절하게 사용하려면 Dispatcher에서 CSRF 토큰 지원을 허용 목록에 추가해야 합니다. 다음을 통해 이 작업을 수행할 수 있습니다.
+AEM은 크로스 사이트 요청 위조 공격을 방지하는 [프레임워크](https://helpx.adobe.com/kr/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps)를 제공합니다. 이 프레임워크를 적절하게 사용하려면 Dispatcher에서 CSRF 토큰 지원을 허용 목록에 추가해야 합니다. 다음을 통해 이 작업을 수행할 수 있습니다.
 
 1. `/libs/granite/csrf/token.json` 경로를 허용하는 필터 만들기
 1. Dispatcher 구성의 `clientheaders` 섹션에 `CSRF-Token` 헤더를 추가합니다.
