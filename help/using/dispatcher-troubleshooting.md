@@ -1,8 +1,8 @@
 ---
 title: Dispatcher 문제 해결
-seo-title: AEM Dispatcher 문제 해결
+seo-title: Troubleshooting AEM Dispatcher Problems
 description: Dispatcher 문제를 해결하는 방법에 대해 알아봅니다.
-seo-description: AEM Dispatcher 문제를 해결하는 방법에 대해 알아봅니다.
+seo-description: Learn to troubleshoot AEM Dispatcher issues.
 uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -15,7 +15,7 @@ discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '553'
+source-wordcount: '543'
 ht-degree: 100%
 
 ---
@@ -30,7 +30,7 @@ ht-degree: 100%
 
 >[!NOTE]
 >
->자세한 내용은 [Dispatcher 기술 자료](https://helpx.adobe.com/cq/kb/index/dispatcher.html), [Dispatcher 플러싱 문제 해결](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) 및 [Dispatcher 주요 문제 FAQ](dispatcher-faq.md) 도 참조하십시오.
+>자세한 내용은 [Dispatcher 기술 자료](https://helpx.adobe.com/kr/cq/kb/index/dispatcher.html), [Dispatcher 플러싱 문제 해결](https://helpx.adobe.com/kr/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) 및 [Dispatcher 주요 문제 FAQ](dispatcher-faq.md) 도 참조하십시오.
 
 ## 기본 구성 확인 {#check-the-basic-configuration}
 
@@ -62,8 +62,8 @@ IIS는 실제 버전에 따라 다양한 추적 도구를 제공합니다.
 
 IIS를 사용할 때 다양한 시나리오에서 `404 Not Found` 이 반환되는 것을 경험할 수 있습니다. 이 경우 다음 기술 자료 문서를 참조하십시오.
 
-* [IIS 6/7: POST 메서드가 404를 반환합니다](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6: 기본 경로 `/bin`이 포함된 URL에 대한 요청은 `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)을 반환합니다
+* [IIS 6/7: POST 메서드가 404를 반환합니다](https://helpx.adobe.com/kr/dispatcher/kb/IIS6IsapiFilters.html)
+* [IIS 6: 기본 경로 `/bin`이 포함된 URL에 대한 요청은 `404 Not Found`](https://helpx.adobe.com/kr/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)을 반환합니다
 
 또한 Dispatcher 캐시 루트와 IIS 문서 루트가 동일한 디렉터리로 설정되어 있는지 확인해야 합니다.
 
