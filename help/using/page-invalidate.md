@@ -1,8 +1,8 @@
 ---
 title: AEM에서 캐시된 페이지 무효화
-seo-title: Adobe AEM에서 캐시된 페이지 무효화
+seo-title: Invalidating Cached Pages From Adobe AEM
 description: 효과적인 캐시 관리를 위해 Dispatcher와 AEM 간의 상호 작용을 구성하는 방법에 대해 알아봅니다.
-seo-description: 효과적인 캐시 관리를 위해 Adobe AEM Dispatcher와 AEM 간의 상호 작용을 구성하는 방법에 대해 알아봅니다.
+seo-description: Learn how to configure the interaction between Adobe AEM Dispatcher and AEM to ensure effective cache management.
 uuid: 66533299-55c0-4864-9beb-77e281af9359
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -15,7 +15,7 @@ discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '1427'
+source-wordcount: '1404'
 ht-degree: 100%
 
 ---
@@ -28,7 +28,7 @@ AEM과 함께 Dispatcher를 사용하는 경우 효과적인 캐시 관리를 �
 
 기본 `admin` 사용자 계정은 기본적으로 설치된 복제 에이전트를 인증하는 데 사용됩니다. 복제 에이전트에 사용할 전용 사용자 계정을 생성해야 합니다.
 
-자세한 내용은 AEM 보안 체크리스트의 [복제 및 전송 사용자 구성](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) 섹션을 참조하십시오.
+자세한 내용은 AEM 보안 체크리스트의 [복제 및 전송 사용자 구성](https://helpx.adobe.com/kr/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) 섹션을 참조하십시오.
 
 ## 작성 환경에서 Dispatcher 캐시 무효화 {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -67,7 +67,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 1. 필요에 따라 다른 매개 변수를 구성합니다.
 1. 확인을 클릭하여 에이전트를 활성화합니다.
 
-또는 [AEM Touch UI](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent)에서 Dispatcher 플러시 에이전트에 액세스하고 구성할 수도 있습니다.
+또는 [AEM Touch UI](https://helpx.adobe.com/kr/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent)에서 Dispatcher 플러시 에이전트에 액세스하고 구성할 수도 있습니다.
 
 vanity URL에 대한 액세스를 활성화하는 방법에 대한 자세한 내용은 [Vanity URL에 대한 액세스 활성화](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls)를 참조하십시오.
 
@@ -192,7 +192,6 @@ Content-Length: 36
 >[!NOTE]
 >
 >이 예제 서블릿은 안전하지 않으며 HTTP Post 요청 메시지의 사용만 보여 줍니다. 솔루션은 서블릿에 대한 액세스 보안을 유지해야 합니다.
-
 
 ```java
 package com.adobe.example;
