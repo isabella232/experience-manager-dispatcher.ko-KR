@@ -8,11 +8,11 @@ breadcrumb-title: Dispatcher 안내서
 user-guide-description: AEM 서버의 캐싱, 로드 밸런싱 및 보안 개선에 Dispatcher를 사용하는 방법을 알아봅니다.
 feature-set: Experience Manager
 feature: Dispatcher
-topic: 관리
+topic: Administration
 role: Admin
 source-git-commit: 4439a4f0adfb8e2e0d08636225d2399638d27af3
 workflow-type: ht
-source-wordcount: '89'
+source-wordcount: '84'
 ht-degree: 100%
 
 ---
@@ -28,7 +28,7 @@ ht-degree: 100%
 + 구성 {#configuring}
    + [Dispatcher 구성](dispatcher-configuration.md)
    + [AEM에서 캐시된 페이지 무효화](page-invalidate.md)
-   + [캐시 성능을 위한 웹 사이트 최적화](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+   + [캐시 성능을 위한 웹 사이트 최적화](https://helpx.adobe.com/kr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
    + [보안 콘텐츠 캐싱](permissions-cache.md)
    + [여러 도메인에 Dispatcher 사용 ](dispatcher-domains.md)
    + [Dispatcher에 SSL 사용](dispatcher-ssl.md)
