@@ -1,8 +1,8 @@
 ---
 title: 보안 콘텐츠 캐싱
-seo-title: AEM Dispatcher에서의 보안 콘텐츠 캐싱
+seo-title: Caching Secured Content in AEM Dispatcher
 description: Dispatcher에서 권한 구분 캐싱이 작동하는 방식에 대해 알아봅니다.
-seo-description: AEM Dispatcher에서 권한 구분 캐싱이 작동하는 방식에 대해 알아봅니다.
+seo-description: Learn how permission-sensitive caching works in AEM Dispatcher.
 uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -12,7 +12,7 @@ discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '762'
+source-wordcount: '748'
 ht-degree: 100%
 
 ---
@@ -67,7 +67,6 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 >[!NOTE]
 >
 >일반적으로 보안 리소스는 비보안 파일과 별도의 폴더에 저장됩니다. 예: /content/secure/
-
 
 ## 권한 부여 서블릿 만들기 {#create-the-authorization-servlet}
 
