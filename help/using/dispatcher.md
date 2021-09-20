@@ -1,8 +1,8 @@
 ---
 title: Dispatcher 개요
-seo-title: Adobe AEM Dispatcher 개요
-description: 이 문서에서는 Dispatcher에 대한 일반적인 개요를 제공합니다.
-seo-description: 이 문서에서는 Adobe Experience Manager Dispatcher에 대한 일반적인 개요를 제공합니다.
+seo-title: Adobe AEM Dispatcher Overview
+description: 이 문서는 Dispatcher에 대한 일반적인 개요를 제공합니다.
+seo-description: This article provides a general overview of Adobe Experience Manager Dispatcher.
 uuid: 71766f86-5e91-446b-a078-061b179d090d
 pageversionid: 1193211344162
 topic-tags: dispatcher
@@ -11,7 +11,7 @@ discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '3199'
+source-wordcount: '3184'
 ht-degree: 100%
 
 ---
@@ -26,8 +26,8 @@ Dispatcher는 엔터프라이즈급 웹 서버와 함께 사용할 수 있는 Ad
 
 Dispatcher 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독립적입니다.
 
-1. Dispatcher에 대해 알아보십시오(이 페이지). 또한 [Dispatcher에 대해 자주 묻는 질문](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html)을 참조하십시오.
-1. 웹 서버 설명서에 따라 [지원되는 웹 서버](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html)를 설치하십시오.
+1. Dispatcher에 대해 알아보십시오(이 페이지). 또한 [Dispatcher에 대해 자주 묻는 질문](https://helpx.adobe.com/kr/experience-manager/using/dispatcher-faq.html)을 참조하십시오.
+1. 웹 서버 설명서에 따라 [지원되는 웹 서버](https://helpx.adobe.com/kr/experience-manager/6-3/sites/deploying/using/technical-requirements.html)를 설치하십시오.
 1. 웹 서버에 [Dispatcher 모듈을 설치](dispatcher-install.md) 하고 그에 따라 웹 서버를 구성합니다.
 1. [Dispatcher 구성](dispatcher-configuration.md) (dispatcher.any 파일).
 1. 콘텐츠 업데이트가 캐시를 무효화하도록 [AEM을 구성](page-invalidate.md) 합니다.
@@ -44,8 +44,8 @@ Dispatcher 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독�
 필요에 따라 다음 정보를 사용하십시오.
 
 * [Dispatcher 보안 검사 목록](security-checklist.md)
-* [Dispatcher 기술 자료](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [캐시 성능을 위한 웹 사이트 최적화](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Dispatcher 기술 자료](https://helpx.adobe.com/kr/cq/kb/index/dispatcher.html)
+* [캐시 성능을 위한 웹 사이트 최적화](https://helpx.adobe.com/kr/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [여러 도메인에 Dispatcher 사용](dispatcher-domains.md)
 * [Dispatcher에 SSL 사용](dispatcher-ssl.md)
 * [권한 구분 캐싱 구현](permissions-cache.md)
@@ -104,7 +104,7 @@ AEM과 같은 콘텐츠 관리 서버를 사용하는 경우 고급 레이아웃
 
 >[!NOTE]
 >
->HTTP 헤더 캐싱에 대한 구성이 부족한 경우 Dispatcher는 페이지의 HTML 코드만 저장합니다. 이 코드는 HTTP 헤더를 저장하지 않습니다. 웹 사이트 내에서 다른 인코딩을 사용하는 경우 이러한 인코딩이 손실될 수 있으므로 문제가 될 수 있습니다. HTTP 헤더 캐시를 활성화하려면 [Dispatcher 캐시 구성](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>HTTP 헤더 캐싱에 대한 구성이 부족한 경우 Dispatcher는 페이지의 HTML 코드만 저장합니다. 이 코드는 HTTP 헤더를 저장하지 않습니다. 웹 사이트 내에서 다른 인코딩을 사용하는 경우 이러한 인코딩이 손실될 수 있으므로 문제가 될 수 있습니다. HTTP 헤더 캐시를 활성화하려면 [Dispatcher 캐시 구성](https://helpx.adobe.com/kr/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
@@ -158,7 +158,7 @@ Dispatcher에는 자동 무효화의 대상이 되는 파일 목록이 있습니
 
 ### 문서의 캐시 대상 여부 확인
 
-[Dispatcher가 구성 파일에서 캐시하는 문서를 정의할 수 있습니다](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
+[Dispatcher가 구성 파일에서 캐시하는 문서를 정의할 수 있습니다](https://helpx.adobe.com/kr/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
 
 Dispatcher가 다음의 경우 AEM 인스턴스에서 직접 문서를 *항상* 요청합니다.
 
@@ -168,7 +168,7 @@ Dispatcher가 다음의 경우 AEM 인스턴스에서 직접 문서를 *항상* 
 
 >[!NOTE]
 >
->GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html) 섹션을 참조하십시오.
+>GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://helpx.adobe.com/kr/experience-manager/dispatcher/using/dispatcher-configuration.html) 섹션을 참조하십시오.
 
 ### 문서가 캐시되는지 확인
 
@@ -282,7 +282,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 
 이 방법을 사용하여 관리 콘텐츠를 캐시하는 경우 구성된 캐싱 기간이 만료되고 문서를 다시 Dispatcher에서 가져오는 경우에만 콘텐츠 변경 사항이 최종 사용자에게 표시된다는 의미입니다.
 
-보다 세밀하게 조정하기 위해 API 기반 무효화를 사용하면 Dispatcher 캐시가 무효화되므로 CDN 캐시를 무효화할 수 있습니다. CDN API를 기반으로 고유한 [ContentBuilder](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) 및 [TransportHandler](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html)를 구현하고 (API가 REST 기반이 아닌 경우) CDN의 캐시를 무효화하는 데 사용할 복제 에이전트를 설정할 수 있습니다.
+보다 세밀하게 조정하기 위해 API 기반 무효화를 사용하면 Dispatcher 캐시가 무효화되므로 CDN 캐시를 무효화할 수 있습니다. CDN API를 기반으로 고유한 [ContentBuilder](https://helpx.adobe.com/kr/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) 및 [TransportHandler](https://helpx.adobe.com/kr/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html)를 구현하고 (API가 REST 기반이 아닌 경우) CDN의 캐시를 무효화하는 데 사용할 복제 에이전트를 설정할 수 있습니다.
 
 >[!NOTE]
 >
@@ -292,7 +292,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 
 >[!CAUTION]
 >
->[Touch UI가 있는 AEM](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)을 사용하는 경우 작성자 인스턴스 콘텐츠를 캐시해서는 **안됩니다**. 작성자 인스턴스에 대해 캐싱이 활성화된 경우 이를 비활성화하고 캐시 디렉터리의 콘텐츠를 삭제해야 합니다. 캐싱을 비활성화하려면 `author_dispatcher.any` 파일을 편집하고 `/rule` 섹션의 `/cache` 속성을 다음과 같이 수정해야 합니다.
+>[Touch UI가 있는 AEM](https://helpx.adobe.com/kr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)을 사용하는 경우 작성자 인스턴스 콘텐츠를 캐시해서는 **안됩니다**. 작성자 인스턴스에 대해 캐싱이 활성화된 경우 이를 비활성화하고 캐시 디렉터리의 콘텐츠를 삭제해야 합니다. 캐싱을 비활성화하려면 `author_dispatcher.any` 파일을 편집하고 `/rule` 섹션의 `/cache` 속성을 다음과 같이 수정해야 합니다.
 
 ```xml
 /rules
@@ -311,7 +311,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 1. 텍스트 편집기에서 `author_dispatcher.any`를 열고 다음 사항을 변경합니다.
 
    1. 작성자 인스턴스를 가리키도록 `/renders` 섹션의 `/hostname` 및 `/port`를 변경합니다.
-   1. 캐시 디렉터리를 가리키도록 `/cache` 섹션의 `/docroot`를 변경합니다. [Touch UI가 있는 AEM](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)를 사용하는 경우 위의 경고를 참조하십시오.
+   1. 캐시 디렉터리를 가리키도록 `/cache` 섹션의 `/docroot`를 변경합니다. [Touch UI가 있는 AEM](https://helpx.adobe.com/kr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)를 사용하는 경우 위의 경고를 참조하십시오.
    1. 변경 사항을 저장합니다.
 
 1. 위에서 구성한 `/cache` > `/docroot` 디렉터리에서 기존 파일을 모두 삭제합니다.
