@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 4f37bc2571c3272beeb1764ca0bf0347e086cc07
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '852'
-ht-degree: 93%
+ht-degree: 100%
 
 ---
 
@@ -31,7 +31,7 @@ ht-degree: 93%
 
 ## 시스템 요구 사항 및 사전 요구 사항 {#system-requirements-and-prerequisites}
 
-시스템 요구 사항 및 필수 요구 사항에 대한 자세한 내용은 [지원되는 플랫폼](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/technical-requirements.html) 페이지를 참조하십시오.
+시스템 요구 사항 및 필수 요구 사항에 대한 자세한 내용은 [지원되는 플랫폼](https://helpx.adobe.com/kr/experience-manager/6-4/sites/deploying/using/technical-requirements.html) 페이지를 참조하십시오.
 
 Adobe는 최신 기능, 최신 버그 수정 및 최상의 성능을 이용하기 위해 최신 버전의 AEM Dispatcher를 사용할 것을 강력히 권장합니다.
 
@@ -41,20 +41,20 @@ Adobe는 최신 기능, 최신 버그 수정 및 최상의 성능을 이용하�
 
 ## 릴리스 기록 {#release-history}
 
-### 릴리스 4.3.4 (2021-11월 29일) {#nov}
+### 릴리스 4.3.4 (2021년 11월 29일) {#nov}
 
 **버그 수정**:
 
-* DISP-833 - X-Forwarded-Host 헤더에는 쉼표로 구분된 호스트 이름 목록이 포함될 수 있습니다
-* DISP-835 - DispatcherUseForwardedHost 스왈링 호스트 헤더(마지막으로 오는 경우)
+* DISP-833 - X-Forwarded-Host 헤더에 쉼표로 구분된 호스트 이름의 목록이 포함될 수 있습니다.
+* DISP-835 - 호스트 헤더가 마지막에 올 경우 DispatcherUseForwardedHost가 호스트 헤더를 가립니다.
 
 
 **개선 사항**:
 
-* DISP-841 - Dispatcher가 504 응답 코드에 대한 /serverStaleOnError를 준수하지 않음
-* DISP-874 - 디스패처 구성을 만들어 DISP-818의 구현을 켜거나 끕니다
-* DISP-883 - Dispatcher에서 URL 요청 분리를 보여주는 추적
-* DISP-944 - 별칭 URL 사전 로드
+* DISP-841 - Dispatcher가 504 응답 코드에 대한 /serverStaleOnError를 무시합니다.
+* DISP-874 - DISP-818의 구현을 설정하거나 해제하는 Dispatcher 구성을 만듭니다.
+* DISP-883 - Dispatcher에서 URL 요청 분해를 보여 주는 추적입니다.
+* DISP-944 - vanity URL 사전 로드
 
 ### 릴리스 4.3.3(2019년 10월 18일) {#october}
 
