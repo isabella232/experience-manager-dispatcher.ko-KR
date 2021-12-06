@@ -2,10 +2,10 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
-workflow-type: ht
-source-wordcount: '8512'
-ht-degree: 100%
+source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
+workflow-type: tm+mt
+source-wordcount: '8528'
+ht-degree: 99%
 
 ---
 
@@ -565,6 +565,10 @@ Dispatcher 버전 **4.1.6**&#x200B;에서는 `/always-resolve` 속성을 다음�
 
 * 먼저 모든 것에 대한 액세스를 거부합니다.
 * 필요에 따라 콘텐츠에 대한 액세스를 허용합니다.
+
+>[!NOTE]
+>
+>필터 규칙이 변경될 때마다 캐시를 삭제하는 것이 좋습니다.
 
 ### 필터 정의 {#defining-a-filter}
 
@@ -1339,6 +1343,7 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 >
 >* `/cache/headers`섹션에 헤더 이름을 추가합니다.
 >* Dispatcher 관련 섹션에 다음 [Apache 지시문](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)을 추가합니다.
+
 >
 >```xml
 >FileETag none
