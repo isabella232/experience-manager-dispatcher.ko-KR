@@ -3,9 +3,9 @@ title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8528'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -568,7 +568,7 @@ Dispatcher 버전 **4.1.6**&#x200B;에서는 `/always-resolve` 속성을 다음�
 
 >[!NOTE]
 >
->필터 규칙이 변경될 때마다 캐시를 삭제하는 것이 좋습니다.
+>필터 규칙이 변경될 때마다 캐시를 제거하는 것이 좋습니다.
 
 ### 필터 정의 {#defining-a-filter}
 
