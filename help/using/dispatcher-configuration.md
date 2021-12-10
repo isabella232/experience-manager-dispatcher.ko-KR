@@ -1343,7 +1343,6 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 >
 >* `/cache/headers`섹션에 헤더 이름을 추가합니다.
 >* Dispatcher 관련 섹션에 다음 [Apache 지시문](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)을 추가합니다.
-
 >
 >```xml
 >FileETag none
