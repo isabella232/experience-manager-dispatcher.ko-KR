@@ -9,10 +9,10 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 4f37bc2571c3272beeb1764ca0bf0347e086cc07
-workflow-type: ht
-source-wordcount: '852'
-ht-degree: 100%
+source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
+workflow-type: tm+mt
+source-wordcount: '941'
+ht-degree: 91%
 
 ---
 
@@ -48,9 +48,9 @@ Adobe는 최신 기능, 최신 버그 수정 및 최상의 성능을 이용하�
 * DISP-833 - X-Forwarded-Host 헤더에 쉼표로 구분된 호스트 이름의 목록이 포함될 수 있습니다.
 * DISP-835 - 호스트 헤더가 마지막에 올 경우 DispatcherUseForwardedHost가 호스트 헤더를 가립니다.
 
-
 **개선 사항**:
 
+* DISP-874 - 플래그를 통해 DISP-818의 구현을 설정 또는 해제할 디스패처 구성을 만듭니다 `DispatcherRestrictUncacheableContent`. 기본값은 Off입니다. 해제 시 실행 취소할 수 없는 컨텐츠에 대해 mod에서 설정한 캐싱 헤더를 제거합니다. 이것은 버전 4.3.3에 있는 동작과 다릅니다(하지만 4.3.3 이전 버전과 동일함). 유지 `DispatcherRestrictUncacheableContent`의 기본 해제 는 브라우저 캐시가 더 유연하도록 권장되는 방법입니다. 버전 4.3.3에서 4.3.4로 업그레이드할 때 버전 4.3.3과 동일한 동작을 유지하려면 명시적으로 설정해야 합니다 `DispatcherRestrictUncacheableContent` 켜짐.
 * DISP-841 - Dispatcher가 504 응답 코드에 대한 /serverStaleOnError를 무시합니다.
 * DISP-874 - DISP-818의 구현을 설정하거나 해제하는 Dispatcher 구성을 만듭니다.
 * DISP-883 - Dispatcher에서 URL 요청 분해를 보여 주는 추적입니다.

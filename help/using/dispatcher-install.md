@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
-workflow-type: ht
-source-wordcount: '3660'
-ht-degree: 100%
+source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
+workflow-type: tm+mt
+source-wordcount: '3693'
+ht-degree: 99%
 
 ---
 
@@ -50,6 +50,10 @@ Comment Type: draft
 >[!CAUTION]
 >
 >플랫폼에 사용할 수 있는 최신 버전의 Dispatcher를 설치해야 합니다. 제품 개선 사항을 활용하려면 매년 최신 버전을 사용하도록 Dispatcher 인스턴스를 업그레이드해야 합니다.
+
+>[!NOTE]
+>
+>버전 4.3.3에서 버전 4.3.4로 특별히 업그레이드하는 고객은 캐시 헤더가 실행 취소할 수 없는 컨텐츠에 대해 설정되는 방식에 다른 동작이 표시됩니다. 이 변경 사항에 대한 자세한 내용은 [릴리스 노트](/help/using/release-notes.md#nov) 페이지.
 
 각 아카이브에는 다음 파일이 포함되어 있습니다.
 
@@ -638,7 +642,7 @@ keepalivetimeout="60"
 | 매개 변수 | 설명 |
 |--- |--- |
 | config | 구성 파일 `dispatcher.any.`의 위치 및 이름입니다. |
-| logfile | 로그 파일의 위치 및 이름입니다. |
+| 로그 파일 | 로그 파일의 위치 및 이름입니다. |
 | loglevel | 로그 파일에 메시지를 작성할 때의 로그 수준: <br/>**0** 오류 <br/>**1** 경고 <br/>**2** 정보 <br/>**3** 디버그 <br/>**참고:** 설치 및 테스트 중에는 로그 수준을 3으로 설정하고 프로덕션 환경에서 실행할 때는 0으로 설정하는 것이 좋습니다. |
 | keepalivetimeout | keep-alive 시간 제한을 초 단위로 지정합니다. Dispatcher 버전 4.2.0부터 기본 keep-alive 값은 60입니다. 값이 0이면 keep-alive가 비활성화됩니다. |
 
