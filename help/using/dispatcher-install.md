@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3693'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -53,7 +53,7 @@ Comment Type: draft
 
 >[!NOTE]
 >
->버전 4.3.3에서 버전 4.3.4로 특별히 업그레이드하는 고객은 캐시 헤더가 실행 취소할 수 없는 컨텐츠에 대해 설정되는 방식에 다른 동작이 표시됩니다. 이 변경 사항에 대한 자세한 내용은 [릴리스 노트](/help/using/release-notes.md#nov) 페이지.
+>버전 4.3.3에서 버전 4.3.4로 특별히 업그레이드하는 고객은 캐시할 수 없는 콘텐츠에 대해 캐싱 헤더를 설정하는 방법이 다르다는 것을 인지하게 됩니다. 이번 변경 사항에 대해 보다 자세히 알아보려면 [릴리스 정보](/help/using/release-notes.md#nov) 페이지를 참조하십시오.
 
 각 아카이브에는 다음 파일이 포함되어 있습니다.
 
@@ -413,7 +413,7 @@ DispatcherKeepAliveTimeout 60
 | DispatcherUseProcessedURL | Dispatcher의 모든 추가 처리에 사전 처리된 URL을 사용할지 여부를 정의합니다. <br/>**0** - 웹 서버에 전달된 원래 URL을 사용합니다. <br/>**1** - Dispatcher가 웹 서버에 전달된 원래 URL 대신 Dispatcher 앞에 오는 핸들러에 의해 이미 처리된 URL(즉, `mod_rewrite`)을 사용합니다.  예를 들어 원본 또는 처리된 URL이 Dispatcher 필터와 일치합니다. URL은 캐시 파일 구조의 기초로도 사용됩니다.   mod_rewrite에 대한 정보는 Apache 웹 사이트 설명서를 참조하십시오. 예를 들어 Apache 2.4. mod_rewrite를 사용할 때는 “passthrough” 플래그를 사용하는 것이 좋습니다. | PT&#39;(다음 핸들러로 전달)를 사용하여 재작성 엔진이 내부 request_rec 구조의 uri 필드를 파일 이름 필드의 값으로 설정하도록 합니다. |
 | DispatcherPassError | ErrorDocument 처리를 위해 오류 코드를 지원하는 방법을 정의합니다. <br/>**0** - Dispatcher가 클라이언트에 대한 모든 오류 응답을 스풀 처리합니다. <br/>**1** - Dispatcher가 클라이언트에 오류 응답을 스풀 처리하지 않지만(상태 코드가 400보다 크거나 같은 경우) 상태 코드를 Apache에 전달합니다. 예를 들어 ErrorDocument 지시문이 이러한 상태 코드를 처리할 수 있도록 허용합니다. <br/>**코드 범위** -응답이 Apache에 전달되는 오류 코드의 범위를 지정합니다. 다른 오류 코드는 클라이언트에 전달됩니다. 예를 들어 다음 구성은 오류 412에 대한 응답을 클라이언트에 전달하고 다른 모든 오류는 Apache에 전달합니다. DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | keep-alive 시간 제한을 초 단위로 지정합니다. Dispatcher 버전 4.2.0부터 기본 keep-alive 값은 60입니다. 값이 0이면 keep-alive가 비활성화됩니다. |
-| DispatcherNoCanonURL | 이 매개 변수를 On으로 설정하면 정규화된 URL 대신 원시 URL이 백엔드에 전달되고 DispatcherUseProcessedURL 설정이 무시됩니다. 기본값은 Off입니다. <br/>**참고**: Dispatcher 구성의 필터 규칙은 항상 원시 URL이 아닌 정리된 URL에 대해 평가됩니다. |
+| DispatcherNoCanonURL | 이 매개 변수를 On으로 설정하면 정규화된 URL 대신 원시 URL이 백엔드에 전달되고 DispatcherUseProcessedURL 설정이 무시됩니다. 기본값은 해제(Off)입니다. <br/>**참고**: Dispatcher 구성의 필터 규칙은 항상 원시 URL이 아닌 정리된 URL에 대해 평가됩니다. |
 
 
 
@@ -642,7 +642,7 @@ keepalivetimeout="60"
 | 매개 변수 | 설명 |
 |--- |--- |
 | config | 구성 파일 `dispatcher.any.`의 위치 및 이름입니다. |
-| 로그 파일 | 로그 파일의 위치 및 이름입니다. |
+| logfile | 로그 파일의 위치 및 이름입니다. |
 | loglevel | 로그 파일에 메시지를 작성할 때의 로그 수준: <br/>**0** 오류 <br/>**1** 경고 <br/>**2** 정보 <br/>**3** 디버그 <br/>**참고:** 설치 및 테스트 중에는 로그 수준을 3으로 설정하고 프로덕션 환경에서 실행할 때는 0으로 설정하는 것이 좋습니다. |
 | keepalivetimeout | keep-alive 시간 제한을 초 단위로 지정합니다. Dispatcher 버전 4.2.0부터 기본 keep-alive 값은 60입니다. 값이 0이면 keep-alive가 비활성화됩니다. |
 
