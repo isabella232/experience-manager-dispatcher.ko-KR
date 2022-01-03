@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 source-git-commit: 762f575a58f53d25565fb9f67537e372c760674f
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1134'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -94,7 +94,7 @@ www.myCompany.com/news/main.large.html
 >
 >대부분의 레이아웃 측면에서 스타일 시트 및/또는 클라이언트측 스크립트를 사용하는 것도 가능합니다. 일반적으로 캐싱과 매우 잘 작동합니다.
 >
->다음과 같은 URL을 사용할 수 있는 인쇄 버전에도 유용합니다.
+>이는 다음과 같은 URL을 사용할 수 있는 인쇄 버전에도 유용합니다.
 >
 >`www.myCompany.com/news/main.print.html`
 >
