@@ -9,10 +9,10 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
-workflow-type: ht
-source-wordcount: '941'
-ht-degree: 100%
+source-git-commit: 505c13c5dc563bbe57682b4692547fc238b29e1b
+workflow-type: tm+mt
+source-wordcount: '951'
+ht-degree: 95%
 
 ---
 
@@ -50,7 +50,7 @@ Adobe는 최신 기능, 최신 버그 수정 및 최상의 성능을 이용하�
 
 **개선 사항**:
 
-* DISP-874 - 플래그 `DispatcherRestrictUncacheableContent`를 통해 DISP-818의 구현을 설정하거나 해제하는 Dispatcher 구성을 만듭니다. 기본값은 해제(Off)입니다. 해제 시에는 캐시 불가능한 콘텐츠에 대해 mod 만료별로 설정된 캐싱 헤더가 제거됩니다. 이는 버전 4.3.3의 비헤이비어와 다릅니다(4.3.3 이전 버전과 동일). 브라우저 캐시의 보다 높은 유연성을 위해 `DispatcherRestrictUncacheableContent`의 기본값인 해제(Off) 상태를 유지하는 것이 좋습니다. 버전 4.3.3에서 4.3.4로 업그레이드 시 버전 4.3.3과 동일한 비헤이비어를 유지하고자 한다면 `DispatcherRestrictUncacheableContent`를 명시적으로 설정(On)해야 합니다.
+* DISP-874 - 플래그 `DispatcherRestrictUncacheableContent`를 통해 DISP-818의 구현을 설정하거나 해제하는 Dispatcher 구성을 만듭니다. 기본값은 해제(Off)입니다. 설정 시 실행 취소할 수 없는 컨텐츠에 대해 mod에서 설정한 캐싱 헤더를 제거합니다. 이것은 버전 4.3.3에 있는 동작과 다르지만(기본값이 켜져 있음) 4.3.3 이전 버전(기본값이 꺼져 있음)과 동일합니다. 브라우저 캐시의 보다 높은 유연성을 위해 `DispatcherRestrictUncacheableContent`의 기본값인 해제(Off) 상태를 유지하는 것이 좋습니다. 버전 4.3.3에서 4.3.4로 업그레이드 시 버전 4.3.3과 동일한 비헤이비어를 유지하고자 한다면 `DispatcherRestrictUncacheableContent`를 명시적으로 설정(On)해야 합니다.
 * DISP-841 - Dispatcher가 504 응답 코드에 대한 /serverStaleOnError를 무시합니다.
 * DISP-874 - DISP-818의 구현을 설정하거나 해제하는 Dispatcher 구성을 만듭니다.
 * DISP-883 - Dispatcher에서 URL 요청 분해를 보여 주는 추적입니다.
