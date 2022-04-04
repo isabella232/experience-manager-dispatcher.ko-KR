@@ -9,10 +9,10 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 505c13c5dc563bbe57682b4692547fc238b29e1b
-workflow-type: ht
-source-wordcount: '951'
-ht-degree: 100%
+source-git-commit: 4e17217d32e2d5d9e2435ec4d70e0d05d3905e1c
+workflow-type: tm+mt
+source-wordcount: '976'
+ht-degree: 97%
 
 ---
 
@@ -23,9 +23,9 @@ ht-degree: 100%
 |  |  |
 |--- |--- |
 | 제품 | Adobe Experience Manager(AEM) Dispatcher |
-| 버전 | 4.3.4 |
+| 버전 | 4.3.5 |
 | 유형 | 마이너 릴리스 |
-| 날짜 | 2021년 11월 29일 |
+| 날짜 | 2022년 4월 04일 |
 | 다운로드 URL | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet Information Services(IIS)](release-notes.md#iis)</li></ul> |
 | 호환성 | AEM 6.1 이상 |
 
@@ -40,6 +40,13 @@ Adobe는 최신 기능, 최신 버그 수정 및 최상의 성능을 이용하�
 자세한 지침은 [Dispatcher 설치](dispatcher-install.md)를 참조하십시오.
 
 ## 릴리스 기록 {#release-history}
+
+### 릴리스 4.3.5 (2022년 4월 29일) {#apr}
+
+**개선 사항**:
+
+* DISP-954 - 만료가 지나지 않은 경우에도 무효화를 지원합니다.
+* DISP-949 - POST 요청이 필터에 의해 차단되더라도 Dispatcher가 404 대신 200을 반환합니다
 
 ### 릴리스 4.3.4 (2021년 11월 29일) {#nov}
 
@@ -158,21 +165,21 @@ Adobe는 최신 기능, 최신 버그 수정 및 최상의 성능을 이용하�
 
 | 플랫폼 | 아키텍처 | OpenSSL 지원 | 다운로드 |
 |---|---|---|---|
-| Linux | i686(32비트) | 없음 | [dispatcher-apache2.4-linux-i686-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.4.tar.gz) |
-| Linux | i686(32비트) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.4.tar.gz) |
-| Linux | i686(32비트) | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.4.tar.gz) |
-| Linux | x86_64(64비트) | 없음 | [dispatcher-apache2.4-linux-x86_64-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.4.tar.gz) |
-| Linux | x86_64(64비트) | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.4.tar.gz) |
-| Linux | x86_64(64비트) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.4.tar.gz) |
-| macOS | x86_64(64비트) | 없음 | [dispatcher-apache2.4-darwin-x86_64-4.3.4.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.4.tar.gz) |
+| Linux | i686(32비트) | 없음 | [dispatcher-apache2.4-linux-i686-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.5.tar.gz) |
+| Linux | i686(32비트) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.5.tar.gz) |
+| Linux | i686(32비트) | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.5.tar.gz) |
+| Linux | x86_64(64비트) | 없음 | [dispatcher-apache2.4-linux-x86_64-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.5.tar.gz) |
+| Linux | x86_64(64비트) | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.5.tar.gz) |
+| Linux | x86_64(64비트) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.5.tar.gz) |
+| macOS | x86_64(64비트) | 없음 | [dispatcher-apache2.4-darwin-x86_64-4.3.5.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.5.tar.gz) |
 
 ### IIS {#iis}
 
 | 플랫폼 | 아키텍처 | OpenSSL 지원 | 다운로드 |
 |---|---|---|---|
-| Windows | x86(32비트) | 없음 | [dispatcher-iis-windows-x86-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.4.zip) |
-| Windows | x86(32비트) | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.4.zip) |
-| Windows | x86(32비트) | 1.1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.4.zip) |
-| Windows | x64(64비트) | 없음 | [dispatcher-iis-windows-x64-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.4.zip) |
-| Windows | x64(64비트) | 1.0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.4.zip) |
-| Windows | x64(64비트) | 1.1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.4.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.4.zip) |
+| Windows | x86(32비트) | 없음 | [dispatcher-iis-windows-x86-4.3.5.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.5.zip) |
+| Windows | x86(32비트) | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.5.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.5.zip) |
+| Windows | x86(32비트) | 1.1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.5.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.5.zip) |
+| Windows | x64(64비트) | 없음 | [dispatcher-iis-windows-x64-4.3.5.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.5.zip) |
+| Windows | x64(64비트) | 1.0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.5.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.5.zip) |
+| Windows | x64(64비트) | 1.1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.5.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.5.zip) |
