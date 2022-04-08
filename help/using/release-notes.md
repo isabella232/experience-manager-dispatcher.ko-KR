@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 3f040a4150bc398d25ffa2426f9dd9de99a0b8fc
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '977'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -33,7 +33,7 @@ ht-degree: 97%
 
 시스템 요구 사항 및 필수 요구 사항에 대한 자세한 내용은 [지원되는 플랫폼](https://helpx.adobe.com/kr/experience-manager/6-4/sites/deploying/using/technical-requirements.html) 페이지를 참조하십시오.
 
-Adobe은 최신 기능, 최신 버그 수정 및 최상의 성능을 이용할 수 있도록 최신 버전의 AEM Dispatcher를 사용하는 것이 좋습니다.
+Adobe는 유용한 최신 기능, 최신 버그 수정 및 최상의 성능을 이용하기 위해 최신 버전의 AEM Dispatcher를 사용할 것을 강력히 권장합니다.
 
 ## 설치 지침 {#installation-instructions}
 
