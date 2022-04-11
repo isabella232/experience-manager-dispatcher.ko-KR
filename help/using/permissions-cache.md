@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 753f9fc35968996ee83d5947585fd52f2b981632
+source-git-commit: 11c3d7d627c96bb6ef647b5a067d3926eca347fc
 workflow-type: tm+mt
-source-wordcount: '827'
+source-wordcount: '829'
 ht-degree: 85%
 
 ---
@@ -46,7 +46,7 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 
 1. Dispatcher가 콘텐츠가 캐시되지 않았는지 또는 업데이트가 필요한지 확인합니다.
 1. Dispatcher가 원본 요청을 렌더링에 전달합니다.
-1. 이 렌더링에서는 보안 검사를 수행하기 위해 AEM Authorizer 서블릿(Dispatcher AuthChker 서블릿이 아님)을 호출합니다. 사용자에게 권한이 부여되면 렌더링이 렌더링된 페이지를 응답 메시지 본문에 포함합니다.
+1. 렌더링은 보안 검사를 수행하기 위해 AEM Authorizer 서블릿(Dispatcher AuthChker 서블릿이 아님)을 호출합니다. 사용자에게 권한이 부여되면 렌더링이 렌더링된 페이지를 응답 메시지 본문에 포함합니다.
 1. Dispatcher가 응답을 브라우저에 전달합니다. Dispatcher가 렌더링 응답 메시지의 본문을 캐시에 추가합니다.
 
 ## 사용자가 승인되지 않음 {#user-is-not-authorized}
@@ -57,7 +57,7 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 1. Dispatcher가 브라우저 요청의 모든 헤더 행을 포함하는 요청 메시지를 렌더링에 보냅니다.
 1. 렌더링은 인증 확인 서블릿을 호출하여 실패하는 보안 검사를 수행하고 렌더링은 원래 요청을 Dispatcher에 전달합니다.
 1. Dispatcher가 원본 요청을 렌더링에 전달합니다.
-1. 이 렌더링에서는 보안 검사를 수행하기 위해 AEM Authorizer 서블릿(Dispatcher AuthChker 서블릿이 아님)을 호출합니다. 사용자에게 권한이 부여되면 렌더링이 렌더링된 페이지를 응답 메시지 본문에 포함합니다.
+1. 렌더링은 보안 검사를 수행하기 위해 AEM Authorizer 서블릿(Dispatcher AuthChker 서블릿이 아님)을 호출합니다. 사용자에게 권한이 부여되면 렌더링이 렌더링된 페이지를 응답 메시지 본문에 포함합니다.
 1. Dispatcher가 응답을 브라우저에 전달합니다. Dispatcher가 렌더링 응답 메시지의 본문을 캐시에 추가합니다.
 
 
