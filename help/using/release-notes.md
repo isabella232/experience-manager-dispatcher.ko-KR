@@ -9,8 +9,8 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 3f040a4150bc398d25ffa2426f9dd9de99a0b8fc
-workflow-type: ht
+source-git-commit: 377a104f7e8e506e2f61002d90851a38657e8fe5
+workflow-type: tm+mt
 source-wordcount: '977'
 ht-degree: 100%
 
@@ -41,7 +41,7 @@ Adobe는 유용한 최신 기능, 최신 버그 수정 및 최상의 성능을 �
 
 ## 릴리스 기록 {#release-history}
 
-### 릴리스 4.3.5 (2022년 4월 29일) {#apr}
+### 릴리스 4.3.5 (2022년 4월 04일) {#apr}
 
 **개선 사항**:
 
