@@ -13,7 +13,7 @@ exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 11c3d7d627c96bb6ef647b5a067d3926eca347fc
 workflow-type: tm+mt
 source-wordcount: '829'
-ht-degree: 85%
+ht-degree: 95%
 
 ---
 
@@ -21,7 +21,7 @@ ht-degree: 85%
 
 권한 구분 캐싱을 사용하면 보안 페이지를 캐시할 수 있습니다. Dispatcher는 캐시된 페이지를 전달하기 전에 페이지에 대한 사용자의 액세스 권한을 확인합니다.
 
-Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 포함되어 있습니다. 모듈이 활성화되면 Dispatcher는 AEM 서블릿을 호출하여 요청된 콘텐츠에 대한 사용자 인증 및 인증을 수행합니다. 서블릿 응답은 컨텐츠가 캐시에서 웹 브라우저에 전달되는지 여부를 결정합니다.
+Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 포함되어 있습니다. 모듈이 활성화되면 Dispatcher는 AEM 서블릿을 호출하여 요청된 콘텐츠에 대한 사용자 인증 및 권한 부여를 수행합니다. 서블릿 응답은 콘텐츠가 캐시에서 웹 브라우저로 전달되는지 여부를 결정합니다.
 
 인증 및 권한 부여 방법은 AEM 배포에 따라 다르므로 서블릿을 생성해야 합니다.
 
@@ -37,7 +37,7 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 
 1. Dispatcher가 요청된 콘텐츠가 캐시되고 유효한지 확인합니다.
 1. Dispatcher가 렌더링에 요청 메시지를 보냅니다. HEAD 섹션에는 브라우저 요청의 모든 헤더 행이 포함됩니다.
-1. 렌더링은 보안 검사를 수행하고 Dispatcher에 응답하기 위해 인증 확인 서블릿을 호출합니다. 응답 메시지에는 사용자에게 권한이 부여되었음을 나타내는 HTTP 상태 코드 200이 포함됩니다.
+1. 렌더링이 AuthChcker 서블릿을 호출하여 보안 검사를 수행하고 Dispatcher에 응답합니다. 응답 메시지에는 사용자에게 권한이 부여되었음을 나타내는 HTTP 상태 코드 200이 포함됩니다.
 1. Dispatcher가 렌더링 응답의 헤더 행과 본문의 캐시된 콘텐츠로 구성된 응답 메시지를 브라우저에 보냅니다.
 
 ## 페이지가 캐시되지 않고 사용자가 승인됨 {#page-is-not-cached-and-user-is-authorized}
@@ -55,7 +55,7 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 
 1. Dispatcher가 캐시를 확인합니다.
 1. Dispatcher가 브라우저 요청의 모든 헤더 행을 포함하는 요청 메시지를 렌더링에 보냅니다.
-1. 렌더링은 인증 확인 서블릿을 호출하여 실패하는 보안 검사를 수행하고 렌더링은 원래 요청을 Dispatcher에 전달합니다.
+1. 렌더링이 AuthChcker 서블릿을 호출하여 실패한 보안 검사를 수행하고, 렌더링이 원본 요청을 Dispatcher로 전달합니다.
 1. Dispatcher가 원본 요청을 렌더링에 전달합니다.
 1. 렌더링은 보안 검사를 수행하기 위해 AEM Authorizer 서블릿(Dispatcher AuthChker 서블릿이 아님)을 호출합니다. 사용자에게 권한이 부여되면 렌더링이 렌더링된 페이지를 응답 메시지 본문에 포함합니다.
 1. Dispatcher가 응답을 브라우저에 전달합니다. Dispatcher가 렌더링 응답 메시지의 본문을 캐시에 추가합니다.
@@ -72,7 +72,7 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 >
 >일반적으로 보안 리소스는 비보안 파일과 별도의 폴더에 저장됩니다. 예: /content/secure/
 
-## 인증 확인 서블릿 만들기 {#create-the-auth-checker-servlet}
+## AuthChcker 서블릿 만들기 {#create-the-auth-checker-servlet}
 
 웹 콘텐츠를 요청하는 사용자의 인증 및 권한 부여를 수행하는 서블릿을 만들고 배포합니다. 서블릿은 AEM 사용자 계정 및 저장소 ACL 또는 LDAP 조회 서비스와 같은 모든 인증 및 권한 부여 메서드를 사용할 수 있습니다. Dispatcher가 렌더링으로 사용하는 AEM 인스턴스에 서블릿을 배포합니다.
 
