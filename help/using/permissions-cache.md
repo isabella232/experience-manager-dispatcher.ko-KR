@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 18fa55f4be3a93b5484c3a0fa408031a43944f27
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '829'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -157,7 +157,7 @@ Dispatcher가 시작되면 Dispatcher 로그 파일에 다음 디버그 수준 �
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-다음 auth_checker 섹션은 이전 항목의 서블릿을 사용하도록 Dispatcher를 구성합니다. 필터 섹션으로 인해 보안 HTML 리소스에서만 권한 검사가 수행됩니다.
+다음 예제 auth_checker 섹션은 이전 토픽의 서블릿을 사용하도록 Dispatcher를 구성합니다. 필터 섹션으로 인해 보안 HTML 리소스에서만 권한 검사가 수행됩니다.
 
 ### 예제 구성 {#example-configuration}
 
