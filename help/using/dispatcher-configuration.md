@@ -2,8 +2,8 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
-workflow-type: ht
+source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
+workflow-type: tm+mt
 source-wordcount: '8528'
 ht-degree: 100%
 
@@ -840,7 +840,7 @@ Dispatcher 버전 4.1.5부터 `/filter` 섹션을 사용하여 쿼리 문자열�
 
 ### Dispatcher 보안 테스트 {#testing-dispatcher-security}
 
-Dispatcher 필터는 AEM 게시 인스턴스에서 다음 페이지 및 스크립트에 대한 액세스를 차단해야 합니다. 웹 브라우저를 사용하여 사이트 방문자처럼 다음 페이지를 열고 코드 404가 반환되는지 확인합니다. 다른 결과가 나오면 필터를 조정합니다.
+Dispatcher 필터는 AEM 게시 인스턴스에서 다음 페이지 및 스크립트에 대한 액세스를 차단해야 합니다. 웹 브라우저를 사용하여 사이트 방문자처럼 다음 페이지를 열고 코드 403가 반환되는지 확인합니다. 다른 결과가 나오면 필터를 조정합니다.
 
 `/content/add_valid_page.html?debug=layout`에 대한 일반 페이지 렌더링이 표시되어야 합니다.
 
