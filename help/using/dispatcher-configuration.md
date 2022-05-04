@@ -3,7 +3,7 @@ title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8528'
 ht-degree: 100%
 
@@ -19,7 +19,7 @@ ht-degree: 100%
 
 ## IPv4 및 IPv6 지원 {#support-for-ipv-and-ipv}
 
-AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설치할 수 있습니다. [IPV4 및 IPV6](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=en#ipv-and-ipv)를 참조하십시오.
+AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설치할 수 있습니다. [IPV4 및 IPV6](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=ko#ipv-and-ipv)를 참조하십시오.
 
 ## Dispatcher 구성 파일 {#dispatcher-configuration-files}
 
@@ -213,9 +213,9 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 
 >[!CAUTION]
 >
->`/homepage`매개 변수(IIS만 해당)는 더 이상 작동하지 않습니다. 대신 [IIS URL 재작성 모듈](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)을 사용해야 합니다.
+>`/homepage`매개 변수(IIS만 해당)는 더 이상 작동하지 않습니다. 대신 [IIS URL 재작성 모듈](https://docs.microsoft.com/ko-kr/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)을 사용해야 합니다.
 >
->Apache를 사용하는 경우 `mod_rewrite` 모듈을 사용해야 합니다. `mod_rewrite`에 대한 정보는 Apache 웹 사이트 설명서를 참조하십시오(예: [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). `mod_rewrite`를 사용할 때 **[&#39;passthrough|PT&#39;(다음 핸들러로 전달)](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** 플래그를 사용하여 재작성 엔진이 내부 `request_rec` 구조의 `uri` 필드를 `filename` 필드의 값으로 설정하는 것이 좋습니다.
+>Apache를 사용하는 경우 `mod_rewrite` 모듈을 사용해야 합니다. `mod_rewrite`에 대한 정보는 Apache 웹 사이트 설명서를 참조하십시오(예: [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). `mod_rewrite`를 사용할 때 **[&#39;passthrough|PT&#39;(다음 핸들러로 전달)](https://helpx.adobe.com/kr/dispatcher/kb/DispatcherModReWrite.html)** 플래그를 사용하여 재작성 엔진이 내부 `request_rec` 구조의 `uri` 필드를 `filename` 필드의 값으로 설정하는 것이 좋습니다.
 
 <!-- 
 
@@ -408,7 +408,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 >
 >이 기능을 사용하려면 `/allowAuthorized`가 `/cache` 섹션에서 `"0"`으로 **설정되어야** 합니다.
 
-사용자가 팜의 모든 페이지에 액세스하려면 로그인해야 하도록 렌더링 팜에 액세스를 위한 보안 세션을 만듭니다. 로그인 후 사용자는 팜의 페이지에 액세스할 수 있습니다. CUG와 함께 이 기능을 사용하는 방법에 대한 정보는 [폐쇄형 사용자 그룹 만들기](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=en#creating-the-user-group-to-be-used)를 참조하십시오. 시작하기 전에 Dispatcher [보안 체크리스트](/help/using/security-checklist.md) 도 참조하십시오.
+사용자가 팜의 모든 페이지에 액세스하려면 로그인해야 하도록 렌더링 팜에 액세스를 위한 보안 세션을 만듭니다. 로그인 후 사용자는 팜의 페이지에 액세스할 수 있습니다. CUG와 함께 이 기능을 사용하는 방법에 대한 정보는 [폐쇄형 사용자 그룹 만들기](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=ko#creating-the-user-group-to-be-used)를 참조하십시오. 시작하기 전에 Dispatcher [보안 체크리스트](/help/using/security-checklist.md) 도 참조하십시오.
 
 `/sessionmanagement` 속성은 `/farms`의 하위 속성입니다.
 
@@ -559,7 +559,7 @@ Dispatcher 버전 **4.1.6**&#x200B;에서는 `/always-resolve` 속성을 다음�
 
 >[!CAUTION]
 >
->Dispatcher를 사용하여 액세스를 제한할 때 추가 고려 사항은 [Dispatcher 보안 체크리스트](security-checklist.md)를 참조하십시오. 또한 AEM 설치와 관련된 추가 보안 세부 정보는 [AEM 보안 체크리스트](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=en#security)를 참조하십시오.
+>Dispatcher를 사용하여 액세스를 제한할 때 추가 고려 사항은 [Dispatcher 보안 체크리스트](security-checklist.md)를 참조하십시오. 또한 AEM 설치와 관련된 추가 보안 세부 정보는 [AEM 보안 체크리스트](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=ko#security)를 참조하십시오.
 
 `/filter` 섹션은 HTTP 요청의 요청 라인 부분에 있는 패턴에 따라 콘텐츠에 대한 액세스를 거부하거나 허용하는 일련의 규칙으로 구성됩니다. `/filter` 섹션에 허용 목록 전략을 사용해야 합니다.
 
@@ -808,7 +808,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 >[!CAUTION]
 >
->[게시 환경에서 보고서를 사용](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=en#using-reports-in-a-publish-environment) 하는 경우 외부 방문자의 `/etc/reports`에 대한 액세스를 거부하도록 Dispatcher를 구성해야 합니다.
+>[게시 환경에서 보고서를 사용](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=ko#using-reports-in-a-publish-environment) 하는 경우 외부 방문자의 `/etc/reports`에 대한 액세스를 거부하도록 Dispatcher를 구성해야 합니다.
 
 ### 쿼리 문자열 제한 {#restricting-query-strings}
 
@@ -840,7 +840,7 @@ Dispatcher 버전 4.1.5부터 `/filter` 섹션을 사용하여 쿼리 문자열�
 
 ### Dispatcher 보안 테스트 {#testing-dispatcher-security}
 
-Dispatcher 필터는 AEM 게시 인스턴스에서 다음 페이지 및 스크립트에 대한 액세스를 차단해야 합니다. 웹 브라우저를 사용하여 사이트 방문자처럼 다음 페이지를 열고 코드 403가 반환되는지 확인합니다. 다른 결과가 나오면 필터를 조정합니다.
+Dispatcher 필터는 AEM 게시 인스턴스에서 다음 페이지 및 스크립트에 대한 액세스를 차단해야 합니다. 웹 브라우저를 사용하여 사이트 방문자처럼 다음 페이지를 열고 코드 403이 반환되는지 확인하십시오. 다른 결과가 나오면 필터를 조정합니다.
 
 `/content/add_valid_page.html?debug=layout`에 대한 일반 페이지 렌더링이 표시되어야 합니다.
 
@@ -939,7 +939,7 @@ vanity URL에 대한 액세스를 활성화하려면 다음 예제와 같이 `/f
 
 >[!NOTE]
 >
->렌더링이 AEM의 인스턴스인 경우 [소프트웨어 배포의 VanityURL-Components 패키지](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components)를 설치하여 vanity URL 서비스를 활성화해야 합니다. (자세한 내용은 [소프트웨어 배포](https://experienceleague.adobe.com/docs/experience-manager-65/administering/contentmanagement/package-manager.html?lang=en#software-distribution)를 참조하십시오.)
+>렌더링이 AEM의 인스턴스인 경우 [소프트웨어 배포의 VanityURL-Components 패키지](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components)를 설치하여 vanity URL 서비스를 활성화해야 합니다. (자세한 내용은 [소프트웨어 배포](https://experienceleague.adobe.com/docs/experience-manager-65/administering/contentmanagement/package-manager.html?lang=ko#software-distribution)를 참조하십시오.)
 
 다음 절차를 사용하여 vanity URL에 대한 액세스를 활성화합니다.
 
@@ -1169,7 +1169,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
 >[!NOTE]
 >
->추가 헤더 `CQ-Action-Scope:ResourceOnly`를 전송하여 무효화를 방지할 수 있습니다. 이 방법은 캐시의 다른 부분을 무효화하지 않고 특정 리소스를 플러시하는 데 사용할 수 있습니다. 자세한 내용은 [이 페이지](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) 및 [수동으로 Dispatcher 캐시 무효화](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/page-invalidate.html?lang=en#configuring)를 참조하십시오.
+>추가 헤더 `CQ-Action-Scope:ResourceOnly`를 전송하여 무효화를 방지할 수 있습니다. 이 방법은 캐시의 다른 부분을 무효화하지 않고 특정 리소스를 플러시하는 데 사용할 수 있습니다. 자세한 내용은 [이 페이지](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) 및 [수동으로 Dispatcher 캐시 무효화](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/page-invalidate.html?lang=ko#configuring)를 참조하십시오.
 
 >[!NOTE]
 >
