@@ -11,8 +11,8 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: ht
+source-git-commit: 9d168ab7139e46b0c768fc3bab37245459eca002
+workflow-type: tm+mt
 source-wordcount: '2965'
 ht-degree: 100%
 
@@ -504,7 +504,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 확장명이 .html 또는 .htm이 아닌 파일에 대한 참조를 재작성하려면 Sling 재작성기 변환기 구성 요소를 생성하고 기본 재작성기 파이프라인에 추가합니다.
 
-리소스 경로가 웹 서버 컨텍스트에서 올바르게 확인되지 않는 경우 참조를 재작성합니다. 예를 들어 이미지 생성 구성 요소가 /content/sitea/en/products.navimage.png와 같은 링크를 만들 때 변환기가 필요합니다. [완벽한 기능을 갖춘 인터넷 웹 사이트를 만드는 방법](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/the-basics.html)의 topnav 구성 요소는 이러한 링크를 만듭니다.
+리소스 경로가 웹 서버 컨텍스트에서 올바르게 확인되지 않는 경우 참조를 재작성합니다. 예를 들어 이미지 생성 구성 요소가 /content/sitea/en/products.navimage.png와 같은 링크를 만들 때 변환기가 필요합니다. [완벽한 기능을 갖춘 인터넷 웹 사이트를 만드는 방법](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/the-basics.html)의 topnav 구성 요소는 이러한 링크를 만듭니다.
 
 [Sling 재작성기](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html)는 Sling 출력을 후처리하는 모듈입니다. 재작성기의 SAX 파이프라인 구현은 생성기, 하나 이상의 변환기 및 직렬 변환기로 구성됩니다.
 
