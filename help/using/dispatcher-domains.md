@@ -12,7 +12,7 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: 9d168ab7139e46b0c768fc3bab37245459eca002
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '2965'
 ht-degree: 100%
 
@@ -504,7 +504,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 확장명이 .html 또는 .htm이 아닌 파일에 대한 참조를 재작성하려면 Sling 재작성기 변환기 구성 요소를 생성하고 기본 재작성기 파이프라인에 추가합니다.
 
-리소스 경로가 웹 서버 컨텍스트에서 올바르게 확인되지 않는 경우 참조를 재작성합니다. 예를 들어 이미지 생성 구성 요소가 /content/sitea/en/products.navimage.png와 같은 링크를 만들 때 변환기가 필요합니다. [완벽한 기능을 갖춘 인터넷 웹 사이트를 만드는 방법](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/the-basics.html)의 topnav 구성 요소는 이러한 링크를 만듭니다.
+리소스 경로가 웹 서버 컨텍스트에서 올바르게 확인되지 않는 경우 참조를 재작성합니다. 예를 들어 이미지 생성 구성 요소가 /content/sitea/en/products.navimage.png와 같은 링크를 만들 때 변환기가 필요합니다. [완벽한 기능을 갖춘 인터넷 웹 사이트를 만드는 방법](https://helpx.adobe.com/kr/experience-manager/6-5/sites/developing/using/the-basics.html)의 topnav 구성 요소는 이러한 링크를 만듭니다.
 
 [Sling 재작성기](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html)는 Sling 출력을 후처리하는 모듈입니다. 재작성기의 SAX 파이프라인 구현은 생성기, 하나 이상의 변환기 및 직렬 변환기로 구성됩니다.
 
@@ -543,7 +543,7 @@ AEM은 text/html 유형의 문서를 처리하는 기본 파이프라인 재작�
 
 >[!NOTE]
 >
->Content Package Maven Plugin의 [multimodule](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) 원형을 사용하여 Maven 프로젝트를 생성합니다. POM은 자동으로 콘텐츠 패키지를 만들고 설치합니다.
+>Content Package Maven Plugin의 [multimodule](https://helpx.adobe.com/kr/experience-manager/aem-previous-versions.html) 원형을 사용하여 Maven 프로젝트를 생성합니다. POM은 자동으로 콘텐츠 패키지를 만들고 설치합니다.
 
 다음 예제에서는 이미지 파일에 대한 참조를 재작성하는 변환기를 구현합니다.
 
