@@ -1,7 +1,7 @@
 ---
 title: Dispatcher 개요
 seo-title: Adobe AEM Dispatcher Overview
-description: 이 문서는 Dispatcher에 대한 일반적인 개요를 제공합니다.
+description: AEM 클라우드 서비스에서 보안, 캐싱 등을 개선하기 위해 Dispatcher를 사용하는 방법을 알아봅니다.
 seo-description: This article provides a general overview of Adobe Experience Manager Dispatcher.
 uuid: 71766f86-5e91-446b-a078-061b179d090d
 pageversionid: 1193211344162
@@ -9,10 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: ht
-source-wordcount: '3184'
-ht-degree: 100%
+source-git-commit: 76f7a3fc8d98657c5f46912f452c05fce1b5be61
+workflow-type: tm+mt
+source-wordcount: '3190'
+ht-degree: 99%
 
 ---
 
@@ -158,7 +158,7 @@ Dispatcher에는 자동 무효화의 대상이 되는 파일 목록이 있습니
 
 ### 문서의 캐시 대상 여부 확인
 
-[Dispatcher가 구성 파일에서 캐시하는 문서를 정의할 수 있습니다](https://helpx.adobe.com/kr/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
+[Dispatcher가 구성 파일에서 캐시하는 문서를 정의할 수 있습니다](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
 
 Dispatcher가 다음의 경우 AEM 인스턴스에서 직접 문서를 *항상* 요청합니다.
 
@@ -168,7 +168,7 @@ Dispatcher가 다음의 경우 AEM 인스턴스에서 직접 문서를 *항상* 
 
 >[!NOTE]
 >
->GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://helpx.adobe.com/kr/experience-manager/dispatcher/using/dispatcher-configuration.html) 섹션을 참조하십시오.
+>GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html) 섹션을 참조하십시오.
 
 ### 문서가 캐시되는지 확인
 
@@ -311,7 +311,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 1. 텍스트 편집기에서 `author_dispatcher.any`를 열고 다음 사항을 변경합니다.
 
    1. 작성자 인스턴스를 가리키도록 `/renders` 섹션의 `/hostname` 및 `/port`를 변경합니다.
-   1. 캐시 디렉터리를 가리키도록 `/cache` 섹션의 `/docroot`를 변경합니다. [Touch UI가 있는 AEM](https://helpx.adobe.com/kr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)를 사용하는 경우 위의 경고를 참조하십시오.
+   1. 캐시 디렉터리를 가리키도록 `/cache` 섹션의 `/docroot`를 변경합니다. [Touch UI가 있는 AEM](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)를 사용하는 경우 위의 경고를 참조하십시오.
    1. 변경 사항을 저장합니다.
 
 1. 위에서 구성한 `/cache` > `/docroot` 디렉터리에서 기존 파일을 모두 삭제합니다.
