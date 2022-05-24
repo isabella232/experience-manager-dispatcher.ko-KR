@@ -14,8 +14,8 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: ht
+source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
+workflow-type: tm+mt
 source-wordcount: '638'
 ht-degree: 100%
 
@@ -38,7 +38,7 @@ Adobe는 프로덕션을 시작하기 전에 다음 체크리스트를 완료할
 
 >[!CAUTION]
 >
->시작하기 전에 AEM 버전의 보안 체크리스트도 완료해야 합니다. 해당 [Adobe Experience Manager 설명서](https://helpx.adobe.com/kr/experience-manager/6-3/sites/administering/using/security-checklist.html)를 참조하십시오.
+>시작하기 전에 AEM 버전의 보안 체크리스트도 완료해야 합니다. 해당 [Adobe Experience Manager 설명서](https://helpx.adobe.com/kr/experience-manager/6-5/sites/administering/using/security-checklist.html)를 참조하십시오.
 
 ## 최신 버전의 Dispatcher 사용 {#use-the-latest-version-of-dispatcher}
 
