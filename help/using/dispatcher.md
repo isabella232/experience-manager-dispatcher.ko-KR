@@ -9,8 +9,8 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 76f7a3fc8d98657c5f46912f452c05fce1b5be61
-workflow-type: ht
+source-git-commit: 85a7f38ecb5f5fe620ff51a7cdbe29f546559288
+workflow-type: tm+mt
 source-wordcount: '3190'
 ht-degree: 100%
 
@@ -27,7 +27,7 @@ Dispatcher는 엔터프라이즈급 웹 서버와 함께 사용할 수 있는 Ad
 Dispatcher 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독립적입니다.
 
 1. Dispatcher에 대해 알아보십시오(이 페이지). 또한 [Dispatcher에 대해 자주 묻는 질문](https://helpx.adobe.com/kr/experience-manager/using/dispatcher-faq.html)을 참조하십시오.
-1. 웹 서버 설명서에 따라 [지원되는 웹 서버](https://helpx.adobe.com/kr/experience-manager/6-3/sites/deploying/using/technical-requirements.html)를 설치하십시오.
+1. 웹 서버 설명서에 따라 [지원되는 웹 서버](https://helpx.adobe.com/kr/experience-manager/6-5/sites/deploying/using/technical-requirements.html)를 설치하십시오.
 1. 웹 서버에 [Dispatcher 모듈을 설치](dispatcher-install.md) 하고 그에 따라 웹 서버를 구성합니다.
 1. [Dispatcher 구성](dispatcher-configuration.md) (dispatcher.any 파일).
 1. 콘텐츠 업데이트가 캐시를 무효화하도록 [AEM을 구성](page-invalidate.md) 합니다.
@@ -158,7 +158,7 @@ Dispatcher에는 자동 무효화의 대상이 되는 파일 목록이 있습니
 
 ### 문서의 캐시 대상 여부 확인
 
-[Dispatcher가 구성 파일에서 캐시하는 문서를 정의할 수 있습니다](https://helpx.adobe.com/kr/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
+[Dispatcher가 구성 파일에서 캐시하는 문서를 정의할 수 있습니다](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html). Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
 
 Dispatcher가 다음의 경우 AEM 인스턴스에서 직접 문서를 *항상* 요청합니다.
 
@@ -168,7 +168,7 @@ Dispatcher가 다음의 경우 AEM 인스턴스에서 직접 문서를 *항상* 
 
 >[!NOTE]
 >
->GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://helpx.adobe.com/kr/experience-manager/dispatcher/using/dispatcher-configuration.html) 섹션을 참조하십시오.
+>GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html) 섹션을 참조하십시오.
 
 ### 문서가 캐시되는지 확인
 
@@ -311,7 +311,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 1. 텍스트 편집기에서 `author_dispatcher.any`를 열고 다음 사항을 변경합니다.
 
    1. 작성자 인스턴스를 가리키도록 `/renders` 섹션의 `/hostname` 및 `/port`를 변경합니다.
-   1. 캐시 디렉터리를 가리키도록 `/cache` 섹션의 `/docroot`를 변경합니다. [Touch UI가 있는 AEM](https://helpx.adobe.com/kr/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)를 사용하는 경우 위의 경고를 참조하십시오.
+   1. 캐시 디렉터리를 가리키도록 `/cache` 섹션의 `/docroot`를 변경합니다. [Touch UI가 있는 AEM](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)를 사용하는 경우 위의 경고를 참조하십시오.
    1. 변경 사항을 저장합니다.
 
 1. 위에서 구성한 `/cache` > `/docroot` 디렉터리에서 기존 파일을 모두 삭제합니다.
