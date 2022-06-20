@@ -11,8 +11,8 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 2aed8101766363834c2fb5b27e0dbd004fc5daf9
-workflow-type: tm+mt
+source-git-commit: 7d2d1cbbb2fb444769239d48c9fbff4cfd2373a2
+workflow-type: ht
 source-wordcount: '2965'
 ht-degree: 100%
 
@@ -62,9 +62,11 @@ Dispatcher가 캐시된 파일을 무효화하도록 Dispatcher 플러시 복제
 
 ![](assets/chlimage_1-9.png)
 
-1. AEM 작성자 인스턴스에서 페이지가 활성화되고 콘텐츠가 게시 인스턴스에 복제됩니다.
-1. Dispatcher 플러시 에이전트는 Dispatcher를 호출하여 복제된 콘텐츠에 대한 캐시를 무효화합니다.
-1. Dispatcher가 하나 이상의 .stat 파일을 터치하여 캐시된 파일을 무효화합니다.
+<ol type="a">
+  <li>AEM 작성자 인스턴스에서 페이지가 활성화되고 콘텐츠가 게시 인스턴스에 복제됩니다.</li>
+  <li>Dispatcher 플러시 에이전트는 Dispatcher를 호출하여 복제된 콘텐츠에 대한 캐시를 무효화합니다.</li>
+  <li>Dispatcher가 하나 이상의 .stat 파일을 터치하여 캐시된 파일을 무효화합니다.</li>
+</ol>
 
 여러 도메인에서 Dispatcher를 사용하려면 AEM, Dispatcher 및 웹 서버를 구성해야 합니다. 이 페이지에 설명된 솔루션은 일반적이며 대부분의 환경에 적용됩니다. 일부 AEM 토폴로지의 복잡성으로 인해 특정 문제를 해결하기 위해 솔루션에 추가 사용자 지정 구성이 필요할 수 있습니다. 기존 IT 인프라 및 관리 정책을 충족하도록 예제를 조정해야 할 수 있습니다.
 
