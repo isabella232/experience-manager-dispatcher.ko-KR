@@ -13,10 +13,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: ht
-source-wordcount: '1404'
-ht-degree: 100%
+source-git-commit: 25f8569bdeb6b675038bea02637900e9d0fc1f27
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -67,7 +67,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 1. 필요에 따라 다른 매개 변수를 구성합니다.
 1. 확인을 클릭하여 에이전트를 활성화합니다.
 
-또는 [AEM Touch UI](https://helpx.adobe.com/kr/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent)에서 Dispatcher 플러시 에이전트에 액세스하고 구성할 수도 있습니다.
+또는 [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html#configuring-a-dispatcher-flush-agent)에서 Dispatcher 플러시 에이전트에 액세스하고 구성할 수도 있습니다.
 
 vanity URL에 대한 액세스를 활성화하는 방법에 대한 자세한 내용은 [Vanity URL에 대한 액세스 활성화](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls)를 참조하십시오.
 
