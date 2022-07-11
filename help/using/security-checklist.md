@@ -14,10 +14,10 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
-workflow-type: ht
-source-wordcount: '638'
-ht-degree: 100%
+source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
+workflow-type: tm+mt
+source-wordcount: '639'
+ht-degree: 99%
 
 ---
 
@@ -161,7 +161,7 @@ AEM은 크로스 사이트 요청 위조 공격을 방지하는 [프레임워크
 
 클릭재킹을 방지하려면 `SAMEORIGIN`으로 설정된 `X-FRAME-OPTIONS` HTTP 헤더를 제공하도록 웹 서버를 구성하는 것이 좋습니다.
 
-[클릭재킹에 대한 자세한 내용은 OWASP 사이트를 참조하십시오](https://www.owasp.org/index.php/Clickjacking).
+[클릭재킹에 대한 자세한 내용은 OWASP 사이트를 참조하십시오](https://owasp.org/www-community/attacks/Clickjacking).
 
 ## 침투 테스트 수행 {#perform-a-penetration-test}
 
