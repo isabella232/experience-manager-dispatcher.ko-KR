@@ -15,9 +15,9 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '639'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -127,7 +127,7 @@ Dispatcher 수준에서 DoS 공격을 방지하도록 구성하는 두 가지 �
 * `/etc/`
 * `/libs/`
 
-그런 다음, 다음의 노드 경로에 대한 액세스를 허용하도록 필터를 구성합니다.
+그런 다음, 아래의 노드 경로에 대한 액세스를 허용하도록 필터를 구성합니다.
 
 * `/etc/designs/*`
 * `/etc/clientlibs/*`
