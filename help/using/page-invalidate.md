@@ -14,9 +14,9 @@ content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: 25f8569bdeb6b675038bea02637900e9d0fc1f27
-workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+workflow-type: ht
+source-wordcount: '1404'
+ht-degree: 100%
 
 ---
 
@@ -64,7 +64,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
    **참고:** Dispatcher 플러시 에이전트의 경우, 경로 기반 가상 호스트 항목을 사용하여 팜을 구분하는 경우에만 URI 속성이 사용됩니다. 이 필드를 사용하여 무효화할 팜을 대상으로 지정합니다. 예를 들어 팜 #1에는 `www.mysite.com/path1/*`의 가상 호스트가 있고 팜 #2에는 `www.mysite.com/path2/*`의 가상 호스트가 있습니다. URL `/path1/invalidate.cache`를 사용하여 첫 번째 팜을 대상으로 지정하고 `/path2/invalidate.cache`를 사용하여 두 번째 팜을 대상으로 지정할 수 있습니다. 자세한 내용은 [여러 도메인에 Dispatcher 사용](dispatcher-domains.md)을 참조하십시오.
 
-1. 필요에 따라 다른 매개 변수를 구성합니다.
+1. 필요에 따라 다른 매개변수를 구성합니다.
 1. 확인을 클릭하여 에이전트를 활성화합니다.
 
 또는 [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html#configuring-a-dispatcher-flush-agent)에서 Dispatcher 플러시 에이전트에 액세스하고 구성할 수도 있습니다.
@@ -113,7 +113,7 @@ Dispatcher 플러시는 게시 인스턴스에서 작동하는 복제 에이전�
 
    **참고:** Dispatcher 플러시 에이전트의 경우, 경로 기반 가상 호스트 항목을 사용하여 팜을 구분하는 경우에만 URI 속성이 사용됩니다. 이 필드를 사용하여 무효화할 팜을 대상으로 지정합니다. 예를 들어 팜 #1에는 `www.mysite.com/path1/*`의 가상 호스트가 있고 팜 #2에는 `www.mysite.com/path2/*`의 가상 호스트가 있습니다. URL `/path1/invalidate.cache`를 사용하여 첫 번째 팜을 대상으로 지정하고 `/path2/invalidate.cache`를 사용하여 두 번째 팜을 대상으로 지정할 수 있습니다. 자세한 내용은 [여러 도메인에 Dispatcher 사용](dispatcher-domains.md)을 참조하십시오.
 
-1. 필요에 따라 다른 매개 변수를 구성합니다.
+1. 필요에 따라 다른 매개변수를 구성합니다.
 1. 영향을 받는 모든 게시 인스턴스에 대해 이 작업을 반복합니다.
 
 구성 후 작성자에서 게시로 페이지를 활성화하면 이 에이전트가 표준 복제를 시작합니다. 로그에는 게시 서버에서 오는 요청을 나타내는 메시지가 포함됩니다. 다음 예제와 유사합니다.
@@ -169,7 +169,7 @@ page_path1
 page_pathn
 ```
 
-즉시 다시 캐시할 페이지 경로는 메시지 본문의 별도 행에 나열됩니다. `CQ-Handle` 값은 다시 캐시할 페이지를 무효화하는 페이지의 경로입니다. ([캐시](dispatcher-configuration.md#main-pars_146_44_0010) 구성 항목의 `/statfileslevel` 매개 변수를 참조하십시오.) 다음 예제 HTTP 요청 메시지는 `/content/geometrixx-outdoors/en.html page`를 삭제하고 다시 캐시합니다.
+즉시 다시 캐시할 페이지 경로는 메시지 본문의 별도 행에 나열됩니다. `CQ-Handle` 값은 다시 캐시할 페이지를 무효화하는 페이지의 경로입니다. ([캐시](dispatcher-configuration.md#main-pars_146_44_0010) 구성 항목의 `/statfileslevel` 매개변수를 참조하십시오.) 다음 예제 HTTP 요청 메시지는 `/content/geometrixx-outdoors/en.html page`를 삭제하고 다시 캐시합니다.
 
 ```xml
 POST /dispatcher/invalidate.cache HTTP/1.1  
@@ -183,7 +183,7 @@ Content-Length: 36
 
 ### 예제 플러시 서블릿 {#example-flush-servlet}
 
-다음 코드는 Dispatcher에 무효화 요청을 보내는 서블릿을 구현합니다. 서블릿은 `handle` 및 `page` 매개 변수가 포함된 요청 메시지를 수신합니다. 이러한 매개 변수는 각각 `CQ-Handle` 헤더의 값과 다시 캐시할 페이지의 경로를 제공합니다. 서블릿은 값을 사용하여 Dispatcher에 대한 HTTP 요청을 구성합니다.
+다음 코드는 Dispatcher에 무효화 요청을 보내는 서블릿을 구현합니다. 서블릿은 `handle` 및 `page` 매개변수가 포함된 요청 메시지를 수신합니다. 이러한 매개변수는 각각 `CQ-Handle` 헤더의 값과 다시 캐시할 페이지의 경로를 제공합니다. 서블릿은 값을 사용하여 Dispatcher에 대한 HTTP 요청을 구성합니다.
 
 서블릿이 게시 인스턴스에 배포되면 다음 URL로 인해 Dispatcher가 /content/geometrixx-outdoors/en.html 페이지를 삭제한 다음 새 복사본을 캐시합니다.
 
