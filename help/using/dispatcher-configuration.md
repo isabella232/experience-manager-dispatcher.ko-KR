@@ -2,9 +2,9 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6, 구성 파일, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대한 지원에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: aed3c791a308b37ac493a78e918da3a4db1c8a64
+source-git-commit: 385495c76cd770409e9a002c685e8d375b159207
 workflow-type: tm+mt
-source-wordcount: '8549'
+source-wordcount: '8573'
 ht-degree: 99%
 
 ---
@@ -1374,7 +1374,11 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 ### 시간 기반 캐시 무효화 구성 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-설정되면 `/enableTTL` 속성은 백엔드의 응답 헤더를 평가하고 property will evaluate the response headers from the backend, and if they contain a `Cache-Control` 최대 기간 또는 `Expires` 날짜가 포함된 경우 캐시 파일 옆에 수정 시간이 만료 날짜와 동일한 보조 빈 파일이 생성됩니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
+1 (/enableTTL &quot;1&quot;)로 설정하면 `/enableTTL` 속성은 백엔드의 응답 헤더를 평가하고, 응답 헤더가 포함되어 있는지 확인합니다 `Cache-Control` 최대 연령 또는 `Expires` 날짜, 캐시 파일 옆에 있는 보조 빈 파일이 생성되며 수정 시간은 만료 날짜와 같습니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
+
+>[!NOTE]
+>
+>TTL 기반 캐싱은 헤더 캐싱의 상위 세트이며 이와 같이 `/headers` 또한 속성을 올바르게 구성해야 합니다.
 
 >[!NOTE]
 >
