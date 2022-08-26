@@ -3,9 +3,9 @@ title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: d7045fd779bf2c59034247266930e4b79ec2156f
-workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+workflow-type: ht
+source-wordcount: '8572'
+ht-degree: 100%
 
 ---
 
@@ -192,7 +192,7 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 
 | 속성 이름 | 설명 |
 |--- |--- |
-| [/홈 페이지](#specify-a-default-page-iis-only-homepage) | 기본 홈 페이지(선택 사항)(IIS만 해당) |
+| [/홈 페이지](#specify-a-default-page-iis-only-homepage) | 기본 홈 페이지 (선택 사항)(IIS만 해당) |
 | [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | 전달할 클라이언트 HTTP 요청의 헤더입니다. |
 | [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | 이 팜의 가상 호스트입니다. |
 | [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | 세션 관리 및 인증을 지원합니다. |
@@ -213,7 +213,7 @@ AEM 및 Dispatcher의 모든 요소는 IPv4 및 IPv6 네트워크 모두에 설�
 
 >[!CAUTION]
 >
->`/homepage`매개 변수(IIS만 해당)는 더 이상 작동하지 않습니다. 대신 [IIS URL 재작성 모듈](https://docs.microsoft.com/ko-kr/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)을 사용해야 합니다.
+>`/homepage`매개변수(IIS만 해당)는 더 이상 작동하지 않습니다. 대신 [IIS URL 재작성 모듈](https://docs.microsoft.com/ko-kr/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)을 사용해야 합니다.
 >
 >Apache를 사용하는 경우 `mod_rewrite` 모듈을 사용해야 합니다. `mod_rewrite`에 대한 정보는 Apache 웹 사이트 설명서를 참조하십시오(예: [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)). `mod_rewrite`를 사용할 때 **[&#39;passthrough|PT&#39;(다음 핸들러로 전달)](https://helpx.adobe.com/kr/dispatcher/kb/DispatcherModReWrite.html)** 플래그를 사용하여 재작성 엔진이 내부 `request_rec` 구조의 `uri` 필드를 `filename` 필드의 값으로 설정하는 것이 좋습니다.
 
@@ -363,7 +363,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 ### 예제 가상 호스트 확인 {#example-virtual-host-resolution}
 
-다음 예제는 두 개의 Dispatcher 팜을 정의하는 `dispatcher.any` 파일의 코드 조각을 나타내며 각 팜은 `virtualhosts` 속성을 정의합니다.
+다음 예제는 두 개의 Dispatcher 팜을 정의하는 `dispatcher.any` 파일의 스니펫을 나타내며 각 팜은 `virtualhosts` 속성을 정의합니다.
 
 ```xml
 /farms
@@ -416,7 +416,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 >
 >웹 사이트의 섹션에서 서로 다른 액세스 요구 사항을 사용하는 경우 여러 팜을 정의해야 합니다.
 
-**/sessionmanagement**&#x200B;에는 여러 하위 매개 변수가 있습니다.
+**/sessionmanagement**&#x200B;에는 여러 하위 매개변수가 있습니다.
 
 **/directory** (필수)
 
@@ -424,7 +424,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 >[!CAUTION]
 >
-> 디렉터리 하위 매개 변수를 구성할 때 심각한 문제를 일으킬 수 있으므로 루트 폴더(`/directory "/"`)를 가리켜서는 **안 됩니다**. 항상 세션 정보를 저장하는 폴더의 경로를 지정해야 합니다. 예:
+> 디렉터리 하위 매개변수를 구성할 때 심각한 문제를 일으킬 수 있으므로 루트 폴더(`/directory "/"`)를 가리켜서는 **안 됩니다**. 항상 세션 정보를 저장하는 폴더의 경로를 지정해야 합니다. 예:
 
 ```xml
 /sessionmanagement
@@ -576,7 +576,7 @@ Dispatcher 버전 **4.1.6**&#x200B;에서는 `/always-resolve` 속성을 다음�
 
 * **유형**: `/type` 은 패턴과 일치하는 요청에 대한 액세스를 허용할지 또는 거부할지 여부를 나타냅니다. 값은 `allow` 또는 `deny`일 수 있습니다.
 
-* **요청 라인의 요소:** `/method`, `/url`, `/query`, 또는 `/protocol`을 포함하고 HTTP 요청의 요청 라인 부분의 이러한 특정 부분에 따라 요청을 필터링하는 패턴을 포함합니다. 전체 요청 라인이 아닌 요청 라인의 요소를 필터링하는 것이 선호되는 필터 메서드입니다.
+* **요청 라인의 요소:** `/method`, `/url`, `/query` 또는 `/protocol`을 포함하고 HTTP 요청의 요청 라인 부분의 이러한 특정 부분에 따라 요청을 필터링하는 패턴을 포함합니다. 전체 요청 라인이 아닌 요청 라인의 요소를 필터링하는 것이 선호되는 필터 메서드입니다.
 
 * **요청 라인의 고급 요소:** Dispatcher 4.2.0부터 4개의 새로운 필터 요소를 사용할 수 있습니다. 새로운 요소는 각각 `/path`, `/selectors`, `/extension`, `/suffix` 입니다. URL 패턴을 추가로 제어하려면 이러한 항목 중 하나 이상을 포함하십시오.
 
@@ -1052,7 +1052,7 @@ statfile에는 콘텐츠가 없습니다. 콘텐츠가 업데이트되면 Dispat
    * 일반적으로 물음표는 검색 결과와 같이 캐시할 필요가 없는 동적 페이지를 나타냅니다.
 * 파일 확장명이 없습니다.
    * 웹 서버에는 문서 유형(MIME 유형)을 결정하기 위한 확장명이 필요합니다.
-* 인증 헤더가 설정됨(구성할 수 있음).
+* 인증 헤더가 설정됨 (구성할 수 있음).
 * AEM 인스턴스가 다음 헤더로 응답하는 경우:
 
    * `no-cache`
@@ -1152,7 +1152,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 `/statfileslevel` 속성을 사용하여 경로에 따라 캐시된 파일을 무효화합니다.
 
 * Dispatcher는 docroot 폴더에서 지정한 수준까지 각 폴더에 `.stat`파일을 생성합니다. docroot 폴더는 레벨 0입니다.
-* `.stat` 파일을 터치하면 파일이 무효화됩니다. `.stat` 파일의 마지막 수정 날짜는 캐시된 문서의 마지막 수정 날짜와 비교됩니다. `.stat` 파일이 최신 파일인 경우 문서를 다시 가져옵니다.
+* `.stat` 파일을 터치하면 파일이 무효화됩니다. `.stat` 파일의 마지막 수정 일자는 캐시된 문서의 마지막 수정 일자와 비교됩니다. `.stat` 파일이 최신 파일인 경우 문서를 다시 가져옵니다.
 
 * 특정 수준에 있는 파일이 무효화되면 docroot에서 무효화된 파일의 수준 또는 구성된 `statsfilevel` **까지** (둘 중 더 작은 것)의 **모든** `.stat` 파일이 터치됩니다.
 
@@ -1226,7 +1226,7 @@ Adobe Analytics와의 AEM 통합은 웹 사이트의 `analytics.sitecatalyst.js`
 다음 인수와 함께 호출됩니다.
 
 * Handle - 무효화된 콘텐츠 경로
-* Action - 복제 작업(예: 활성화, 비활성화)
+* Action - 복제 작업 (예: 활성화, 비활성화)
 * Action Scope - 복제 작업의 범위 (`CQ-Action-Scope: ResourceOnly`의 헤더가 전송되지 않는 한 비어 있음. 자세한 내용은 [AEM에서 캐시된 페이지 무효화](page-invalidate.md) 참조)
 
 다른 애플리케이션별 캐시 무효화와 같은 다양한 사용 사례를 다루거나 페이지의 외재화 URL 및 docroot의 위치가 콘텐츠 경로와 일치하지 않는 사례를 처리하는 데 사용할 수 있습니다.
@@ -1270,21 +1270,21 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 >
 >이 작업이 수행되지 않으면 모든 클라이언트가 캐시를 지우도록 호출을 실행할 수 있습니다.이러한 작업이 반복적으로 수행되면 사이트 성능에 심각한 영향을 줄 수 있습니다.
 
-### URL 매개 변수 무시 {#ignoring-url-parameters}
+### URL 매개변수 무시 {#ignoring-url-parameters}
 
-`ignoreUrlParams` 섹션은 페이지가 캐시되는지 또는 캐시에서 전달되는지 여부를 결정할 때 무시되는 URL 매개 변수를 정의합니다.
+`ignoreUrlParams` 섹션은 페이지가 캐시되는지 또는 캐시에서 전달되는지 여부를 결정할 때 무시되는 URL 매개변수를 정의합니다.
 
-* 요청 URL에 모두 무시되는 매개 변수가 포함되어 있으면 페이지가 캐시됩니다.
-* 요청 URL에 무시되지 않는 매개 변수가 하나 이상 포함되어 있으면 페이지가 캐시되지 않습니다.
+* 요청 URL에 모두 무시되는 매개변수가 포함되어 있으면 페이지가 캐시됩니다.
+* 요청 URL에 무시되지 않는 매개변수가 하나 이상 포함되어 있으면 페이지가 캐시되지 않습니다.
 
-페이지에 대한 매개 변수가 무시되면 페이지가 처음으로 요청될 때 페이지가 캐시됩니다. 페이지에 대한 후속 요청은 요청의 매개 변수 값에 관계없이 캐시된 페이지에 제공됩니다.
+페이지에 대한 매개변수가 무시되면 페이지가 처음으로 요청될 때 페이지가 캐시됩니다. 페이지에 대한 후속 요청은 요청의 매개변수 값에 관계없이 캐시된 페이지에 제공됩니다.
 
-무시할 매개 변수를 지정하려면 `ignoreUrlParams` 속성에 glob 규칙을 추가합니다.
+무시할 매개변수를 지정하려면 `ignoreUrlParams` 속성에 glob 규칙을 추가합니다.
 
-* 매개 변수를 무시하려면 매개 변수를 허용하는 glob 속성을 만듭니다.
-* 페이지가 캐시되지 않도록 하려면 매개 변수를 거부하는 glob 속성을 만듭니다.
+* 매개변수를 무시하려면 매개변수를 허용하는 glob 속성을 만듭니다.
+* 페이지가 캐시되지 않도록 하려면 매개변수를 거부하는 glob 속성을 만듭니다.
 
-다음 예제에서는 Dispatcher가 `q` 매개 변수를 무시하여 q 매개 변수를 포함하는 요청 URL이 캐시되도록 합니다.
+다음 예제에서는 Dispatcher가 `q` 매개변수를 무시하여 q 매개변수를 포함하는 요청 URL이 캐시되도록 합니다.
 
 ```xml
 /ignoreUrlParams
@@ -1294,13 +1294,13 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 }
 ```
 
-예제 `ignoreUrlParams` 값을 사용하면 다음 HTTP 요청으로 인해 `q` 매개 변수가 무시되므로 페이지가 캐시됩니다.
+예제 `ignoreUrlParams` 값을 사용하면 다음 HTTP 요청으로 인해 `q` 매개변수가 무시되므로 페이지가 캐시됩니다.
 
 ```xml
 GET /mypage.html?q=5
 ```
 
-예제 `ignoreUrlParams` 값을 사용하면 다음 HTTP 요청으로 인해 `p` 매개 변수가 무시되지 않으므로 페이지가 **캐시되지 않습니다**.
+예제 `ignoreUrlParams` 값을 사용하면 다음 HTTP 요청으로 인해 `p` 매개변수가 무시되지 않으므로 페이지가 **캐시되지 않습니다**.
 
 ```xml
 GET /mypage.html?q=5&p=4
@@ -1339,7 +1339,7 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 >[!NOTE]
 >
->Dispatcher가 AEM의 ETag 응답 헤더를 저장하고 전달해야 하는 경우 다음을 수행하십시오.
+>Dispatcher가 AEM의 ETag 응답 헤더를 저장하고 전달해야 하는 경우 다음 작업을 수행하십시오.
 >
 >* `/cache/headers`섹션에 헤더 이름을 추가합니다.
 >* Dispatcher 관련 섹션에 다음 [Apache 지시문](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)을 추가합니다.
@@ -1374,11 +1374,11 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 ### 시간 기반 캐시 무효화 구성 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-1로 설정된 경우(`/enableTTL "1"`), `/enableTTL` 속성은 백엔드의 응답 헤더를 평가하고, 응답 헤더가 포함되어 있는지 확인합니다 `Cache-Control` 최대 연령 또는 `Expires` 날짜, 캐시 파일 옆에 있는 보조 빈 파일이 생성되며 수정 시간은 만료 날짜와 같습니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
+1(`/enableTTL "1"`)로 설정되면 `/enableTTL` 속성은 백엔드의 응답 헤더를 평가하고 `Cache-Control` 최대 기간 또는 `Expires` 일자가 포함된 경우 캐시 파일 옆에 수정 시간이 만료 일자와 동일한 보조 빈 파일이 생성됩니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
 
 >[!NOTE]
 >
->TTL 기반 캐싱은 헤더 캐싱의 상위 세트이며 이와 같이 `/headers` 또한 속성을 올바르게 구성해야 합니다.
+>TTL 기반 캐싱은 헤더 캐싱의 상위 집합이므로 `/headers` 속성도 적절하게 구성해야 합니다.
 
 >[!NOTE]
 >
@@ -1563,7 +1563,7 @@ Dispatcher 팜에서 장애 조치 메커니즘을 활성화하여 원본 요청
 
 시스템 호출 개체가 NFS를 통해 액세스되는 원격 시스템에 있는 경우 모든 파일 시스템 지향 시스템 호출이 `EINTR`로 중단될 수 있습니다. 이러한 시스템 호출이 시간 초과되거나 중단될 수 있는지 여부는 기본 파일 시스템이 로컬 시스템에 마운트된 방식에 따라 결정됩니다.
 
-인스턴스에 이러한 구성이 있고 로그에 다음 메시지가 포함된 경우 `/ignoreEINTR` 매개 변수를 사용합니다.
+인스턴스에 이러한 구성이 있고 로그에 다음 메시지가 포함된 경우 `/ignoreEINTR` 매개변수를 사용합니다.
 
 `Error while reading response: Interrupted system call`
 
@@ -1577,7 +1577,7 @@ read more data
 
 이러한 메시지는 “ `read more data`” 섹션에서 `EINTR`이 발생할 때 생성될 수 있으며 데이터가 수신되기 전에 신호를 수신하여 발생합니다.
 
-이러한 인터럽트를 무시하려면 `dispatcher.any`에 다음 매개 변수를 추가할 수 있습니다(`/farms`앞에).
+이러한 인터럽트를 무시하려면 `dispatcher.any`에 다음 매개변수를 추가할 수 있습니다(`/farms`앞에).
 
 `/ignoreEINTR "1"`
 
