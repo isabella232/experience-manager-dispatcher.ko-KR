@@ -2,9 +2,9 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: d7045fd779bf2c59034247266930e4b79ec2156f
+source-git-commit: 3455a90308d8661725850e19b67d7ff65f6f662f
 workflow-type: ht
-source-wordcount: '8572'
+source-wordcount: '0'
 ht-degree: 100%
 
 ---
@@ -782,9 +782,10 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 >
 >Apache에서 사용하는 경우 Dispatcher 모듈의 DispatcherUseProcessedURL 속성에 따라 필터 URL 패턴을 디자인합니다. ([Apache 웹 서버 - Dispatcher용 Apache 웹 서버 구성](dispatcher-install.md##apache-web-server-configure-apache-web-server-for-dispatcher)을 참조하십시오.)
 
+<!----
 >[!NOTE]
 >
->Dynamic Media에 관한 `0030` 및 `0031` 필터는 AEM 6.0 이상에 적용됩니다.
+>Filters `0030` and `0031` regarding Dynamic Media are applicable to AEM 6.0 and higher. -->
 
 액세스 확장을 선택하는 경우 다음 권장 사항을 고려하십시오.
 
