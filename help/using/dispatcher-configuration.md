@@ -2,10 +2,10 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3455a90308d8661725850e19b67d7ff65f6f662f
+source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
 workflow-type: tm+mt
-source-wordcount: '8561'
-ht-degree: 100%
+source-wordcount: '8636'
+ht-degree: 98%
 
 ---
 
@@ -1280,31 +1280,38 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 페이지에 대한 매개변수가 무시되면 페이지가 처음으로 요청될 때 페이지가 캐시됩니다. 페이지에 대한 후속 요청은 요청의 매개변수 값에 관계없이 캐시된 페이지에 제공됩니다.
 
+>[!NOTE]
+>
+>을 구성하는 것이 좋습니다 `ignoreUrlParams` 설정허용 목록에 추가하다를 참조하십시오. 따라서 모든 쿼리 매개 변수는 무시되고 알려진 쿼리 매개 변수나 예상 쿼리 매개 변수만 무시되지 않습니다(&quot;거부&quot;). 자세한 내용 및 예는 를 참조하십시오. [이 페이지](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
+
 무시할 매개변수를 지정하려면 `ignoreUrlParams` 속성에 glob 규칙을 추가합니다.
 
-* 매개변수를 무시하려면 매개변수를 허용하는 glob 속성을 만듭니다.
-* 페이지가 캐시되지 않도록 하려면 매개변수를 거부하는 glob 속성을 만듭니다.
+* URL 매개 변수가 포함된 요청에도 불구하고 페이지를 캐시하려면 매개 변수를 허용하는 glob 속성을 만듭니다(무시할 수 있음).
+* 페이지가 캐시되지 않도록 하려면 매개 변수를 거부하는 glob 속성을 만듭니다(무시할 수 있음).
 
-다음 예제에서는 Dispatcher가 `q` 매개변수를 무시하여 q 매개변수를 포함하는 요청 URL이 캐시되도록 합니다.
+다음 예에서는 Dispatcher가 `nocache` 매개 변수. 따라서 를 포함하는 요청 URL은 `nocache` 매개 변수는 디스패처가 캐시하지 않습니다.
 
 ```xml
 /ignoreUrlParams
 {
-    /0001 { /glob "*" /type "deny" }
-    /0002 { /glob "q" /type "allow" }
+    # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
+    /0001 { /glob "nocache" /type "deny" }
+    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
+    /0002 { /glob "*" /type "allow" }
 }
 ```
 
-예제 `ignoreUrlParams` 값을 사용하면 다음 HTTP 요청으로 인해 `q` 매개변수가 무시되므로 페이지가 캐시됩니다.
+의 컨텍스트에서 `ignoreUrlParams` 위의 구성 예는 다음 HTTP 요청으로 인해 `willbecached` 매개 변수는 무시됩니다.
 
 ```xml
-GET /mypage.html?q=5
+GET /mypage.html?willbecached=true
 ```
 
-예제 `ignoreUrlParams` 값을 사용하면 다음 HTTP 요청으로 인해 `p` 매개변수가 무시되지 않으므로 페이지가 **캐시되지 않습니다**.
+의 컨텍스트에서 `ignoreUrlParams` 구성 예: 다음 HTTP 요청으로 인해 페이지가 **not** 캐시되는 이유는 `nocache` 매개 변수는 무시되지 않습니다.
 
 ```xml
-GET /mypage.html?q=5&p=4
+GET /mypage.html?nocache=true
+GET /mypage.html?nocache=true&willbecached=true
 ```
 
 glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#designing-patterns-for-glob-properties)을 참조하십시오.
