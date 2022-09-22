@@ -3,9 +3,9 @@ title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8636'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -261,10 +261,10 @@ Comment Type: draft
 
 기본적으로 Dispatcher는 표준 HTTP 헤더를 AEM 인스턴스로 전달합니다. 경우에 따라 추가 헤더를 전달하거나 특정 헤더를 제거할 수 있습니다.
 
-* AEM 인스턴스가 HTTP 요청에서 예상하는 사용자 지정 헤더와 같은 헤더를 추가합니다.
+* AEM 인스턴스가 HTTP 요청에서 예상하는 사용자 정의 헤더와 같은 헤더를 추가합니다.
 * 인증 헤더와 같이 웹 서버에만 관련된 헤더를 제거합니다.
 
-전달할 헤더 집합을 사용자 지정하는 경우 보통 기본적으로 포함되는 헤더를 포함하여 전체 헤더 목록을 지정해야 합니다.
+전달할 헤더 집합을 사용자 정의하는 경우 보통 기본적으로 포함되는 헤더를 포함하여 전체 헤더 목록을 지정해야 합니다.
 
 예를 들어 게시 인스턴스에 대한 페이지 활성화 요청을 처리하는 Dispatcher 인스턴스는 `/clientheaders` 섹션에 `PATH` 헤더가 필요합니다. `PATH` 헤더는 복제 에이전트와 Dispatcher 간의 통신을 가능하게 합니다.
 
@@ -1220,7 +1220,7 @@ Adobe Analytics와의 AEM 통합은 웹 사이트의 `analytics.sitecatalyst.js`
 }
 ```
 
-### 사용자 지정 무효화 스크립트 사용 {#using-custom-invalidation-scripts}
+### 사용자 정의 무효화 스크립트 사용 {#using-custom-invalidation-scripts}
 
 `/invalidateHandler` 속성을 사용하면 Dispatcher가 수신한 각 무효화 요청에 대해 호출되는 스크립트를 정의할 수 있습니다.
 
@@ -1282,14 +1282,14 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 >[!NOTE]
 >
->을 구성하는 것이 좋습니다 `ignoreUrlParams` 설정허용 목록에 추가하다를 참조하십시오. 따라서 모든 쿼리 매개 변수는 무시되고 알려진 쿼리 매개 변수나 예상 쿼리 매개 변수만 무시되지 않습니다(&quot;거부&quot;). 자세한 내용 및 예는 를 참조하십시오. [이 페이지](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
+>허용 목록 방식으로 `ignoreUrlParams` 설정을 구성하는 것이 좋습니다. 이에 따라 모든 쿼리 매개변수는 무시되고 알려진 쿼리 매개변수 또는 예상 쿼리 매개변수만 무시되는 항목에서 제외(“거부”)됩니다. 보다 자세한 내용과 예제는 [이 페이지](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner)를 참조하십시오.
 
 무시할 매개변수를 지정하려면 `ignoreUrlParams` 속성에 glob 규칙을 추가합니다.
 
-* URL 매개 변수가 포함된 요청에도 불구하고 페이지를 캐시하려면 매개 변수를 허용하는 glob 속성을 만듭니다(무시할 수 있음).
-* 페이지가 캐시되지 않도록 하려면 매개 변수를 거부하는 glob 속성을 만듭니다(무시할 수 있음).
+* URL 매개변수를 포함하는 요청에도 불구하고 페이지를 캐시하려면 매개변수를 무시할 수 있는 glob 속성을 만듭니다.
+* 페이지가 캐시되지 않도록 하려면 매개변수를 거부하는 glob 속성을 만듭니다.
 
-다음 예에서는 Dispatcher가 `nocache` 매개 변수. 따라서 를 포함하는 요청 URL은 `nocache` 매개 변수는 디스패처가 캐시하지 않습니다.
+다음 예제에서는 Dispatcher가 `nocache` 매개변수를 제외하고 다른 모든 매개변수를 무시하게 됩니다. 그에 따라 `nocache` 매개변수를 포함하는 요청 URL이 Dispatcher에 의해 캐시되지 않습니다.
 
 ```xml
 /ignoreUrlParams
@@ -1301,13 +1301,13 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 }
 ```
 
-의 컨텍스트에서 `ignoreUrlParams` 위의 구성 예는 다음 HTTP 요청으로 인해 `willbecached` 매개 변수는 무시됩니다.
+위의 `ignoreUrlParams` 구성 예제의 맥락에서 다음 HTTP 요청은 `willbecached` 매개변수가 무시되기 때문에 페이지가 캐시되도록 합니다.
 
 ```xml
 GET /mypage.html?willbecached=true
 ```
 
-의 컨텍스트에서 `ignoreUrlParams` 구성 예: 다음 HTTP 요청으로 인해 페이지가 **not** 캐시되는 이유는 `nocache` 매개 변수는 무시되지 않습니다.
+`ignoreUrlParams` 구성 예제의 맥락에서 다음 HTTP 요청은 `nocache` 매개변수가 무시되지 않기 때문에 페이지가 **캐시되지 않도록** 합니다.
 
 ```xml
 GET /mypage.html?nocache=true
@@ -1502,7 +1502,7 @@ URI의 범주를 결정하기 위해 Dispatcher는 일치하는 항목이 발견
 
 ### secure {#secure}
 
-고정 연결이 활성화되면 Dispatcher 모듈이 `renderid` 쿠키를 설정합니다. 이 쿠키에는 보안을 강화하기 위해 추가해야 하는 `secure` 플래그가 없습니다. 이 작업은 `dispatcher.any` 구성 파일의 `/stickyConnections` 노드에서 `secure` 속성을 설정하여 수행할 수 있습니다. 속성 값(`0` 또는 `1`)은 `renderid` 쿠키에 `secure` 속성이 추가되었는지 여부를 정의합니다. 기본값은 `0`으로, 수신 요청이 안전한 **경우** 특성이 추가됨을 의미합니다. 값이 `1`로 설정되면 수신 요청의 보안 여부에 관계없이 보안 플래그가 추가됩니다.
+고정 연결이 활성화되면 Dispatcher 모듈이 `renderid` 쿠키를 설정합니다. 이 쿠키에는 보안을 강화하기 위해 추가해야 하는 `secure` 플래그가 없습니다. 이 작업은 `dispatcher.any` 구성 파일의 `/stickyConnections` 노드에서 `secure` 속성을 설정하여 수행할 수 있습니다. 속성 값(`0` 또는 `1`)은 `renderid` 쿠키에 `secure` 속성이 추가되었는지 여부를 정의합니다. 기본값은 `0`으로, 수신 요청이 안전한 **경우** 속성이 추가됨을 의미합니다. 값이 `1`로 설정되면 수신 요청의 보안 여부에 관계없이 보안 플래그가 추가됩니다.
 
 ## 렌더링 연결 오류 처리 {#handling-render-connection-errors}
 
@@ -1583,7 +1583,7 @@ read more data
 }
 ```
 
-이러한 메시지는 “ `read more data`” 섹션에서 `EINTR`이 발생할 때 생성될 수 있으며 데이터가 수신되기 전에 신호를 수신하여 발생합니다.
+이러한 메시지는 “`read more data`” 섹션에서 `EINTR`이 발생할 때 생성될 수 있으며 데이터가 수신되기 전에 신호를 수신하여 발생합니다.
 
 이러한 인터럽트를 무시하려면 `dispatcher.any`에 다음 매개변수를 추가할 수 있습니다(`/farms`앞에).
 
@@ -1856,8 +1856,8 @@ HTTP 메서드가 GET도 HEAD도 아닙니다. Dispatcher는 출력에 캐시되
    팜의 권한 부여 검사기가 캐시된 파일에 대한 액세스를 거부했습니다.
 * **캐시 불가능: 세션이 유효하지 않습니다**
 팜의 캐시는 세션 관리자가 관리하며(구성에 `sessionmanagement` 노드가 포함) 사용자의 세션이 유효하지 않거나 더 이상 유효하지 않습니다.
-* **캐시 불가능: 응답에`no_cache`**
-가 포함되어 있습니다원격 서버가 
+* **캐시 불가능: 응답에`no_cache`**가 포함되어 있습니다.
+원격 서버가 
 `Dispatcher: no_cache` 헤더를 반환하여 Dispatcher가 출력을 캐시하지 못하도록 했습니다.
 * **캐시 불가능: 응답 콘텐츠 길이가 0입니다**
 응답의 콘텐츠 길이가 0입니다. Dispatcher는 길이가 0인 파일을 생성하지 않습니다.
