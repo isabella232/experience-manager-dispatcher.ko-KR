@@ -14,9 +14,9 @@ content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: f255701f23a628ba0d8b6cd91228462e1b552ffa
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1421'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -67,7 +67,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 1. 필요에 따라 다른 매개변수를 구성합니다.
 1. 확인을 클릭하여 에이전트를 활성화합니다.
 
-또는 [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html#configuring-a-dispatcher-flush-agent)에서 Dispatcher 플러시 에이전트에 액세스하고 구성할 수도 있습니다.
+또는 [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=ko-KR#configuring-a-dispatcher-flush-agent)에서 Dispatcher 플러시 에이전트에 액세스하고 구성할 수도 있습니다.
 
 vanity URL에 대한 액세스를 활성화하는 방법에 대한 자세한 내용은 [Vanity URL에 대한 액세스 활성화](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls)를 참조하십시오.
 
@@ -114,7 +114,7 @@ Dispatcher 플러시는 게시 인스턴스에서 작동하는 복제 에이전�
    **참고:** Dispatcher 플러시 에이전트의 경우, 경로 기반 가상 호스트 항목을 사용하여 팜을 구분하는 경우에만 URI 속성이 사용됩니다. 이 필드를 사용하여 무효화할 팜을 대상으로 지정합니다. 예를 들어 팜 #1에는 `www.mysite.com/path1/*`의 가상 호스트가 있고 팜 #2에는 `www.mysite.com/path2/*`의 가상 호스트가 있습니다. URL `/path1/invalidate.cache`를 사용하여 첫 번째 팜을 대상으로 지정하고 `/path2/invalidate.cache`를 사용하여 두 번째 팜을 대상으로 지정할 수 있습니다. 자세한 내용은 [여러 도메인에 Dispatcher 사용](dispatcher-domains.md)을 참조하십시오.
 
 1. 필요에 따라 다른 매개변수를 구성합니다.
-1. 게시 인스턴스에 로그인하고 플러시 에이전트 구성을 확인합니다. 또한 활성화되어 있는지 확인합니다.
+1. 게시 인스턴스에 로그인하고 플러시 에이전트 구성을 확인합니다. 또한 이 기능이 활성화되어 있는지 확인합니다.
 1. 영향을 받는 모든 게시 인스턴스에 대해 이 작업을 반복합니다.
 
 구성 후 작성자에서 게시로 페이지를 활성화하면 이 에이전트가 표준 복제를 시작합니다. 로그에는 게시 서버에서 오는 요청을 나타내는 메시지가 포함됩니다. 다음 예제와 유사합니다.
