@@ -3,9 +3,9 @@ title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 112aa011e7a338be2b397d0c9b785fc2d9905b5d
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8675'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -406,7 +406,7 @@ Dispatcher는 다음과 같은 방식으로 가장 일치하는 가상 호스트
 
 >[!CAUTION]
 >
->이 기능을 사용하려면 `/allowAuthorized`가 **섹션에서**&#x200B;으로 `"0"`설정되어야`/cache` 합니다. 에 자세히 설명되어 있습니다. [인증이 사용될 때 캐싱](#caching-when-authentication-is-used) 섹션, `/allowAuthorized 0 ` 인증 정보를 포함하는 요청 **not** 캐시됨. 권한 구분 캐싱이 필요한 경우 [보안 콘텐츠 캐싱](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html) 페이지.
+>이 기능을 사용하려면 `/allowAuthorized`가 `/cache` 섹션에서 `"0"`으로 **설정되어야** 합니다. [인증 사용 시 캐싱](#caching-when-authentication-is-used) 섹션에서 자세히 설명한 바와 같이 `/allowAuthorized 0 `을 설정하면 인증 정보가 포함된 요청은 캐시되지 **않습니다.** 권한 구분 캐싱이 요구된다면 [보안 콘텐츠 캐싱](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html) 페이지를 참조하십시오.
 
 사용자가 팜의 모든 페이지에 액세스하려면 로그인해야 하도록 렌더링 팜에 액세스를 위한 보안 세션을 만듭니다. 로그인 후 사용자는 팜의 페이지에 액세스할 수 있습니다. CUG와 함께 이 기능을 사용하는 방법에 대한 정보는 [폐쇄형 사용자 그룹 만들기](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=ko#creating-the-user-group-to-be-used)를 참조하십시오. 시작하기 전에 Dispatcher [보안 체크리스트](/help/using/security-checklist.md) 도 참조하십시오.
 
