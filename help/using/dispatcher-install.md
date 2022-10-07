@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: 63dc6184b502b517238c60ef6223b39bd7594306
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3693'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -642,7 +642,7 @@ keepalivetimeout="60"
 | 매개 변수 | 설명 |
 |--- |--- |
 | config | 구성 파일 `dispatcher.any.`의 위치 및 이름입니다. |
-| 로그 파일 | 로그 파일의 위치 및 이름입니다. |
+| logfile | 로그 파일의 위치 및 이름입니다. |
 | loglevel | 로그 파일에 메시지를 작성할 때의 로그 수준: <br/>**0** 오류 <br/>**1** 경고 <br/>**2** 정보 <br/>**3** 디버그 <br/>**참고:** 설치 및 테스트 중에는 로그 수준을 3으로 설정하고 프로덕션 환경에서 실행할 때는 0으로 설정하는 것이 좋습니다. |
 | keepalivetimeout | keep-alive 시간 제한을 초 단위로 지정합니다. Dispatcher 버전 4.2.0부터 기본 keep-alive 값은 60입니다. 값이 0이면 keep-alive가 비활성화됩니다. |
 
