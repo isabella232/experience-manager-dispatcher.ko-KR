@@ -2,10 +2,10 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 112aa011e7a338be2b397d0c9b785fc2d9905b5d
-workflow-type: ht
-source-wordcount: '8675'
-ht-degree: 100%
+source-git-commit: 0debee043078b869d0af3258075bd83bf0312c8f
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -841,7 +841,7 @@ Dispatcher 버전 4.1.5부터 `/filter` 섹션을 사용하여 쿼리 문자열�
 
 ### Dispatcher 보안 테스트 {#testing-dispatcher-security}
 
-Dispatcher 필터는 AEM 게시 인스턴스에서 다음 페이지 및 스크립트에 대한 액세스를 차단해야 합니다. 웹 브라우저를 사용하여 사이트 방문자처럼 다음 페이지를 열고 코드 403이 반환되는지 확인하십시오. 다른 결과가 나오면 필터를 조정합니다.
+Dispatcher 필터는 AEM 게시 인스턴스에서 다음 페이지 및 스크립트에 대한 액세스를 차단해야 합니다. 웹 브라우저를 사용하여 사이트 방문자처럼 다음 페이지를 열고 코드 404가 반환되는지 확인합니다. 다른 결과가 나오면 필터를 조정합니다.
 
 `/content/add_valid_page.html?debug=layout`에 대한 일반 페이지 렌더링이 표시되어야 합니다.
 
@@ -901,7 +901,7 @@ Dispatcher 필터는 AEM 게시 인스턴스에서 다음 페이지 및 스크�
 
 `curl -X POST "https://anonymous:anonymous@hostname:port/content/usergenerated/mytestnode"`
 
-터미널 또는 명령 프롬프트에서 다음 명령을 실행하여 Dispatcher 캐시 무효화를 시도하고 코드 404 응답을 수신하는지 확인하십시오.
+터미널 또는 명령 프롬프트에서 다음 명령을 실행하여 Dispatcher 캐시 무효화를 시도하고 코드 403 응답을 수신하는지 확인하십시오.
 
 `curl -H "CQ-Handle: /content" -H "CQ-Path: /content" https://yourhostname/dispatcher/invalidate.cache`
 
