@@ -2,10 +2,10 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 51be516f90587ceda19180f13727c8372a794261
+source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
 workflow-type: tm+mt
-source-wordcount: '8675'
-ht-degree: 100%
+source-wordcount: '8710'
+ht-degree: 99%
 
 ---
 
@@ -1284,6 +1284,11 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 * URL 매개변수를 포함하는 요청에도 불구하고 페이지를 캐시하려면 매개변수를 무시할 수 있는 glob 속성을 만듭니다.
 * 페이지가 캐시되지 않도록 하려면 매개변수를 거부하는 glob 속성을 만듭니다.
+
+>[!NOTE]
+>
+>glob 속성을 구성할 때는 쿼리 매개 변수 이름과 일치해야 합니다. 예를 들어 다음 URL에서 &quot;p1&quot; 매개 변수를 무시하려면 `http://example.com/path/test.html?p1=test&p2=v2`를 설정하는 경우 glob 속성은 다음과 같아야 합니다.
+> `/0002 { /glob "p1" /type "allow" }`
 
 다음 예제에서는 Dispatcher가 `nocache` 매개변수를 제외하고 다른 모든 매개변수를 무시하게 됩니다. 그에 따라 `nocache` 매개변수를 포함하는 요청 URL이 Dispatcher에 의해 캐시되지 않습니다.
 
