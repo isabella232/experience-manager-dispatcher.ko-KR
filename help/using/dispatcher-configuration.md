@@ -3,9 +3,9 @@ title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8710'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -1287,7 +1287,7 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 >[!NOTE]
 >
->glob 속성을 구성할 때는 쿼리 매개 변수 이름과 일치해야 합니다. 예를 들어 다음 URL에서 &quot;p1&quot; 매개 변수를 무시하려면 `http://example.com/path/test.html?p1=test&p2=v2`를 설정하는 경우 glob 속성은 다음과 같아야 합니다.
+>glob 속성을 구성할 때 쿼리 매개변수 이름과 일치해야 합니다. 예를 들어 다음 URL `http://example.com/path/test.html?p1=test&p2=v2`에서 “p1” 매개변수를 무시하려는 경우 glob 속성은 다음과 같아야 합니다.
 > `/0002 { /glob "p1" /type "allow" }`
 
 다음 예제에서는 Dispatcher가 `nocache` 매개변수를 제외하고 다른 모든 매개변수를 무시하게 됩니다. 그에 따라 `nocache` 매개변수를 포함하는 요청 URL이 Dispatcher에 의해 캐시되지 않습니다.
@@ -1535,7 +1535,7 @@ Dispatcher는 `/retryDelay`가 명시적으로 지정되지 않은 경우 `"1"` 
 
 `/numberOfRetries` 속성은 Dispatcher가 렌더링으로 수행하는 최대 연결 시도 횟수를 설정합니다. Dispatcher가 이 다시 시도 횟수 후에 렌더링에 성공적으로 연결할 수 없으면 Dispatcher는 실패한 응답을 반환합니다.
 
-각 회차마다 Dispatcher가 렌더링에 대한 연결을 시도하는 최대 횟수는 팜의 렌더링 수입니다. 따라서 Dispatcher가 연결을 시도하는 최대 횟수는 (`/numberOfRetries`)x(렌더링 수)입니다.
+각 회차마다 Dispatcher가 렌더링에 대한 연결을 시도하는 최대 횟수는 팜의 렌더링 수입니다. 따라서 Dispatcher가 연결을 시도하는 최대 횟수는 (`/numberOfRetries`) x (렌더링 수)입니다.
 
 값이 명시적으로 정의되지 않은 경우 기본값은 `5`입니다.
 
@@ -1718,7 +1718,7 @@ The following table describes the wildcard characters.
 다음은 자동으로 회전합니다.
 
 * Dispatcher 로그 파일, 확장에 타임스탬프가 있음(`logs/dispatcher.log%Y%m%d`).
-* 매주(60x60x24x7 = 604800초).
+* 매주(60 x 60 x 24 x 7 = 604,800초).
 
 로그 회전 및 파이프된 로그에 대한 Apache 웹 서버 문서를 참조하십시오. 예: [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
 
