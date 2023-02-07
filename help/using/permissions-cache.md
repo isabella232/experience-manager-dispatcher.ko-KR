@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '856'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
@@ -80,7 +80,7 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 
 서블릿은 렌더링에서 HEAD 요청만 수신하므로 `doHead` 메서드만 구현하면 됩니다.
 
-렌더링에는 요청된 리소스의 URI가 HTTP 요청의 매개 변수로 포함됩니다. 예를 들어 권한 부여 서블릿은 `/bin/permissioncheck`를 통해 액세스됩니다. /content/geometrixx-outdoors/en.html 페이지에서 보안 검사를 수행하려면 렌더링은 HTTP 요청에 다음 URL을 포함합니다.
+렌더링에는 요청된 리소스의 URI가 HTTP 요청의 매개변수로 포함됩니다. 예를 들어 권한 부여 서블릿은 `/bin/permissioncheck`를 통해 액세스됩니다. /content/geometrixx-outdoors/en.html 페이지에서 보안 검사를 수행하려면 렌더링은 HTTP 요청에 다음 URL을 포함합니다.
 
 `/bin/permissioncheck?uri=/content/geometrixx-outdoors/en.html`
 
@@ -88,7 +88,7 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 
 * 200: 인증 및 권한 부여가 통과되었습니다.
 
-다음 예제 서블릿은 HTTP 요청에서 요청된 리소스의 URL을 가져옵니다. 이 코드는 Felix SCR `Property` 주석을 사용하여 `sling.servlet.paths` 속성의 값을 /bin/permissioncheck로 설정합니다. `doHead` 메서드에서 서블릿은 세션 개체를 가져오고 `checkPermission` 메서드를 사용하여 적절한 응답 코드를 결정합니다.
+다음 예제 서블릿은 HTTP 요청에서 요청된 리소스의 URL을 가져옵니다. 이 코드는 Felix SCR `Property` 주석을 사용하여 `sling.servlet.paths` 속성의 값을 /bin/permissioncheck로 설정합니다. `doHead` 메서드에서 서블릿은 세션 오브젝트를 가져오고 `checkPermission` 메서드를 사용하여 적절한 응답 코드를 결정합니다.
 
 >[!NOTE]
 >
@@ -147,7 +147,7 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 
 >[!NOTE]
 >
->요구 사항이 인증된 문서의 캐싱을 허용하는 경우 /cache 섹션 아래의 /allowAuthorized 속성을 로 설정합니다. `/allowAuthorized 1`. 자세한 내용은 [인증 사용 시 캐싱](/help/using/dispatcher-configuration.md) 자세한 내용
+>요구 조건이 인증된 문서의 캐싱을 허용하는 경우 /cache 섹션의 /allowAuthorized 속성을 `/allowAuthorized 1`로 설정합니다. 자세한 내용은 [인증 사용 시 캐싱](/help/using/dispatcher-configuration.md)을 참조하십시오.
 
 dispatcher.any 파일의 auth_checker 섹션은 권한 구분 캐싱의 동작을 제어합니다. auth_checker 섹션에는 다음 하위 섹션이 포함됩니다.
 
