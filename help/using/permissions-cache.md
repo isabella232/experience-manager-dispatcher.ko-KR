@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
-workflow-type: ht
-source-wordcount: '856'
-ht-degree: 100%
+source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
+workflow-type: tm+mt
+source-wordcount: '918'
+ht-degree: 93%
 
 ---
 
@@ -60,7 +60,6 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 1. 렌더링이 AEM 권한 부여자 서블릿(Dispatcher AuthChcker 서블릿이 아님)을 호출하여 보안 검사를 수행합니다. 사용자에게 권한이 부여되면 렌더링이 렌더링된 페이지를 응답 메시지 본문에 포함합니다.
 1. Dispatcher가 응답을 브라우저에 전달합니다. Dispatcher가 렌더링 응답 메시지의 본문을 캐시에 추가합니다.
 
-
 ## 권한 구분 캐싱 구현 {#implementing-permission-sensitive-caching}
 
 권한 구분 캐싱을 구현하려면 다음 작업을 수행하십시오.
@@ -71,6 +70,11 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 >[!NOTE]
 >
 >일반적으로 보안 리소스는 비보안 파일과 별도의 폴더에 저장됩니다. 예: /content/secure/
+
+>[!NOTE]
+>
+>Dispatcher 앞에 CDN(또는 다른 캐시)이 있는 경우 CDN이 개인 콘텐츠를 캐시하지 않도록 그에 따라 캐싱 헤더를 설정해야 합니다. 예: `Header always set Cache-Control private`.
+>AEM의 경우 as a Cloud Service을 참조하십시오. [캐싱](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) 페이지를 참조하십시오.
 
 ## AuthChcker 서블릿 만들기 {#create-the-auth-checker-servlet}
 
