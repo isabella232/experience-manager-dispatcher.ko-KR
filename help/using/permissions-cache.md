@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '918'
-ht-degree: 93%
+ht-degree: 100%
 
 ---
 
@@ -73,8 +73,8 @@ Dispatcher에는 권한에 구분 캐싱을 구현하는 AuthChecker 모듈이 �
 
 >[!NOTE]
 >
->Dispatcher 앞에 CDN(또는 다른 캐시)이 있는 경우 CDN이 개인 콘텐츠를 캐시하지 않도록 그에 따라 캐싱 헤더를 설정해야 합니다. 예: `Header always set Cache-Control private`.
->AEM의 경우 as a Cloud Service을 참조하십시오. [캐싱](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) 페이지를 참조하십시오.
+>디스패처 앞에 CDN(또는 다른 캐시)이 있는 경우에는 이 CDN이 비공개 콘텐츠를 캐시하지 않도록 캐싱 헤더를 설정해야 합니다. 예: `Header always set Cache-Control private`.
+>AEM as a Cloud Service의 경우 비공개 캐싱 헤더를 설정하는 방법에 대한 자세한 내용은 [캐싱](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) 페이지를 참조하십시오.
 
 ## AuthChcker 서블릿 만들기 {#create-the-auth-checker-servlet}
 
