@@ -2,10 +2,10 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
-workflow-type: ht
-source-wordcount: '8710'
-ht-degree: 100%
+source-git-commit: 0ac7c1cf3fc9330665b7a758cea38410c1958f1c
+workflow-type: tm+mt
+source-wordcount: '8984'
+ht-degree: 96%
 
 ---
 
@@ -1383,7 +1383,31 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 ### 시간 기반 캐시 무효화 구성 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-1(`/enableTTL "1"`)로 설정되면 `/enableTTL` 속성은 백엔드의 응답 헤더를 평가하고 `Cache-Control` 최대 기간 또는 `Expires` 일자가 포함된 경우 캐시 파일 옆에 수정 시간이 만료 일자와 동일한 보조 빈 파일이 생성됩니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
+시간 기반 캐시 무효화는 다음에 따라 다릅니다. `/enableTTL` 속성 및 HTTP 표준의 일반 만료 헤더 유무. 속성을 1(`/enableTTL "1"`)를 사용하여 백엔드의 응답 헤더를 평가하고 헤더에 `Cache-Control`, `max-age` 또는 `Expires` 캐시된 파일 옆에 수정 시간이 만료 날짜와 동일한 보조 빈 파일이 생성되는 날짜입니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
+
+Dispatcher 버전 4.3.5 이전에는 TTL 무효화 논리가 구성된 TTL 값만 기반으로 했습니다. Dispatcher 버전 4.3.5에서는 두 가지 모두 TTL이 설정됩니다 **및** dispatcher 캐시 무효화 규칙을 고려합니다. 따라서 캐시된 파일의 경우:
+
+1. If `/enableTTL` 가 1로 설정되어 있으면 파일 만료가 확인됩니다. 설정된 TTL에 따라 파일이 만료된 경우 다른 검사가 수행되지 않으며 캐시된 파일이 백엔드에서 다시 요청됩니다.
+2. 파일이 만료되지 않았거나 `/enableTTL` 가 구성되지 않은 경우 로 설정된 규칙과 같이 표준 캐시 무효화 규칙이 적용됩니다. [/statfileslevel](#invalidating-files-by-folder-level) 및 [/invalidate](#automatically-invalidating-cached-files). 즉, Dispatcher가 TTL이 만료되지 않은 파일을 무효화할 수 있습니다.
+
+이 새로운 구현은 파일의 TTL이 더 긴 사용 사례를 지원합니다(예: CDN에서). 그러나 TTL이 만료되지 않았더라도 계속 무효화될 수 있습니다. Dispatcher의 캐시 적중률보다 콘텐츠 신선도가 더 좋습니다.
+
+반대로, 필요한 경우 **전용** 파일에 적용된 다음 설정된 만료 논리 `/enableTTL` 를 1로 설정하고 표준 캐시 무효화 메커니즘에서 해당 파일을 제외합니다. 예를 들어 다음 작업을 수행할 수 있습니다.
+
+* 구성 [무효화 규칙](#automatically-invalidating-cached-files) 파일을 무시하도록 캐시 섹션에 있습니다. 아래 스니펫에서으로 끝나는 모든 파일 `.example.html` 은 무시되며, 설정된 TTL이 지난 경우에만 만료됩니다.
+
+```xml
+  /invalidate
+  {
+   /0000  { /glob "*" /type "deny" }
+   /0001  { /glob "*.html" /type "allow" }
+   /0002  { /glob "*.example.html" /type "deny" }
+  }
+```
+
+* 높이를 설정할 수 있는 방식으로 콘텐츠 구조 디자인 [/statfilelevel](#invalidating-files-by-folder-level) 따라서 파일이 자동으로 무효화되지 않습니다.
+
+이렇게 하면 `.stat` 파일 무효화는 사용되지 않고 지정된 파일에 대한 TTL 만료만 활성화됩니다.
 
 >[!NOTE]
 >
