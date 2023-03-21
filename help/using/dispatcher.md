@@ -9,10 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: e87af532ee3268f0a45679e20031c3febc02de58
-workflow-type: ht
-source-wordcount: '3165'
-ht-degree: 100%
+source-git-commit: 7dd2ba37e149af960ba428421d64a5a24542eeeb
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -26,7 +26,7 @@ Dispatcher는 엔터프라이즈급 웹 서버와 함께 사용하는 Adobe Expe
 
 Dispatcher 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독립적입니다.
 
-1. Dispatcher에 대해 알아보십시오(이 페이지). 또한 [Dispatcher에 대해 자주 묻는 질문](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/troubleshooting/dispatcher-faq.html?lang=ko-KR)을 참조하십시오.
+1. Dispatcher에 대해 알아보십시오(이 페이지). 또한 [Dispatcher에 대해 자주 묻는 질문](/help/using/dispatcher-faq.md)을 참조하십시오.
 1. 웹 서버 설명서에 따라 [지원되는 웹 서버](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=ko-KR)를 설치하십시오.
 1. 웹 서버에 [Dispatcher 모듈을 설치](dispatcher-install.md) 하고 그에 따라 웹 서버를 구성합니다.
 1. [Dispatcher 구성](dispatcher-configuration.md) (dispatcher.any 파일).
@@ -45,7 +45,7 @@ Dispatcher 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독�
 
 * [Dispatcher 보안 검사 목록](security-checklist.md)
 * [Dispatcher 기술 자료](https://helpx.adobe.com/kr/experience-manager/kb/index/dispatcher.html)
-* [캐시 성능을 위한 웹 사이트 최적화](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/configuring-performance.html?lang=ko-KR)
+* [캐시 성능을 위한 웹 사이트 최적화](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/configuring-performance.html)
 * [여러 도메인에 Dispatcher 사용](dispatcher-domains.md)
 * [Dispatcher에 SSL 사용](dispatcher-ssl.md)
 * [권한 구분 캐싱 구현](permissions-cache.md)

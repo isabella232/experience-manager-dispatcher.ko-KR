@@ -4,10 +4,10 @@ seo-title: Top issues for AEM Dispatcher
 description: AEM Dispatcher의 주요 문제
 seo-description: Top issues for Adobe AEM Dispatcher
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
-workflow-type: ht
-source-wordcount: '1578'
-ht-degree: 100%
+source-git-commit: f83b02d74a22e055b486305dfe5420e152efb452
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -132,7 +132,7 @@ en 디렉터리 아래 `_jcr_content`라는 이름의 모든 디렉터리(존재
 
 ### 게시 인스턴스에서 Dispatcher 플러시 에이전트를 어떻게 구성합니까?
 
-[복제](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/replication.html?lang=ko-KR#configuring-your-replication-agents) 페이지를 참조하십시오.
+[복제](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=ko-KR#configuring-your-replication-agents) 페이지를 참조하십시오.
 
 ### Dispatcher 플러싱 문제는 어떻게 해결합니까?
 
