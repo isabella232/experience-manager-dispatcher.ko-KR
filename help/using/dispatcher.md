@@ -10,9 +10,9 @@ content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: 7dd2ba37e149af960ba428421d64a5a24542eeeb
-workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+workflow-type: ht
+source-wordcount: '3154'
+ht-degree: 100%
 
 ---
 
@@ -54,7 +54,7 @@ Dispatcher 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독�
 
 >[!NOTE]
 >
->**Dispatcher의 가장 일반적인 사용** 은 AEM **게시 인스턴스**&#x200B;의 응답을 캐시하여 외부에서 게시되는 웹 사이트의 응답성과 보안을 향상시키는 것입니다. 대부분의 토론에서는 이 경우에 중점을 둡니다.
+>**Dispatcher의 가장 일반적인 사용** 은 AEM **게시 인스턴스**&#x200B;의 응답을 캐싱하여 외부에서 게시되는 웹 사이트의 응답성과 보안을 향상시키는 것입니다. 대부분의 토론에서는 이 경우에 중점을 둡니다.
 >
 >하지만 특히 웹 사이트를 편집하고 업데이트하는 사용자 수가 많은 경우 Dispatcher를 사용하여 **작성자 인스턴스**&#x200B;의 응답성을 향상시킬 수도 있습니다. 이 경우에 특정적인 세부 사항은 아래에서 [작성자 서버에 Dispatcher 사용](#using-a-dispatcher-with-an-author-server)을 참조하십시오.
 
@@ -67,7 +67,7 @@ Dispatcher 배포 프로세스는 선택한 웹 서버 및 OS 플랫폼과 독�
 
 Dispatcher는 빠르고 동적인 환경을 인식하도록 도와줍니다. 다음과 같은 목표를 가지고 Apache와 같은 정적 HTML 서버의 일부로 작동합니다.
 
-* 정적 웹 사이트의 형태로 가능한 한 많은 사이트 콘텐츠를 저장(또는 &quot;캐싱&quot;)합니다.
+* 정적 웹 사이트의 형태로 가능한 한 많은 사이트 콘텐츠를 저장(또는 “캐싱”)합니다.
 * 가능한 한 적은 레이아웃 엔진에 액세스합니다.
 
 즉, 다음과 같은 의미입니다.
@@ -94,13 +94,13 @@ Apache 또는 IIS와 같은 정적 웹 서버는 웹 사이트 방문자에게 �
 
 AEM과 같은 CMS(콘텐츠 관리 서버)를 사용하는 경우 고급 레이아웃 엔진이 방문자의 요청을 처리합니다. 엔진은 스타일, 포맷 및 액세스 권한과 함께 저장소에서 콘텐츠를 읽어 방문자의 요구 사항 및 권한에 맞는 문서로 변환합니다.
 
-이 워크플로를 통해 보다 풍부하고 다이내믹한 콘텐츠를 제작할 수 있으므로 웹 사이트의 유연성과 기능을 향상시킬 수 있습니다. 그러나 레이아웃 엔진은 정적 서버보다 처리 능력이 더 필요하므로 많은 방문자가 시스템을 사용하는 경우 이 설정을 지연시킬 수 있습니다.
+이 워크플로를 통해 보다 풍부하고 다이내믹한 콘텐츠를 제작할 수 있으므로 웹 사이트의 유연성과 기능을 향상시킬 수 있습니다. 단, 레이아웃 엔진은 정적 서버보다 처리 능력이 더 필요하므로 많은 방문자가 시스템을 사용하는 경우 이 설정을 지연시킬 수 있습니다.
 
 ## Dispatcher에서 캐싱을 수행하는 방법 {#how-dispatcher-performs-caching}
 
 ![](assets/chlimage_1-5.png)
 
-**캐시 디렉터리** 캐싱을 위해 Dispatcher 모듈은 정적 콘텐츠를 제공하는 웹 서버의 기능을 사용합니다. Dispatcher는 캐시된 문서를 웹 서버의 문서 루트에 배치합니다.
+**캐시 디렉터리** 캐싱을 위해 Dispatcher 모듈은 정적 콘텐츠를 제공하는 웹 서버의 기능을 사용합니다. Dispatcher는 캐싱된 문서를 웹 서버의 문서 루트에 배치합니다.
 
 >[!NOTE]
 >
@@ -112,7 +112,7 @@ AEM과 같은 CMS(콘텐츠 관리 서버)를 사용하는 경우 고급 레이�
 
 >[!NOTE]
 >
->Dispatcher는 캐시된 문서를 요청된 URL과 같은 구조로 저장합니다.
+>Dispatcher는 캐싱된 문서를 요청된 URL과 같은 구조로 저장합니다.
 >
 >파일 이름의 길이에 대한 OS 수준의 제한이 있을 수 있습니다. 선택기가 많은 URL이 있는 경우입니다.
 
@@ -142,40 +142,40 @@ Dispatcher에는 웹 사이트를 변경할 때 캐시 콘텐츠를 업데이트
 
 자동 무효화는 파일을 실제로 삭제하지 않고 캐시의 일부를 자동으로 무효화합니다. 모든 콘텐츠 업데이트에서는 소위 상태 파일이 터치되므로 해당 타임스탬프가 마지막 콘텐츠 업데이트를 반영합니다.
 
-Dispatcher에는 자동 무효화의 대상이 되는 파일 목록이 있습니다. 해당 목록의 문서가 요청되면 Dispatcher는 캐시된 문서의 날짜를 상태 파일의 타임스탬프와 비교합니다.
+Dispatcher에는 자동 무효화의 대상이 되는 파일 목록이 있습니다. 해당 목록의 문서가 요청되면 Dispatcher는 캐싱된 문서의 날짜를 상태 파일의 타임스탬프와 비교합니다.
 
-* 캐시된 문서가 최신 문서인 경우 Dispatcher가 이를 반환합니다.
+* 캐싱된 문서가 최신 문서인 경우 Dispatcher가 이를 반환합니다.
 * 이전 버전인 경우 Dispatcher는 AEM 인스턴스에서 현재 버전을 검색합니다.
 
 다시 한 번, 특정 요점을 명시해야 합니다.
 
 * 자동 무효화는 일반적으로 HTML 페이지와 같이 상호 관계가 복잡할 때 사용됩니다. 이러한 페이지에는 링크 및 탐색 항목이 포함되어 있으므로 일반적으로 콘텐츠 업데이트 후에 업데이트해야 합니다. PDF 또는 사진 파일을 자동으로 생성한 경우 해당 파일을 자동으로 무효화하도록 선택할 수도 있습니다.
-* 자동 무효화는 상태 파일을 수정하는 것 외에는 업데이트 시 Dispatcher가 수행하는 작업을 포함하지 않습니다. 그러나 상태 파일을 수정하면 캐시 콘텐츠가 캐시에서 물리적으로 제거되지 않고 자동으로 사용되지 않습니다.
+* 자동 무효화는 상태 파일을 수정하는 것 외에는 업데이트 시 Dispatcher가 수행하는 작업을 포함하지 않습니다. 단, 상태 파일을 수정하면 캐시 콘텐츠가 캐시에서 물리적으로 제거되지 않고 자동으로 사용되지 않습니다.
 
 ## Dispatcher가 문서를 반환하는 방법 {#how-dispatcher-returns-documents}
 
 ![](assets/chlimage_1-6.png)
 
-### 문서의 캐시 대상 여부 확인
+### 문서의 캐싱 대상 여부 확인
 
-[Dispatcher가 구성 파일에서 캐시하는 문서를 정의할 수 있습니다](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration.html?lang=ko-KR). Dispatcher는 캐시 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
+[Dispatcher가 구성 파일에서 캐싱하는 문서를 정의할 수 있습니다](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration.html?lang=ko-KR). Dispatcher는 캐싱 가능한 문서 목록에 대해 요청을 확인합니다. 문서가 이 목록에 없으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
 
 Dispatcher가 다음의 경우 AEM 인스턴스에서 직접 문서를 항상 요청합니다.
 
-* 요청 URI에는 물음표 “`?`”가 포함됩니다. 일반적으로 이 시나리오는 검색 결과와 같은 동적 페이지를 나타내며 캐시할 필요가 없습니다.
+* 요청 URI에는 물음표 “`?`”가 포함됩니다. 일반적으로 이 시나리오는 검색 결과와 같은 동적 페이지를 나타내며 캐싱할 필요가 없습니다.
 * 파일 확장명이 없습니다. 웹 서버에는 문서 유형(MIME 유형)을 결정하기 위한 확장명이 필요합니다.
 * 인증 헤더가 설정됩니다(구성 가능).
 
 >[!NOTE]
 >
->GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐시할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration.html?lang=ko-KR) 섹션을 참조하십시오.
+>GET 또는 HEAD(HTTP 헤더의 경우) 메서드는 Dispatcher에서 캐싱할 수 있습니다. 응답 헤더 캐싱에 대한 추가 정보는 [HTTP 응답 헤더 캐싱](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration.html?lang=ko-KR) 섹션을 참조하십시오.
 
-### 문서가 캐시되는지 확인
+### 문서가 캐싱되는지 확인
 
-Dispatcher는 캐시된 파일을 정적 웹 사이트의 일부인 것처럼 웹 서버에 저장합니다. 사용자가 캐시 가능한 문서를 요청하는 경우 Dispatcher는 해당 문서가 웹 서버의 파일 시스템에 있는지 여부를 확인합니다.
+Dispatcher는 캐싱된 파일을 정적 웹 사이트의 일부인 것처럼 웹 서버에 저장합니다. 사용자가 캐싱 가능한 문서를 요청하는 경우 Dispatcher는 해당 문서가 웹 서버의 파일 시스템에 있는지 여부를 확인합니다.
 
-* 문서가 캐시되면 Dispatcher가 파일을 반환합니다.
-* 캐시되지 않으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
+* 문서가 캐싱되면 Dispatcher가 파일을 반환합니다.
+* 캐싱되지 않으면 Dispatcher가 AEM 인스턴스에서 문서를 요청합니다.
 
 ### 문서가 최신 상태인지 확인
 
@@ -250,7 +250,7 @@ Akamai Edge Delivery 또는 Amazon Cloud Front와 같은 CDN(콘텐츠 게재 �
 * 최종 사용자의 응답 시간 단축
 * 서버 로드 해제
 
-HTTP 인프라 구성 요소로서 CDN은 Dispatcher와 유사하게 작동합니다. CDN 노드가 요청을 받으면 가능한 경우 캐시에서 요청을 처리합니다(리소스는 캐시에서 사용할 수 있으며 유효합니다). 그렇지 않으면 리소스를 검색하고 적절한 경우 추가 요청을 위해 캐시하기 위해 다음으로 가장 가까운 서버에 연결됩니다.
+HTTP 인프라 구성 요소로서 CDN은 Dispatcher와 유사하게 작동합니다. CDN 노드가 요청을 받으면 가능한 경우 캐시에서 요청을 처리합니다(리소스는 캐시에서 사용할 수 있으며 유효합니다). 그렇지 않으면 리소스를 검색하고 적절한 경우 추가 요청을 위해 캐싱하기 위해 다음으로 가장 가까운 서버에 연결됩니다.
 
 다음으로 가장 가까운 서버는 특정 설정에 따라 다릅니다. 예를 들어 Akamai 설정에서 요청은 다음 경로를 취할 수 있습니다.
 
@@ -265,7 +265,7 @@ HTTP 인프라 구성 요소로서 CDN은 Dispatcher와 유사하게 작동합�
 
 ## CDN 캐시 제어 {#controlling-a-cdn-cache}
 
-CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시간을 제어하는 방법에는 몇 가지가 있습니다.
+CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐싱하는 시간을 제어하는 방법에는 몇 가지가 있습니다.
 
 1. 명시적 구성\
    MIME 유형, 확장, 요청 유형 등에 따라 CDN의 캐시에서 특정 리소스가 얼마나 오래 보관되는지를 구성합니다.
@@ -280,7 +280,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 
 일반적인 AEM 설정에서 확장 및 경로별 또는 두 가지 구성은 위의 포인트 1과 2를 통해 수행할 수 있으며, 디자인 이미지 및 클라이언트 라이브러리와 같이 자주 변경되지 않는 자주 사용하는 리소스에 대해 적절한 캐싱 기간을 설정할 수 있습니다. 새 릴리스가 배포되면 일반적으로 수동 무효화가 필요합니다.
 
-이 방법을 사용하여 관리 콘텐츠를 캐시하는 경우 구성된 캐싱 기간이 만료되고 문서를 다시 Dispatcher에서 가져오는 경우에만 콘텐츠 변경 사항이 최종 사용자에게 표시된다는 의미입니다.
+이 방법을 사용하여 관리 콘텐츠를 캐싱하는 경우 구성된 캐싱 기간이 만료되고 문서를 다시 Dispatcher에서 가져오는 경우에만 콘텐츠 변경 사항이 최종 사용자에게 표시된다는 의미입니다.
 
 보다 세밀하게 조정하기 위해 API 기반 무효화를 통해 Dispatcher 캐시가 무효화되므로 CDN 캐시를 무효화할 수 있습니다. CDN API를 기반으로 고유한 [ContentBuilder](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/ContentBuilder.html) 및 [TransportHandler](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/TransportHandler.html)를 구현하고 (API가 REST 기반이 아닌 경우) CDN의 캐시를 무효화하는 데 해당 조각을 사용하는 복제 에이전트를 설정할 수 있습니다.
 
@@ -292,7 +292,7 @@ CDN이 Dispatcher에서 다시 가져오기 전에 리소스를 캐시하는 시
 
 >[!CAUTION]
 >
->[Touch UI가 있는 AEM](https://experienceleague.adobe.com/docs/experience-manager-65/developing/introduction/touch-ui-concepts.html?lang=ko-KR)을 사용하는 경우 작성자 인스턴스 콘텐츠를 캐시하지 **마십시오**. 작성자 인스턴스에 대해 캐싱이 활성화된 경우 이를 비활성화하고 캐시 디렉터리의 콘텐츠를 삭제해야 합니다. 캐싱을 비활성화하려면 `author_dispatcher.any` 파일을 편집하고 `/rule` 섹션의 `/cache` 속성을 다음과 같이 수정합니다.
+>[Touch UI가 있는 AEM](https://experienceleague.adobe.com/docs/experience-manager-65/developing/introduction/touch-ui-concepts.html?lang=ko-KR)을 사용하는 경우 작성자 인스턴스 콘텐츠를 캐싱하지 **마십시오**. 작성자 인스턴스에 대해 캐싱이 활성화된 경우 이를 비활성화하고 캐시 디렉터리의 콘텐츠를 삭제해야 합니다. 캐싱을 비활성화하려면 `author_dispatcher.any` 파일을 편집하고 `/rule` 섹션의 `/cache` 속성을 다음과 같이 수정합니다.
 
 ```xml
 /rules
