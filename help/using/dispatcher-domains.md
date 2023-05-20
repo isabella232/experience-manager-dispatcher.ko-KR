@@ -1,5 +1,5 @@
 ---
-title: '여러 도메인에 Dispatcher 사용 '
+title: 여러 도메인에 Dispatcher 사용
 seo-title: Using Dispatcher with Multiple Domains
 description: Dispatcher를 사용하여 여러 웹 도메인에서 페이지 요청을 처리하는 방법에 대해 알아봅니다.
 seo-description: Learn how to use Dispatcher to process page requests in multiple web domains.
@@ -12,7 +12,7 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: c7af1a042b0106fa0a559448398a8dd636d920c2
-workflow-type: ht
+workflow-type: tm+mt
 source-wordcount: '2968'
 ht-degree: 100%
 
