@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: f2036e8f73d5f9f58ff713df8f04caad89d660fc
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1063'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -45,9 +45,9 @@ Adobe는 유용한 최신 기능, 최신 버그 수정 및 최상의 성능을 �
 
 **개선 사항**:
 
-* DISP-911 AEM-05 - X-Edge-Key가 disp_apache2.c에서 누출될 수 있음
+* DISP-911 AEM‑05 ‑ X‑Edge‑Key가 disp_apache2.c에서 유출될 수 있음
 * DISP-937 모든 선택기 로깅
-* DISP-998 시작 시 단축 URL 로드 구성 가능
+* DISP-998 시작 시 vanity URL 로드 구성 가능
 
 ### 릴리스 4.3.5 (2022년 4월 4일) {#apr}
 
