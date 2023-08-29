@@ -3,9 +3,9 @@ title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8941'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -647,7 +647,7 @@ HTTP/1.1은 [요청 라인](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.ht
 
 #### 필터 예: 워크플로 콘솔에 대한 액세스 허용 {#example-filter-allow-access-to-the-workflow-console}
 
-다음 예제에서는 워크플로 콘솔에 대한 외부 액세스를 허용하는 데 사용되는 필터를 보여 줍니다.
+다음 예제는 워크플로 콘솔에 대한 외부 액세스를 허용하는 데 사용되는 필터를 보여 줍니다.
 
 ```xml
 /filter {
@@ -1828,7 +1828,7 @@ The following table describes the wildcard characters.
 /info "1"
 ```
 
-예를 들어
+예:
 
 ```xml
 /farm
