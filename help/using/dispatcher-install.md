@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 663e493f3e1ae26c264e574cec4e0b271a971809
-workflow-type: tm+mt
-source-wordcount: '3693'
+source-git-commit: 3bb9cb81ac98147bf12e9370d02002dd91ee374e
+workflow-type: ht
+source-wordcount: '3726'
 ht-degree: 100%
 
 ---
@@ -314,9 +314,9 @@ Dispatcher는 다음 중 하나로 제공됩니다.
 
    * **Windows**: `disp_apache<x.y>.dll` `<APACHE_ROOT>/modules`를 배치합니다.
    * **Unix**: 설치에 따라 `<APACHE_ROOT>/libexec` 또는 `<APACHE_ROOT>/modules`디렉터리를 찾습니다.\
-      `dispatcher-apache<options>.so`를 이 디렉터리에 복사합니다.\
-      장기 유지 관리를 단순화하기 위해 Dispatcher에 `mod_dispatcher.so` 라는 심볼 링크를 만들 수도 있습니다.\
-      `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
+     `dispatcher-apache<options>.so`를 이 디렉터리에 복사합니다.\
+     장기 유지 관리를 단순화하기 위해 Dispatcher에 `mod_dispatcher.so` 라는 심볼 링크를 만들 수도 있습니다.\
+     `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
 
 1. dispatcher.any 파일을 `<APACHE_ROOT>/conf` 디렉터리에 복사합니다.
 
@@ -362,10 +362,10 @@ semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 
    * Apache 서버는 루트로 시작하지만 하위 프로세스는 (보안을 위해) 디먼으로 시작합니다. The DocumentRoot(`<APACHE_ROOT>/htdocs`) 는 사용자 디먼에 속해야 합니다.
 
-      ```xml
-      cd <APACHE_ROOT>  
-      chown -R daemon:daemon htdocs
-      ```
+     ```xml
+     cd <APACHE_ROOT>  
+     chown -R daemon:daemon htdocs
+     ```
 
 **LoadModule**
 
@@ -400,6 +400,10 @@ DispatcherKeepAliveTimeout 60
 </IfModule>
 ...
 ```
+
+>[!NOTE]
+>
+>버전 4.3.3에서 버전 4.3.4로 특별히 업그레이드하는 고객은 캐시할 수 없는 콘텐츠에 대해 캐싱 헤더를 설정하는 방법이 다르다는 것을 인지하게 됩니다. 이번 변경 사항에 대해 보다 자세히 알아보려면 [릴리스 정보](/help/using/release-notes.md#nov) 페이지를 참조하십시오.
 
 개별 구성 매개 변수:
 
