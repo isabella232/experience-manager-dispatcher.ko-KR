@@ -2,10 +2,10 @@
 title: Dispatcher 구성
 description: Dispatcher를 구성하는 방법에 대해 알아봅니다. IPv4 및 IPv6에 대한 지원, 파일 구성, 환경 변수, 인스턴스 이름 지정, 팜 정의, 가상 호스트 식별 등에 대해 알아봅니다.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
-workflow-type: ht
-source-wordcount: '8941'
-ht-degree: 100%
+source-git-commit: 410346694a134c0f32a24de905623655f15269b4
+workflow-type: tm+mt
+source-wordcount: '8857'
+ht-degree: 99%
 
 ---
 
@@ -1296,10 +1296,10 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 ```xml
 /ignoreUrlParams
 {
+    # ignore-all-url-parameters-by-dispatcher-and-requests-are-cached
+    /0001 { /glob "*" /type "allow" }
     # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
-    /0001 { /glob "nocache" /type "deny" }
-    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
-    /0002 { /glob "*" /type "allow" }
+    /0002 { /glob "nocache" /type "deny" }
 }
 ```
 
@@ -1384,7 +1384,7 @@ glob 속성에 대한 정보는 [glob 속성에 대한 패턴 디자인](#design
 
 ### 시간 기반 캐시 무효화 구성 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-시간 기반 캐시 무효화는 `/enableTTL` 속성과 HTTP 표준의 일반 만료 헤더 존재 여부에 따라 다릅니다. 속성을 1(`/enableTTL "1"`)로 설정하면 백엔드의 응답 헤더가 평가됩니다. 헤더에 `Cache-Control`, `max-age` 또는 `Expires` 일자가 포함된 경우 캐시된 파일 옆에 수정 시간이 만료 날짜와 동일한 보조 빈 파일이 생성됩니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
+시간 기반 캐시 무효화는 `/enableTTL` 속성과 HTTP 표준의 일반 만료 헤더 존재 여부에 따라 다릅니다. 속성을 1(`/enableTTL "1"`) 백엔드의 응답 헤더를 평가합니다. 헤더에 `Cache-Control`, `max-age` 또는 `Expires` 캐시된 파일 옆에 수정 시간이 만료 날짜와 동일한 보조 빈 파일이 생성되는 날짜입니다. 캐시된 파일이 수정 시간 이후에 요청되면 백엔드에서 자동으로 다시 요청됩니다.
 
 Dispatcher 버전 4.3.5 이전에는 TTL 무효화 로직이 구성된 TTL 값만을 기반으로 했습니다. Dispatcher 버전 4.3.5에서는 설정된 TTL **및** Dispatcher 캐시 무효화 규칙이 모두 고려됩니다. 따라서 캐시된 파일의 경우:
 
@@ -1881,7 +1881,7 @@ HTTP 메서드가 GET도 HEAD도 아닙니다. Dispatcher는 출력에 캐시되
   팜의 권한 부여 검사기가 캐시된 파일에 대한 액세스를 거부했습니다.
 * **캐시 불가능: 세션이 유효하지 않습니다**
 팜의 캐시는 세션 관리자가 관리하며(구성에 `sessionmanagement` 노드가 포함) 사용자의 세션이 유효하지 않거나 더 이상 유효하지 않습니다.
-* **캐시 불가능: 응답에`no_cache`**가 포함되어 있습니다.
-원격 서버가 `Dispatcher: no_cache` 헤더를 반환하여 Dispatcher가 출력을 캐시하지 못하도록 했습니다.
+* **캐시 불가능: 응답에 가 포함되어 있습니다`no_cache`**
+원격 서버에서 `Dispatcher: no_cache` 헤더를 반환하여 Dispatcher가 출력을 캐시하지 못하도록 했습니다.
 * **캐시 불가능: 응답 콘텐츠 길이가 0입니다**
 응답의 콘텐츠 길이가 0입니다. Dispatcher는 길이가 0인 파일을 생성하지 않습니다.
