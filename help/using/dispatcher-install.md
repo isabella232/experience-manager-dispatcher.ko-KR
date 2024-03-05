@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: c3a5f415df91bee4b6e0a6c9b813b62a906670c6
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3798'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -37,15 +37,15 @@ Comment Type: draft
 
 `dispatcher-<web-server>-<operating-system>-<dispatcher-version-number>.<file-format>`
 
-예를 들어 `dispatcher-apache2.4-linux-x86_64-ssl-4.3.1.tar.gz` 파일에는 Linux i686에서 실행되는 Apache 2.4 웹 서버용 Dispatcher 버전 4.3.1이 포함되어 있으며 파일은 **tar** 형식을 사용하여 패키지됩니다.
+예를 들어 `dispatcher-apache2.4-linux-x86_64-ssl-4.3.1.tar.gz` 파일에는 Linux i686에서 실행되는 Apache 2.4 웹 서버용 Dispatcher 버전 4.3.1이 포함되어 있으며 파일은 **tar** 형식을 사용하여 패키징됩니다.
 
 다음 표에는 각 웹 서버의 파일 이름에 사용되는 웹 서버 식별자가 나열되어 있습니다.
 
 | 웹 서버 | 설치 키트 |
 |--- |--- |
-| Apache 2.4 | dispatcher-apache **2.4**-&lt;기타 매개 변수> |
-| Microsoft 인터넷 정보 서버 7.5, 8, 8.5, 10 | dispatcher-**iis**-&lt;기타 매개 변수> |
-| Sun Java 웹 서버 iPlanet | dispatcher-**ns**-&lt;기타 매개 변수> |
+| Apache 2.4 | dispatcher-apache **2.4**-&lt;기타 매개변수> |
+| Microsoft Internet Information Server 7.5, 8, 8.5, 10 | dispatcher-**iis**-&lt;기타 매개변수> |
+| Sun Java 웹 서버 iPlanet | dispatcher-**ns**-&lt;기타 매개변수> |
 
 >[!CAUTION]
 >
@@ -148,7 +148,7 @@ replaceauthorization=0|1
 
 다음 표에서는 각 속성에 대해 설명합니다.
 
-| 매개 변수 | 설명 |
+| 매개변수 | 설명 |
 |--- |--- |
 | configpath | 로컬 파일 시스템 내 `dispatcher.any`의 위치(절대 경로)입니다. |
 | logfile | `dispatcher.log` 파일의 위치입니다. 설정되지 않은 경우, 로그 메시지는 Windows 이벤트 로그로 이동합니다. |
@@ -214,19 +214,19 @@ Dispatcher ISAPI 모듈을 통합하도록 IIS를 구성합니다. IIS에서는 
 
 1. IIS 관리자에서 Dispatcher 캐시에 사용할 IIS 사이트를 선택하고 창 오른쪽에서 [고급 설정]을 클릭합니다.
 1. 애플리케이션 풀 속성의 값을 선택하고 클립보드에 복사합니다.
-1. 열린 대화 상자로 돌아갑니다. 선택할 개체 이름 입력 상자에 `IIS AppPool\`을 입력한 다음 클립보드의 내용을 붙여넣습니다. 값은 다음 예제와 같아야 합니다.
+1. 열린 대화 상자로 돌아갑니다. 선택할 오브젝트 이름 입력 상자에 `IIS AppPool\`을 입력한 다음 클립보드의 내용을 붙여넣습니다. 값은 다음 예제와 같아야 합니다.
 
    `IIS AppPool\DefaultAppPool`
 
 1. 이름 확인 버튼을 클릭합니다. Windows에서 사용자 계정을 확인하면 [확인]을 클릭합니다.
-1. Dispatcher 폴더의 권한 대화 상자에서 방금 추가한 계정을 선택하고  **전체 제어를 제외한** 계정에 대한 모든 권한을 활성화한 다음 [확인]을 클릭합니다. [확인]을 클릭하여 폴더 속성 대화 상자를 닫습니다.
+1. Dispatcher 폴더의 권한 대화 상자에서 방금 추가한 계정을 선택하고 **전체 제어를 제외한** 계정에 대한 모든 권한을 활성화한 다음 [확인]을 클릭합니다. [확인]을 클릭하여 폴더 속성 대화 상자를 닫습니다.
 
 ### JSON Mime 유형 등록 - IIS 8.5 및 10 {#registering-the-json-mime-type-iis-and}
 
 Dispatcher가 JSON 호출을 허용하도록 하려면 다음 절차를 사용하여 JSON MIME 유형을 등록하십시오.
 
 1. IIS 관리자에서 웹 사이트를 선택하고 기능 보기를 사용하여 Mime 유형을 더블 클릭합니다.
-1. JSON 확장이 목록에 없는 경우 작업 패널에서 [추가]를 클릭하고 다음 속성 값을 입력한 후 [확인]을 클릭합니다.
+1. JSON 확장 기능이 목록에 없는 경우 작업 패널에서 [추가]를 클릭하고 다음 속성 값을 입력한 후 [확인]을 클릭합니다.
 
    * 파일 이름 확장명: `.json`
    * MIME 유형: `application/json`
@@ -251,7 +251,7 @@ Dispatcher가 JSON 호출을 허용하도록 하려면 다음 절차를 사용�
 
 1. IIS 관리자에서 Dispatcher 캐시에 사용할 IIS 사이트를 선택하고 창 오른쪽에서 [고급 설정]을 클릭합니다.
 1. 애플리케이션 풀 속성의 값을 선택하고 클립보드에 복사합니다.
-1. 열린 대화 상자로 돌아갑니다. 선택할 개체 이름 입력 상자에 `IIS AppPool\`을 입력한 다음 클립보드의 내용을 붙여넣습니다. 값은 다음 예제와 같아야 합니다.
+1. 열린 대화 상자로 돌아갑니다. 선택할 오브젝트 이름 입력 상자에 `IIS AppPool\`을 입력한 다음 클립보드의 내용을 붙여넣습니다. 값은 다음 예제와 같아야 합니다.
 
    `IIS AppPool\DefaultAppPool`
 
@@ -294,14 +294,14 @@ Apache HTTP Server [보안 팁](https://httpd.apache.org/docs/2.4/misc/security_
 Dispatcher는 다음 중 하나로 제공됩니다.
 
 * **Windows**: 동적 링크 라이브러리(DLL)
-* **Unix**: 동적 공유 개체(DSO)
+* **Unix**: 동적 공유 오브젝트 (DSO)
 
 설치 아카이브 파일에는 Windows 또는 Unix를 선택했는지 여부에 따라 다음 파일이 포함되어 있습니다.
 
 | 파일 | 설명 |
 |--- |--- |
 | disp_apache&lt;x.y>.dll | Windows: Dispatcher 동적 링크 라이브러리 파일입니다. |
-| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | Unix: Dispatcher 공유 개체 라이브러리 파일입니다. |
+| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | Unix: Dispatcher 공유 오브젝트 라이브러리 파일입니다. |
 | mod_dispatcher.so | Unix: 예제 링크입니다. |
 | http.conf.disp&lt;x> | Apache 서버에 대한 예제 구성 파일입니다. |
 | dispatcher.any | Dispatcher에 대한 예제 구성 파일입니다. |
@@ -378,7 +378,7 @@ semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 
 >[!NOTE]
 >
->각 명령문의 첫 번째 매개 변수는 위의 예제와 정확히 동일하게 작성해야 합니다.
+>각 명령문의 첫 번째 매개변수는 위의 예제와 정확히 동일하게 작성해야 합니다.
 >
 >이 명령에 대한 자세한 내용은 제공된 예제 구성 파일 및 Apache 웹 서버 설명서를 참조하십시오.
 
@@ -405,19 +405,19 @@ DispatcherKeepAliveTimeout 60
 >
 >버전 4.3.3에서 버전 4.3.4로 특별히 업그레이드하는 고객은 캐시할 수 없는 콘텐츠에 대해 캐싱 헤더를 설정하는 방법이 다르다는 것을 인지하게 됩니다. 이번 변경 사항에 대해 보다 자세히 알아보려면 [릴리스 정보](/help/using/release-notes.md#nov) 페이지를 참조하십시오.
 
-개별 구성 매개 변수:
+개별 구성 매개변수:
 
-| 매개 변수 | 설명 |
+| 매개변수 | 설명 |
 |--- |--- |
 | DispatcherConfig | Dispatcher 구성 파일의 위치 및 이름입니다. <br/>이 속성이 주 서버 구성에 있는 경우 모든 가상 호스트는 속성 값을 상속합니다. 단, 가상 호스트는 DispatcherConfig 속성을 포함하여 기본 서버 구성을 재정의할 수 있습니다. |
 | DispatcherLog | 로그 파일의 위치 및 이름입니다. |
 | DispatcherLogLevel | 로그 파일의 로그 수준: <br/>0 - 오류 <br/>1 - 경고 <br/>2 - 정보 <br/>3 - 디버그 <br/>**참고**: 설치 및 테스트 중에는 로그 수준을 3으로 설정한 다음 프로덕션 환경에서 실행할 때는 0으로 설정하는 것이 좋습니다. |
-| DispatcherNoServerHeader | *이 매개 변수는 더 이상 사용되지 않으며 더 이상 영향을 주지 않습니다.*<br/><br/> 사용할 서버 헤더를 정의합니다. <br/><ul><li>정의되지 않음 또는 0 - HTTP 서버 헤더에 AEM 버전이 포함됩니다. </li><li>1 - Apache 서버 헤더가 사용됩니다.</li></ul> |
+| DispatcherNoServerHeader | *이 매개변수는 더 이상 사용되지 않으며 더 이상 영향을 주지 않습니다.*<br/><br/> 사용할 서버 헤더를 정의합니다. <br/><ul><li>정의되지 않음 또는 0 - HTTP 서버 헤더에 AEM 버전이 포함됩니다. </li><li>1 - Apache 서버 헤더가 사용됩니다.</li></ul> |
 | DispatcherDeclineRoot | 루트 “/”에 대한 요청을 거절할지 여부를 정의합니다. <br/>**0** - / 요청을 수락합니다 <br/>**1** - / 요청을 Dispatcher에서 처리하지 않습니다. 올바른 매핑을 위해 mod_alias를 사용하십시오. |
 | DispatcherUseProcessedURL | Dispatcher의 모든 추가 처리에 사전 처리된 URL을 사용할지 여부를 정의합니다. <br/>**0** - 웹 서버에 전달된 원래 URL을 사용합니다. <br/>**1** - Dispatcher가 웹 서버에 전달된 원래 URL 대신 Dispatcher 앞에 오는 핸들러에 의해 이미 처리된 URL(즉, `mod_rewrite`)을 사용합니다.  예를 들어 원본 또는 처리된 URL이 Dispatcher 필터와 일치합니다. URL은 캐시 파일 구조의 기초로도 사용됩니다.   mod_rewrite에 대한 정보는 Apache 웹 사이트 설명서를 참조하십시오. 예를 들어 Apache 2.4. mod_rewrite를 사용할 때는 “passthrough” 플래그를 사용하는 것이 좋습니다. | PT&#39;(다음 핸들러로 전달)를 사용하여 재작성 엔진이 내부 request_rec 구조의 uri 필드를 파일 이름 필드의 값으로 설정하도록 합니다. |
 | DispatcherPassError | ErrorDocument 처리를 위해 오류 코드를 지원하는 방법을 정의합니다. <br/>**0** - Dispatcher가 클라이언트에 대한 모든 오류 응답을 스풀 처리합니다. <br/>**1** - Dispatcher가 클라이언트에 오류 응답을 스풀 처리하지 않지만(상태 코드가 400보다 크거나 같은 경우) 상태 코드를 Apache에 전달합니다. 예를 들어 ErrorDocument 지시문이 이러한 상태 코드를 처리할 수 있도록 허용합니다. <br/>**코드 범위** -응답이 Apache에 전달되는 오류 코드의 범위를 지정합니다. 다른 오류 코드는 클라이언트에 전달됩니다. 예를 들어 다음 구성은 오류 412에 대한 응답을 클라이언트에 전달하고 다른 모든 오류는 Apache에 전달합니다. DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | keep-alive 시간 제한을 초 단위로 지정합니다. Dispatcher 버전 4.2.0부터 기본 keep-alive 값은 60입니다. 값이 0이면 keep-alive가 비활성화됩니다. |
-| DispatcherNoCanonURL | 이 매개 변수를 On으로 설정하면 정규화된 URL 대신 원시 URL이 백엔드에 전달되고 DispatcherUseProcessedURL 설정이 무시됩니다. 기본값은 해제(Off)입니다. <br/>**참고**: Dispatcher 구성의 필터 규칙은 항상 원시 URL이 아닌 정리된 URL에 대해 평가됩니다. |
+| DispatcherNoCanonURL | 이 매개변수를 On으로 설정하면 정규화된 URL 대신 원시 URL이 백엔드에 전달되고 DispatcherUseProcessedURL 설정이 무시됩니다. 기본값은 해제(Off)입니다. <br/>**참고**: Dispatcher 구성의 필터 규칙은 항상 원시 URL이 아닌 정리된 URL에 대해 평가됩니다. |
 
 
 
@@ -438,7 +438,7 @@ DispatcherKeepAliveTimeout 60
 >
 >`ServerTokens Prod`
 >
->자세한 내용은 [ServerTokens 지시문에 대한 Apache 설명서(예를 들면, Apache 2.4용)](https://httpd.apache.org/docs/2.4/mod/core.html)를 참조하십시오.
+>자세한 내용은 [ServerTokens 지시문에 대한 Apache 설명서(예: Apache 2.4용)](https://httpd.apache.org/docs/2.4/mod/core.html)를 참조하십시오.
 
 **SetHandler**
 
@@ -497,7 +497,7 @@ AllowOverride None
 
 >[!NOTE]
 >
->**SetHandler** 문의 매개 변수는 모듈에 정의된 핸들러 이름이므로 *위의 예제와 정확히 동일하게* 작성되어야 합니다.
+>**SetHandler** 문의 매개변수는 모듈에 정의된 핸들러 이름이므로 *위의 예제와 정확히 동일하게* 작성되어야 합니다.
 >
 >이 명령에 대한 자세한 내용은 제공된 예제 구성 파일 및 Apache 웹 서버 설명서를 참조하십시오.
 
@@ -507,17 +507,17 @@ AllowOverride None
 
 >[!NOTE]
 >
->`ModMimeUsePathInfo` 매개 변수는 Dispatcher 버전 4.0.9 이상을 사용하는 경우에만 사용하고 구성해야 합니다.
+>`ModMimeUsePathInfo` 매개변수는 Dispatcher 버전 4.0.9 이상을 사용하는 경우에만 사용하고 구성해야 합니다.
 >
 >(Dispatcher 버전 4.0.9는 2011년에 릴리스되었습니다. 이전 버전을 사용하는 경우 최신 Dispatcher 버전으로 업그레이드하는 것이 적절합니다).
 
-**ModMimeUsePathInfo** 매개 변수는 모든 Apache 구성에 대해 `On`으로 설정해야 합니다.
+**ModMimeUsePathInfo** 매개변수는 모든 Apache 구성에 대해 `On`으로 설정해야 합니다.
 
 `ModMimeUsePathInfo On`
 
 mod_mime 모듈(예: [Apache Module mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html)참조)은 HTTP 응답을 위해 선택한 콘텐츠에 콘텐츠 메타데이터를 할당하는 데 사용됩니다. 기본 설정은 mod_mime이 콘텐츠 유형을 결정할 때 파일이나 디렉터리에 매핑되는 URL 부분만 고려된다는 것을 의미합니다.
 
-`On`인 경우 `ModMimeUsePathInfo` 매개 변수는 `mod_mime`이 *complete* URL을 기반으로 콘텐츠 유형을 결정하도록 지정합니다. 즉, 해당 확장을 기반으로 가상 리소스에 메타 정보가 적용됩니다.
+`On`인 경우 `ModMimeUsePathInfo` 매개변수는 `mod_mime`이 *complete* URL을 기반으로 콘텐츠 유형을 결정하도록 지정합니다. 즉, 해당 확장을 기반으로 가상 리소스에 메타 정보가 적용됩니다.
 
 다음 예제에서는 **ModMimeUsePathInfo**&#x200B;를 활성화합니다.
 
@@ -556,7 +556,7 @@ Dispatcher는 OpenSSL을 사용하여 HTTP를 통한 보안 통신을 구현합�
 
 >[!NOTE]
 >
->사용자 지정된 Apache 버전을 사용하는 경우 Apache와 Dispatcher가 동일한 버전의 [OpenSSL](https://www.openssl.org/source/)을 사용하여 컴파일되었는지 확인하십시오.
+>사용자 정의된 Apache 버전을 사용하는 경우 Apache와 Dispatcher가 동일한 버전의 [OpenSSL](https://www.openssl.org/source/)을 사용하여 컴파일되었는지 확인하십시오.
 
 ### 다음 단계 {#next-steps-1}
 
@@ -585,14 +585,14 @@ Dispatcher 사용을 시작하려면 먼저 다음과 같은 사항을 알아야
 Dispatcher는 다음 중 하나로 제공됩니다.
 
 * **Windows**: 동적 링크 라이브러리(DLL)
-* **Unix**: 동적 공유 개체(DSO)
+* **Unix**: 동적 공유 오브젝트 (DSO)
 
 설치 아카이브 파일에는 Windows 또는 Unix를 선택했는지 여부에 따라 다음 파일이 포함되어 있습니다.
 
 | 파일 | 설명 |
 |---|---|
 | `disp_ns.dll` | Windows: Dispatcher 동적 링크 라이브러리 파일입니다. |
-| `dispatcher.so` | Unix: Dispatcher 공유 개체 라이브러리 파일입니다. |
+| `dispatcher.so` | Unix: Dispatcher 공유 오브젝트 라이브러리 파일입니다. |
 | `dispatcher.so` | Unix: 예제 링크입니다. |
 | `obj.conf.disp` | iPlanet/Sun Java System 웹 서버에 대한 예제 구성 파일입니다. |
 | `dispatcher.any` | Dispatcher에 대한 예제 구성 파일입니다. |
@@ -643,14 +643,14 @@ keepalivetimeout="60"
 
 다음의 경우:
 
-| 매개 변수 | 설명 |
+| 매개변수 | 설명 |
 |--- |--- |
 | config | 구성 파일 `dispatcher.any.`의 위치 및 이름입니다. |
 | logfile | 로그 파일의 위치 및 이름입니다. |
 | loglevel | 로그 파일에 메시지를 작성할 때의 로그 수준: <br/>**0** 오류 <br/>**1** 경고 <br/>**2** 정보 <br/>**3** 디버그 <br/>**참고:** 설치 및 테스트 중에는 로그 수준을 3으로 설정하고 프로덕션 환경에서 실행할 때는 0으로 설정하는 것이 좋습니다. |
 | keepalivetimeout | keep-alive 시간 제한을 초 단위로 지정합니다. Dispatcher 버전 4.2.0부터 기본 keep-alive 값은 60입니다. 값이 0이면 keep-alive가 비활성화됩니다. |
 
-요구 사항에 따라 Dispatcher를 개체에 대한 서비스로 정의할 수 있습니다. 전체 웹 사이트에 대해 Dispatcher를 구성하려면 기본 개체를 수정합니다.
+요구 사항에 따라 Dispatcher를 오브젝트에 대한 서비스로 정의할 수 있습니다. 전체 웹 사이트에 대해 Dispatcher를 구성하려면 기본 오브젝트를 수정합니다.
 
 
 **Windows**
